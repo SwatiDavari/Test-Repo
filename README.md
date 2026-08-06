@@ -1,4 +1,4 @@
-# test_repo (ara_score)
+# Qorix Engineering Processes
 
 Sphinx-Needs based repository for ASPICE / ISO 26262 / ISO/SAE 21434 /
 ISO 29119 aligned development. See `STANDARDS.md` for the folder-to-standard

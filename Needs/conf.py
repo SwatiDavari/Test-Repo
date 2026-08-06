@@ -1,6 +1,6 @@
 extensions = ["sphinx_needs"]
 
-project = "ara_score Needs"
+project = "Qorix Engineering Processes Needs"
 master_doc = "index"
 
 # --- Need types = the pptx "Cluster" (glob/Feat/Comp/Unit -> int/req/arc/des),

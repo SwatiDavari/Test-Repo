@@ -26,6 +26,6 @@ Relationship to product-level quality evidence
 ---------------------------------------------------
 
 This policy governs the organizational process. Product-level review and
-metric evidence for test_repo's own work products lives in
+metric evidence for Qorix Engineering Processes work products lives in
 ``Needs/quality/`` — currently scaffolding only (no review or metric data
 has been captured yet).

@@ -23,7 +23,7 @@ Relationship to product-level TARA
 --------------------------------------
 
 This policy governs the organization's CSMS. Product-level threat
-analysis and risk assessment for test_repo's own features lives in
+analysis and risk assessment for Qorix Engineering Processes features lives in
 ``Needs/cybersecurity/tara/`` — currently scaffolding only, since
 ``Needs/conf.py`` does not yet register the ``threat``/``cyber_req``
 need types required to author it as real sphinx-needs content.

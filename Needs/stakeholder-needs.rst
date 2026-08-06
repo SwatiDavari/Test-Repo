@@ -1,35 +1,49 @@
 Stakeholder Needs
 =================
 
-.. eng_need:: Secure, reliable OTA updates
-   :id: NEED_OTA_001
+.. note::
+   This file previously described OTA/diagnostics/logging needs for a
+   product named "product-x" — Test_Dashboard's scope, not this repo's.
+   The real features in Qorix Engineering Processes are Communication (publish-subscribe
+   messaging, ``FEAT_A_001``) and Diagnostics (service discovery,
+   ``FEAT_Z_001``), both under the shared system requirement ``SYS_001``.
+   Rewritten below to actually describe this product.
+
+.. eng_need:: Reliable, authorized inter-application messaging
+   :id: NEED_COMM_001
    :kind: need
    :domain: functional
    :lifecycle_stage: stakeholder_needs
    :status: approved
-   :tags: ota
+   :tags: communication
 
-   Vehicle fleet operators need secure and reliable over-the-air software
-   updates that cannot be tampered with in transit or partially applied.
+   Application developers need adaptive application instances to exchange
+   messages reliably over a publish-subscribe channel, with delivery
+   restricted to instances that are authorized subscribers.
 
-.. eng_need:: On-demand diagnostic visibility
-   :id: NEED_DIAG_001
+.. eng_need:: Runtime discovery of available services
+   :id: NEED_DISC_001
    :kind: need
    :domain: functional
    :lifecycle_stage: stakeholder_needs
    :status: approved
    :tags: diagnostics
 
-   Field engineers need on-demand diagnostic visibility into ECU health
-   without requiring a full workshop tool chain.
+   Application developers need adaptive application instances to discover
+   available service instances at runtime, without a fixed, build-time
+   wiring of endpoints.
 
-.. eng_need:: Durable, queryable event logs
-   :id: NEED_LOG_001
+.. eng_need:: Freedom from unintended actuation via message spoofing
+   :id: NEED_SAFE_001
    :kind: need
-   :domain: functional
+   :domain: safety
    :lifecycle_stage: stakeholder_needs
    :status: approved
-   :tags: logging
+   :tags: safety
+   :derives_from: SG_001
 
-   Operations needs durable, queryable system event logs to support
-   incident analysis after a failed update or field issue.
+   Vehicle stakeholders need assurance that no application instance can
+   trigger unintended actuation by receiving a message it was never an
+   authorized subscriber for — the stakeholder-level statement of what
+   ``SG_001`` (Prevent Unauthorized Message Delivery) formalizes as a
+   safety goal.

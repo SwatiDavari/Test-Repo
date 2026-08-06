@@ -1,7 +1,7 @@
-test_repo (ara_score)
-=========================
+Qorix Engineering Processes
+===========================
 
-This is the root-level documentation project for test_repo. It covers
+This is the root-level documentation project for Qorix Engineering Processes. It covers
 organizational governance and project process; the product traceability
 graph (system/feature/component/unit requirements, safety chain) lives in
 ``Needs/`` as a **separate** Sphinx project — build it independently from
@@ -10,6 +10,12 @@ for how each folder maps onto ASPICE / ISO 15288 / ISO 26262 / ISO 29119
 terminology. Published documentation lives under ``doc/`` (``manuals/``,
 ``tutorials/``, ``reference/``, ``release_notes/``, ``errata/`` — see
 ``doc/README.md``); it's plain Markdown, not part of this Sphinx build.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Getting Started
+
+   getting_started
 
 .. toctree::
    :maxdepth: 2

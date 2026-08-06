@@ -54,4 +54,4 @@ Some ASPICE/ISO 15288 processes don't produce a work product that lives in this 
 
 ## What's deliberately not modeled
 
-ISO 26262's Part 5 (hardware) and Part 8 supporting processes (tool qualification, proven-in-use argument, dependent failure analysis) have no folder here — this sample is software-only, matching the slide it's built from. If `ara_score` has hardware-adjacent scope, that needs its own layer, not a forced fit into `source/`.
+ISO 26262's Part 5 (hardware) and Part 8 supporting processes (tool qualification, proven-in-use argument, dependent failure analysis) have no folder here — this sample is software-only, matching the slide it's built from. If `Qorix Engineering Processes` has hardware-adjacent scope, that needs its own layer, not a forced fit into `source/`.

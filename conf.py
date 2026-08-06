@@ -1,5 +1,5 @@
 # Configuration file for Sphinx + Sphinx-Needs
-# Repo: test_repo (ara_score) — root-level project docs.
+# Repo: Qorix Engineering Processes — root-level project docs.
 #
 # This is a SEPARATE Sphinx project from Needs/conf.py. Needs/ has its own
 # conf.py and builds independently (sys/feat/comp/unit + sg/fsr/tsr — the
@@ -12,9 +12,9 @@
 # (project = "product-x", a needs_types list with sys_req/hazard/threat/
 # ssr/cyber_goal/etc., and source_repository pointing at Test_Dashboard's
 # GitHub URL). None of that reflected this repo — it's been replaced with
-# only what test_repo's own root-level content actually uses.
+# only what Qorix Engineering Processes root-level content actually uses.
 
-project = "test_repo (ara_score)"
+project = "Qorix Engineering Processes"
 master_doc = "index"
 extensions = ["sphinx_needs", "sphinxcontrib.plantuml"]
 html_theme = "furo"
