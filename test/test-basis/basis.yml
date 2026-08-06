@@ -1,0 +1,5 @@
+basis:
+  - SYSR_OTA_010
+  - SYSR_OTA_SAFE_014
+  - SYSR_DIAG_010
+  - SYSR_LOG_010

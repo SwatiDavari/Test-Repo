@@ -1,0 +1,11 @@
+Prevent Unauthorized Message Delivery
+========================================
+
+.. sg:: Prevent unauthorized message delivery
+   :id: SG_001
+   :status: approved
+   :standard: ISO 26262-3 clause 6 (HARA)
+
+   The vehicle function shall not act on messages delivered to an
+   application instance that was not an authorized subscriber, as this
+   could trigger an unintended actuation.

@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "ms-vscode.cpptools",
+    "twxs.cmake",
+    "rust-lang.rust-analyzer",
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "lextudio.restructuredtext",
+    "trond-snekvik.simple-rst"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "files.associations": {
+    "*.rst": "restructuredtext"
+  },
+  "restructuredtext.confPath": "${workspaceFolder}/Needs",
+
+  "python.defaultInterpreterPath": "${workspaceFolder}/source/python/.venv/bin/python",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["source/python/tests"],
+
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/source/c/include",
+    "${workspaceFolder}/source/cpp/include"
+  ],
+
+  "rust-analyzer.linkedProjects": ["source/rust/Cargo.toml"],
+
+  "eslint.workingDirectories": [
+    "source/typescript"
+  ],
+
+  "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "editor.formatOnSave": true
+}

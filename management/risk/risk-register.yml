@@ -1,0 +1,6 @@
+risks:
+  - id: RISK_001
+    description: Toolchain migration to the enterprise-wide CI/CD platform is not yet available; workflows are self-contained.
+    likelihood: medium
+    impact: low
+    mitigation: Track as a documented gap in README; revisit when enterprise/cicd-platform exists.

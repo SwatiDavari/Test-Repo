@@ -1,0 +1,21 @@
+name: CI - source/typescript
+on:
+  push:
+    paths: ["source/typescript/**"]
+  pull_request:
+    paths: ["source/typescript/**"]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: source/typescript
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npx tsc --noEmit
+      - run: npx eslint src
+      - run: npm test

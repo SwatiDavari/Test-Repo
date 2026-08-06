@@ -1,0 +1,22 @@
+Inter-Application Communication and Service Discovery
+==========================================================
+
+.. sys:: Inter-application communication and service discovery
+   :id: SYS_001
+   :status: approved
+   :standard: ASPICE SYS.2 / ISO 15288 6.4.3 System Requirements Definition
+
+   The system shall provide adaptive application instances with both a
+   publish-subscribe messaging capability and a runtime service-discovery
+   capability, so instances can exchange messages and locate one another
+   without a fixed, build-time wiring of endpoints.
+
+.. note::
+   Both ``FEAT_A_001`` (Communication — Publish-Subscribe Messaging) and
+   ``FEAT_Z_001`` (Diagnostics — Service Discovery) already declared
+   ``:links: SYS_001`` before this need existed, which made ``SYS_001`` a
+   dead link on both features (flagged earlier this engagement). This is
+   the missing system-level parent both features were already pointing
+   at — added here rather than changing their links, since a shared
+   system requirement for "components can find and message each other"
+   is the natural, correct parent for both, not a workaround.

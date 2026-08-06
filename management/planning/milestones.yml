@@ -1,0 +1,7 @@
+milestones:
+  - id: MS_ARCH_FREEZE
+    status: complete
+  - id: MS_FEATURE_COMPLETE
+    status: complete
+  - id: MS_RELEASE_1_0
+    status: in_progress

@@ -1,0 +1,2 @@
+id: SUITE_RELEASE_SMOKE
+test_cases: [TC_SYS_STARTUP_001]

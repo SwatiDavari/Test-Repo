@@ -1,0 +1,5 @@
+changes:
+  - id: CR_001
+    title: Migrate repository to enterprise component-centric filesystem
+    status: approved
+    affected_needs: [SYSR_OTA_010, SYSR_DIAG_010, SYSR_LOG_010]

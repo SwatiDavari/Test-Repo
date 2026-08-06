@@ -1,0 +1,6 @@
+id: PROC_SYS_STARTUP_001
+steps:
+  - Flash previous known-good firmware to a test ECU.
+  - Trigger campaign camp-sys-001 targeting the test ECU.
+  - Observe update-sequence transitions via logging-service.
+  - Assert final state is 'idle' with a single 'update_confirmed' event.

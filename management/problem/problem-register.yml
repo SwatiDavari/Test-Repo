@@ -1,0 +1,5 @@
+problems:
+  - id: PRB_001
+    title: Cybersecurity authentication unit tests not yet implemented
+    status: open
+    affected_needs: [SWR_OTA_SEC_005, SWR_DIAG_SEC_002]

@@ -1,0 +1,26 @@
+name: CI - Needs (Sphinx-needs)
+on:
+  push:
+    paths: ["Needs/**"]
+  pull_request:
+    paths: ["Needs/**"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Needs
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      # Fails on: duplicate need ids, links pointing at a non-existent id
+      # (broken sys->feat->comp->unit traceability), any Sphinx warning.
+      - name: Build with warnings as errors
+        run: sphinx-build -b html -W . _build/html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: needs-html
+          path: Needs/_build/html

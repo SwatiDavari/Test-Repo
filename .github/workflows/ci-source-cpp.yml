@@ -1,0 +1,14 @@
+name: CI - source/cpp
+on:
+  push:
+    paths: ["source/cpp/**"]
+  pull_request:
+    paths: ["source/cpp/**"]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S source/cpp -B source/cpp/build
+      - run: cmake --build source/cpp/build
+      - run: ctest --test-dir source/cpp/build

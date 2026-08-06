@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Needs: build (sphinx-needs)",
+      "type": "shell",
+      "command": "sphinx-build -b html -W . _build/html",
+      "options": { "cwd": "${workspaceFolder}/Needs" },
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "C: build",
+      "type": "shell",
+      "command": "cmake -S . -B build && cmake --build build",
+      "options": { "cwd": "${workspaceFolder}/source/c" },
+      "group": "build"
+    },
+    {
+      "label": "C++: build",
+      "type": "shell",
+      "command": "cmake -S . -B build && cmake --build build",
+      "options": { "cwd": "${workspaceFolder}/source/cpp" },
+      "group": "build"
+    },
+    {
+      "label": "Rust: test",
+      "type": "shell",
+      "command": "cargo test --workspace",
+      "options": { "cwd": "${workspaceFolder}/source/rust" },
+      "group": "test"
+    },
+    {
+      "label": "Python: test",
+      "type": "shell",
+      "command": "pytest",
+      "options": { "cwd": "${workspaceFolder}/source/python" },
+      "group": "test"
+    },
+    {
+      "label": "TypeScript: test",
+      "type": "shell",
+      "command": "npm test",
+      "options": { "cwd": "${workspaceFolder}/source/typescript" },
+      "group": "test"
+    }
+  ]
+}
