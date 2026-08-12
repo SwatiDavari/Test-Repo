@@ -13,6 +13,16 @@ jobs:
       - name: Setup Bazel
         uses: bazel-contrib/setup-bazel@0.8.1
       - name: Build all targets
-        run: bazel build //...
+        run: |
+          if [ -n "$(bazel query //... 2>/dev/null)" ]; then
+            bazel build //...
+          else
+            echo "::notice::No Bazel BUILD targets defined yet — skipping build. Per-language builds run via ci-source-*.yml."
+          fi
       - name: Test all targets
-        run: bazel test //...
+        run: |
+          if [ -n "$(bazel query 'tests(//...)' 2>/dev/null)" ]; then
+            bazel test //...
+          else
+            echo "::notice::No Bazel test targets defined yet — skipping tests. Per-language tests run via ci-source-*.yml."
+          fi
