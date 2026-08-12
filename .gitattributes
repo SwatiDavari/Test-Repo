@@ -1,0 +1,9 @@
+# Force LF line endings for files the CI Linux runners execute or parse as
+# shell scripts / LaTeX / reStructuredText, regardless of how they were
+# edited/checked-out on Windows. CRLF in these has repeatedly broken the
+# PDF build (e.g. "set -euo pipefail\r" -> "invalid option name", and image
+# paths parsed with a trailing \r).
+*.sh text eol=lf
+*.rst text eol=lf
+*.latex text eol=lf
+*.tex text eol=lf

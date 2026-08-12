@@ -5,15 +5,38 @@ set -euo pipefail
 
 SRC="$1"; OUT="$2"; TITLE="$3"; CONFIGID="$4"; VERSION="$5"; DOCDATE="$6"; STATUS="$7"; PREPAREDBY="$8"; PREPAREDLOC="$9"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# _static/ lives next to the .rst source (e.g. doc/manuals/_static), NOT
+# inside this script's own _pdf_template/ directory -- resolve it relative
+# to $SRC, matching the same convention the .rst files themselves use
+# (`.. image:: _static/...`), rather than relative to this script.
+STATIC_DIR="$(cd "$(dirname "$SRC")" && pwd)/_static"
+if [ ! -f "$STATIC_DIR/qorix_logo.png" ]; then
+  echo "ERROR: $STATIC_DIR/qorix_logo.png not found -- check STATIC_DIR resolution" >&2
+  exit 1
+fi
 TMP_TEX="$(mktemp --suffix=.tex)"
+
+# Fail fast on any image the .rst references but that doesn't actually exist
+# on disk -- a missing file otherwise reaches xelatex as an
+# \includegraphics with unknown dimensions and dies deep in the LaTeX pass
+# with an opaque "Division by 0" error instead of a clear message here.
+SRC_DIR="$(dirname "$SRC")"
+while IFS= read -r img; do
+  img="${img%$'\r'}"
+  [ -z "$img" ] && continue
+  if [ ! -f "$SRC_DIR/$img" ]; then
+    echo "ERROR: $SRC references image '$img' but $SRC_DIR/$img does not exist" >&2
+    exit 1
+  fi
+done < <(grep -oE '\.\. (image|figure):: .+' "$SRC" | sed -E 's/\.\. (image|figure):: //')
 
 pandoc "$SRC" \
   --template="$SCRIPT_DIR/qorix-template.latex" \
-  --resource-path="$(dirname "$SRC"):$SCRIPT_DIR" \
+  --resource-path="$(dirname "$SRC"):$SCRIPT_DIR:$STATIC_DIR" \
   -M title="$TITLE" -M configid="$CONFIGID" -M version="$VERSION" -M docdate="$DOCDATE" \
   -M status="$STATUS" -M preparedby="$PREPAREDBY" -M preparedloc="$PREPAREDLOC" \
-  -M logo="$SCRIPT_DIR/_static/qorix_logo.png" \
-  -M covergraphic="$SCRIPT_DIR/_static/qorix_cover_graphic.png" \
+  -M logo="$STATIC_DIR/qorix_logo.png" \
+  -M covergraphic="$STATIC_DIR/qorix_cover_graphic.png" \
   -M toc=true \
   -s -o "$TMP_TEX"
 
