@@ -35,7 +35,7 @@ jobs:
             texlive-latex-extra fonts-crosextra-carlito
 
       - name: Build Qorix-branded Safety User Manual PDF
-        run: ./build_safety_manual_pdf.sh
+        run: bash ./build_safety_manual_pdf.sh
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4

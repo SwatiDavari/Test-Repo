@@ -30,7 +30,7 @@ jobs:
 
       - name: Build Qorix-branded PDF from user_manual.rst
         working-directory: doc/manuals
-        run: ./_pdf_template/build_pdf.sh user_manual.rst user_manual.pdf \
+        run: bash ./_pdf_template/build_pdf.sh user_manual.rst user_manual.pdf \
           "Qorix Product User Manual" "<Config ID>" "0.1.0" "$(date +%d-%b-%Y)" \
           "Draft" "QORIX GmbH" "Germany"
 
