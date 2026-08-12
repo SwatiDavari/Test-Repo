@@ -7,6 +7,7 @@ component, and unit level, one folder per module.
 .. toctree::
    :maxdepth: 2
 
+   needs_types_definition
    sys/index
    stakeholder-needs
    business-needs

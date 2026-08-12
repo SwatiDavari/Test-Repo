@@ -22,7 +22,21 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
    :caption: Organizational Governance
 
    org_governance/index
+   org_governance/framework/index
    org_verification/iso29119/index
+   org_tools/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Enterprise Strategy
+
+   org_strategy/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Common Framework
+
+   org_common_framework/index
 
 .. toctree::
    :maxdepth: 1
@@ -32,6 +46,7 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
    management/change/changes
    management/problem/problems
    management/risk/risks
+   management/exceptions/exceptions
 
 .. toctree::
    :maxdepth: 1
@@ -43,4 +58,5 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
    :maxdepth: 1
    :caption: Traceability (organizational requirements only)
 
+   needs_types_definition
    needs_overview

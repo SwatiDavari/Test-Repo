@@ -1,0 +1,108 @@
+@startuml enterprise_architecture
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Helvetica
+skinparam defaultFontColor #1A1A2E
+skinparam shadowing false
+skinparam roundCorner 6
+skinparam padding 4
+skinparam nodesep 20
+skinparam ranksep 30
+
+skinparam package {
+  FontColor #1A1A2E
+  FontStyle bold
+  FontSize 14
+  BackgroundColor #FFFFFF
+  BorderThickness 2
+}
+
+skinparam component {
+  BackgroundColor #FFFFFF
+  FontColor #1A1A2E
+  BorderThickness 1.5
+}
+
+' Qorix palette: Deep Violet #3A00F5 / Electric Violet #4B00FF / Teal Mint
+' #4FE0C4 / Fresh Green #72E27A / Lime Green #A7F04A
+
+package "Workspace Root (qorix-engg.code-workspace)" as Workspace #3A00F5 {
+
+  package "Repo Root -- test_repo   <1 Project : 1 Repo>" as Repo #4B00FF {
+
+    package "Needs/ -- separate Sphinx project (all needs linked in one traceability space)" as Needs #4FE0C4 {
+      component "eng_need\nupstream needs" as EngNeed
+      component "sys\nSystem" as SYS
+
+      package "Communication (module)" as ModA #FFFFFF {
+        component "feat" as FeatA
+        component "comp" as CompA
+        component "unit" as UnitA
+      }
+      package "Diagnostics (module)" as ModZ #FFFFFF {
+        component "feat" as FeatZ
+        component "comp" as CompZ
+        component "unit" as UnitZ
+      }
+      package "Safety chain (ISO 26262)" as Safety #FFFFFF {
+        component "sg" as SG
+        component "fsr" as FSR
+        component "tsr" as TSR
+      }
+    }
+
+    package "Enterprise Governance (org-level)" as Gov #72E27A {
+      component "org_governance/\nASPICE, ISO 21434, ISO 26262" as OrgGov
+      component "org_verification/\nISO 29119 test process" as OrgVer
+      component "org_tools/\nTool qualification & register" as OrgTools
+      component "org_strategy/\nVision & roadmap" as OrgStrat
+      component "org_common_framework/\nShared implementation guidance" as OrgCommon
+    }
+
+    package "source/ -- implementation cluster" as Source #A7F04A {
+      component "c" as SrcC
+      component "cpp" as SrcCpp
+      component "rust" as SrcRust
+      component "python" as SrcPy
+      component "typescript" as SrcTs
+      component "markdown" as SrcMd
+    }
+
+    package "test/ -- verification" as Test #A7F04A {
+      component "test-basis" as TBasis
+      component "test-cases" as TCases
+      component "test-strategy" as TStrat
+      component "test-suites" as TSuites
+      component "executions" as TExec
+      component "test-reports" as TReports
+    }
+
+    package "doc/ -- published docs" as Doc #FFFFFF
+    component "manuals, tutorials, reference,\nrelease_notes, errata" as DocSet
+    Doc -[hidden]- DocSet
+
+    package "management/ -- project management" as Mgmt #FFFFFF
+    component "change, risk, problem,\nplanning, exceptions" as MgmtSet
+    Mgmt -[hidden]- MgmtSet
+  }
+}
+
+EngNeed --> SYS
+SYS --> FeatA
+SYS --> FeatZ
+FeatA --> CompA
+CompA --> UnitA
+FeatZ --> CompZ
+CompZ --> UnitZ
+SG --> FSR
+FSR --> TSR
+TSR ..> CompA
+TSR ..> CompZ
+
+OrgGov ..> Needs : governs
+OrgVer ..> Test : governs
+OrgTools ..> Source : governs
+
+Test ..> Needs : verifies
+Source ..> Needs : implements
+
+@enduml

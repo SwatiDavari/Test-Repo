@@ -13,6 +13,261 @@ This repo has **two independent Sphinx projects**:
   system/feature/component/unit requirements and the safety chain
   (`sg`/`fsr`/`tsr`). Build it separately from inside `Needs/`.
 
+## One organization, one repo, one workspace
+
+Everything — docs, product traceability, governance, and source for five
+languages — lives in this single repository, opened in VS Code as a single
+workspace root via `qorix-engg.code-workspace` (no multi-root, no separate
+repos to juggle).
+
+```
+test_repo/
+├── .github/
+│   └── workflows/
+│       ├── ci-needs.yml
+│       ├── ci-source-c.yml
+│       ├── ci-source-cpp.yml
+│       ├── ci-source-python.yml
+│       ├── ci-source-rust.yml
+│       ├── ci-source-typescript.yml
+│       ├── ci.yml
+│       └── docs.yml
+├── .vscode/
+│   ├── extensions.json
+│   ├── settings.json
+│   └── tasks.json
+├── doc/
+│   ├── errata/
+│   │   └── .gitkeep
+│   ├── manuals/
+│   │   └── .gitkeep
+│   ├── reference/
+│   │   └── .gitkeep
+│   ├── release_notes/
+│   │   └── v0.1.0.md
+│   ├── tutorials/
+│   │   └── .gitkeep
+│   └── README.md
+├── management/
+│   ├── change/
+│   │   ├── change-register.yml
+│   │   └── changes.rst
+│   ├── exceptions/   (empty)
+│   ├── planning/
+│   │   ├── milestones.yml
+│   │   └── project-plan.rst
+│   ├── problem/
+│   │   ├── problem-register.yml
+│   │   └── problems.rst
+│   └── risk/
+│       ├── risk-register.yml
+│       └── risks.rst
+├── Needs/
+│   ├── Communication/
+│   │   ├── component/
+│   │   │   ├── requirements/
+│   │   │   │   └── index.rst
+│   │   │   ├── comp_a_001.rst
+│   │   │   └── index.rst
+│   │   ├── feature/
+│   │   │   ├── requirements/
+│   │   │   │   └── index.rst
+│   │   │   ├── feat_a_001.rst
+│   │   │   └── index.rst
+│   │   ├── unit design/
+│   │   │   └── unit_a_001.rst
+│   │   └── index.rst
+│   ├── cybersecurity/
+│   │   ├── tara/
+│   │   │   └── index.rst
+│   │   └── index.rst
+│   ├── Diagnostics/
+│   │   ├── component/
+│   │   │   └── comp_z_001.rst
+│   │   ├── feature/
+│   │   │   └── feat_z_001.rst
+│   │   ├── unit design/
+│   │   │   └── unit_z_001.rst
+│   │   └── index.rst
+│   ├── quality/
+│   │   ├── metrics/
+│   │   │   └── index.rst
+│   │   ├── reviews/
+│   │   │   └── index.rst
+│   │   └── index.rst
+│   ├── safety/
+│   │   ├── analyses/
+│   │   │   ├── dependent-failure-analysis.rst
+│   │   │   ├── fmea.rst
+│   │   │   └── index.rst
+│   │   ├── fsr_001.rst
+│   │   ├── index.rst
+│   │   ├── sg_001.rst
+│   │   └── tsr_001.rst
+│   ├── sys/
+│   │   ├── index.rst
+│   │   └── sys_001.rst
+│   ├── business-needs.rst
+│   ├── conf.py
+│   ├── index.rst
+│   ├── operational-needs.rst
+│   ├── requirements.txt
+│   └── stakeholder-needs.rst
+├── org_common_framework/
+│   ├── core lib/   (empty)
+│   └── HAL/   (empty)
+├── org_governance/
+│   ├── aspice/
+│   │   ├── index.rst
+│   │   └── org_aspice_requirements.rst
+│   ├── coding guidelines/
+│   │   ├── c/
+│   │   │   ├── c_MISRA2017.md
+│   │   │   └── README.md
+│   │   ├── cpp/
+│   │   │   └── README.md
+│   │   ├── markdown/
+│   │   │   └── README.md
+│   │   ├── python/
+│   │   │   └── README.md
+│   │   └── rust/
+│   │       ├── crates/
+│   │       │   └── example_crate/
+│   │       │       ├── src/
+│   │       │       │   └── lib.rs
+│   │       │       └── Cargo.toml
+│   │       ├── Cargo.toml
+│   │       ├── README.md
+│   │       └── rustfmt.toml
+│   ├── iso21434/
+│   │   ├── index.rst
+│   │   └── org_cybsec_requirements.rst
+│   ├── iso26262/
+│   │   ├── index.rst
+│   │   └── org_fusa_requirements.rst
+│   ├── policies/
+│   │   ├── cybersecurity.rst
+│   │   ├── quality.rst
+│   │   └── safety.rst
+│   └── index.rst
+├── org_strategy/
+│   ├── roadmap.rst
+│   └── strategy.rst
+├── org_tools/
+│   ├── index.rst
+│   ├── policy.rst
+│   └── tool_qualification_requirements.rst
+├── org_verification/
+│   └── iso29119/
+│       ├── policy/   (empty)
+│       ├── strategy/
+│       │   └── product-verification-strategy.rst
+│       ├── index.rst
+│       └── organizational_requirements.rst
+├── source/
+│   ├── c/
+│   │   ├── include/
+│   │   │   ├── communication/
+│   │   │   │   └── router.h.c
+│   │   │   └── example.h
+│   │   ├── src/
+│   │   │   ├── communication/
+│   │   │   │   └── router.c
+│   │   │   └── example.c
+│   │   ├── tests/
+│   │   │   ├── communication/
+│   │   │   │   └── test_router.c
+│   │   │   └── CMakeLists.txt
+│   │   ├── .clang-format
+│   │   ├── CMakeLists.txt
+│   │   └── README.md
+│   ├── cpp/
+│   │   ├── include/
+│   │   │   └── example.hpp
+│   │   ├── src/
+│   │   │   └── example.cpp
+│   │   ├── tests/
+│   │   │   └── CMakeLists.txt
+│   │   ├── .clang-format
+│   │   ├── CMakeLists.txt
+│   │   └── README.md
+│   ├── markdown/
+│   │   └── README.md
+│   ├── python/
+│   │   ├── src/
+│   │   │   └── example_package/
+│   │   │       └── __init__.py
+│   │   ├── tests/
+│   │   │   └── test_example.py
+│   │   ├── .ruff.toml
+│   │   ├── pyproject.toml
+│   │   └── README.md
+│   ├── rust/
+│   │   ├── crates/
+│   │   │   └── example_crate/
+│   │   │       ├── src/
+│   │   │       │   └── lib.rs
+│   │   │       └── Cargo.toml
+│   │   ├── Cargo.toml
+│   │   ├── README.md
+│   │   └── rustfmt.toml
+│   └── typescript/
+│       ├── src/
+│       │   └── index.ts
+│       ├── test/
+│       │   └── index.test.ts
+│       ├── eslint.config.js
+│       ├── package.json
+│       ├── README.md
+│       └── tsconfig.json
+├── test/
+│   ├── executions/
+│   │   ├── .gitkeep
+│   │   └── EXEC_BUILD_2026_081.yml
+│   ├── test-basis/
+│   │   ├── .gitkeep
+│   │   └── basis.yml
+│   ├── test-cases/
+│   │   ├── communication/
+│   │   │   └── case_a_001.md
+│   │   ├── .gitkeep
+│   │   └── index.rst
+│   ├── test-conditions/
+│   │   ├── .gitkeep
+│   │   └── TCOND_STARTUP_001.yml
+│   ├── test-design/
+│   │   └── .gitkeep
+│   ├── test-procedures/
+│   │   ├── .gitkeep
+│   │   └── PROC_SYS_STARTUP_001.yml
+│   ├── test-reports/
+│   │   ├── .gitkeep
+│   │   └── product-verification-report.rst
+│   ├── test-strategy/
+│   │   └── product-verification-strategy.rst
+│   ├── test-suites/
+│   │   ├── .gitkeep
+│   │   └── SUITE_RELEASE_SMOKE.yml
+│   ├── index.rst
+│   └── README.md
+├── tools/
+│   └── check_orphan_needs.py
+├── .gitignore
+├── .pre-commit-config.yaml
+├── conf.py
+├── getting_started.rst
+├── index.rst
+├── needs_overview.rst
+├── qorix-engg.code-workspace
+├── README.md
+└── STANDARDS.md
+```
+
+`(empty)` marks directories that exist but currently hold no tracked
+content — `management/exceptions/`, `org_common_framework/core lib/`,
+`org_common_framework/HAL/`, and `org_verification/iso29119/policy/`.
+They're scaffolded, not yet filled in.
+
 ## Build docs locally
 
 ```
@@ -36,8 +291,10 @@ Python) — see `.github/workflows/` for the exact commands run in CI.
   (ASPICE, ISO 26262, ISO/SAE 21434).
 - `org_verification/` — ISO 29119 organization-level test-process
   requirements.
-- `org_strategy/`, `org_common_framework/`, `org_tools/` — not yet
-  reviewed as part of this documentation pass.
+- `org_tools/` — tool qualification & usage governance (ISO 26262-8
+  clause 11, ASPICE SUP.8/SUP.1) — see `org_tools/index.rst`.
+- `org_strategy/`, `org_common_framework/` — not yet reviewed as part of
+  this documentation pass.
 - `source/` — implementation, one folder per language.
 - `test/` — test basis, conditions, design, procedures, cases, suites,
   reports, executions.
@@ -55,5 +312,5 @@ Python) — see `.github/workflows/` for the exact commands run in CI.
   fixing it again is pending that investigation.
 - `FEAT_A_001` and `FEAT_Z_001` both link to `SYS_001`, which doesn't exist
   anywhere in this repo (dead link).
-- `org_common_framework/`, `org_tools/`, `org_strategy/` have not been
-  reviewed for correctness as part of this documentation pass.
+- `org_common_framework/` and `org_strategy/` have not been reviewed for
+  correctness as part of this documentation pass.

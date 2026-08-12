@@ -14,6 +14,7 @@ detailed "shall" requirements) live under ``policies/``.
    aspice/index
    iso21434/index
    iso26262/index
+   iso15288/index
 
 .. toctree::
    :maxdepth: 1

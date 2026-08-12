@@ -48,10 +48,19 @@ ISO 15288 doesn't name specific document types (that's 29119's and ASPICE's job)
 | `release_notes/` | ISO 15288 6.4.9 Transition Process (release output) |
 | `errata/` | ASPICE SUP.9 Problem Resolution Management (published-doc corrections, not code defects — those go in `test/incidents/`) |
 
+## org_tools/ — tool qualification and usage governance
+
+Organization-level policy and requirements about tools, not the tools themselves — actual scripts live in `tools/` (repo root), actual CI/CD in `.github/workflows/`, actual dev-environment config in `.vscode/`.
+
+| Folder / file | ASPICE process | ISO 26262 |
+|---|---|---|
+| `org_tools/policy.rst` | SUP.1 Quality Assurance, SUP.8 Configuration Management (policy statement) | Part 8 clause 11 — Confidence in the Use of Software Tools (policy statement) |
+| `org_tools/tool_qualification_requirements.rst` (`org_req` needs) | SUP.8 Configuration Management (tool register, version pinning); SUP.1 Quality Assurance (re-verification on change) | Part 8 clause 11.4.2 (Tool Identification), 11.4.5-11.4.7 (Tool Confidence Level determination) |
+
 ## Process-level folders (not artifact folders)
 
-Some ASPICE/ISO 15288 processes don't produce a work product that lives in this tree at all — they govern *how* the tree is used, not what's in it: MAN.3 Project Management, MAN.5 Risk Management, SUP.1 Quality Assurance, SUP.8 Configuration Management (largely `git` itself plus branch/tag policy), SUP.10 Change Request Management. If your organization tracks these formally, they typically live in a project-management tool (Jira, Polarion) rather than as files here — nothing in this repo layout should be read as claiming to cover them.
+Some ASPICE/ISO 15288 processes don't produce a work product that lives in this tree at all — they govern *how* the tree is used, not what's in it: MAN.3 Project Management, MAN.5 Risk Management, SUP.8 Configuration Management beyond tool version pinning (branch/tag policy — largely `git` itself), SUP.9 Problem Resolution Management (formal incident tracking beyond `test/incidents/`), SUP.10 Change Request Management. If your organization tracks these formally, they typically live in a project-management tool (Jira, Polarion) rather than as files here — nothing in this repo layout should be read as claiming to cover them.
 
 ## What's deliberately not modeled
 
-ISO 26262's Part 5 (hardware) and Part 8 supporting processes (tool qualification, proven-in-use argument, dependent failure analysis) have no folder here — this sample is software-only, matching the slide it's built from. If `Qorix Engineering Processes` has hardware-adjacent scope, that needs its own layer, not a forced fit into `source/`.
+ISO 26262's Part 5 (hardware) and Part 8 supporting processes beyond tool qualification (proven-in-use argument, dependent failure analysis) have no folder here — this sample is software-only, matching the slide it's built from. If `Qorix Engineering Processes` has hardware-adjacent scope, that needs its own layer, not a forced fit into `source/`.
