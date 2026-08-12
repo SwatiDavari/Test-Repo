@@ -1,0 +1,44 @@
+name: Build Safety User Manual PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Needs/communication/safety_user_manual.rst"
+      - "Needs/_static/**"
+      - "Needs/conf.py"
+      - "build_safety_manual_pdf.sh"
+      - ".github/workflows/safety_user_manual_pdf.yml"
+  pull_request:
+    paths:
+      - "Needs/communication/safety_user_manual.rst"
+      - "Needs/_static/**"
+      - "Needs/conf.py"
+      - "build_safety_manual_pdf.sh"
+  workflow_dispatch: {}
+
+jobs:
+  build-safety-user-manual-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Sphinx + Sphinx-Needs + XeLaTeX
+        run: |
+          pip install sphinx sphinx-needs
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-latex-recommended \
+            texlive-latex-extra fonts-crosextra-carlito
+
+      - name: Build Qorix-branded Safety User Manual PDF
+        run: ./build_safety_manual_pdf.sh
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: safety-user-manual-pdf
+          path: Needs/_build/latex/qorix_module_a_safety_user_manual.pdf

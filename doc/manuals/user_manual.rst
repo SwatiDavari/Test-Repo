@@ -109,61 +109,13 @@ Appendix A — Qorix Brand Palette
 The table below lists the official Qorix brand color palette used in
 this and related customer-facing documents.
 
-.. raw:: html
+.. image:: _static/qorix_palette.png
+   :alt: Qorix Brand Palette swatches
+   :width: 420px
 
-   <table style="border-collapse:collapse;width:100%;">
-     <thead>
-       <tr>
-         <th style="text-align:left;border-bottom:2px solid #333;padding:6px 10px;">Swatch</th>
-         <th style="text-align:left;border-bottom:2px solid #333;padding:6px 10px;">Color Name</th>
-         <th style="text-align:left;border-bottom:2px solid #333;padding:6px 10px;">HEX Code</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr>
-         <td style="padding:6px 10px;"><span style="display:inline-block;width:24px;height:24px;background:#3A00F5;border-radius:4px;border:1px solid #0003;"></span></td>
-         <td style="padding:6px 10px;">Deep Violet</td>
-         <td style="padding:6px 10px;">#3A00F5</td>
-       </tr>
-       <tr>
-         <td style="padding:6px 10px;"><span style="display:inline-block;width:24px;height:24px;background:#4B00FF;border-radius:4px;border:1px solid #0003;"></span></td>
-         <td style="padding:6px 10px;">Electric Violet</td>
-         <td style="padding:6px 10px;">#4B00FF</td>
-       </tr>
-       <tr>
-         <td style="padding:6px 10px;"><span style="display:inline-block;width:24px;height:24px;background:#4FE0C4;border-radius:4px;border:1px solid #0003;"></span></td>
-         <td style="padding:6px 10px;">Teal Mint</td>
-         <td style="padding:6px 10px;">#4FE0C4</td>
-       </tr>
-       <tr>
-         <td style="padding:6px 10px;"><span style="display:inline-block;width:24px;height:24px;background:#66E8AA;border-radius:4px;border:1px solid #0003;"></span></td>
-         <td style="padding:6px 10px;">Soft Mint Green</td>
-         <td style="padding:6px 10px;">#66E8AA</td>
-       </tr>
-       <tr>
-         <td style="padding:6px 10px;"><span style="display:inline-block;width:24px;height:24px;background:#72E27A;border-radius:4px;border:1px solid #0003;"></span></td>
-         <td style="padding:6px 10px;">Fresh Green</td>
-         <td style="padding:6px 10px;">#72E27A</td>
-       </tr>
-       <tr>
-         <td style="padding:6px 10px;"><span style="display:inline-block;width:24px;height:24px;background:#8FEA6B;border-radius:4px;border:1px solid #0003;"></span></td>
-         <td style="padding:6px 10px;">Bright Green</td>
-         <td style="padding:6px 10px;">#8FEA6B</td>
-       </tr>
-       <tr>
-         <td style="padding:6px 10px;"><span style="display:inline-block;width:24px;height:24px;background:#A7F04A;border-radius:4px;border:1px solid #0003;"></span></td>
-         <td style="padding:6px 10px;">Lime Green</td>
-         <td style="padding:6px 10px;">#A7F04A</td>
-       </tr>
-       <tr>
-         <td style="padding:6px 10px;"><span style="display:inline-block;width:24px;height:24px;background:#C4FF32;border-radius:4px;border:1px solid #0003;"></span></td>
-         <td style="padding:6px 10px;">Neon Lime</td>
-         <td style="padding:6px 10px;">#C4FF32</td>
-       </tr>
-     </tbody>
-   </table>
-
-Plain-text reference (for non-HTML builds):
+This image renders identically in both the PDF and HTML builds (unlike an
+HTML color table, which Pandoc silently drops when targeting PDF). The
+table below is a plain-text/searchable fallback of the same values.
 
 .. list-table::
    :header-rows: 1

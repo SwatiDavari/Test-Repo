@@ -148,3 +148,94 @@ needs_id_regex = r"^[A-Z]+_[A-Za-z0-9_]+"
 # Fail the build (not just warn) on unresolvable need links, e.g. a
 # `:links:` field pointing at an id that doesn't exist.
 needs_report_dead_links = True
+
+# --- Qorix-branded PDF export (Safety User Manual) -------------------------
+# Produces a second, standalone LaTeX/PDF document from just
+# communication/safety_user_manual.rst (still resolving :links:/:need:
+# cross-references against the full needs graph loaded above), styled to
+# match Qorix_SafetyUserManual.docx: cover page, repeating header
+# (Config ID / Version / Date), repeating footer (logo + confidentiality
+# line + page number), and cyan table header rows.
+latex_engine = "xelatex"
+latex_table_style = ["booktabs", "colorrows"]
+latex_additional_files = [
+    "_static/qorix_logo.png",
+    "_static/qorix_cover_graphic.png",
+]
+latex_documents = [
+    ("index", "qorixengineeringprocessesneeds.tex",
+     "Qorix Engineering Processes Needs", "QORIX GmbH", "manual"),
+    ("communication/safety_user_manual", "qorix_module_a_safety_user_manual.tex",
+     "Qorix Module A Safety User Manual", "QORIX GmbH", "howto"),
+]
+latex_elements = {
+    "fontpkg": r"""
+\usepackage{fontspec}
+\setmainfont{Carlito}
+""",
+    "preamble": r"""
+\usepackage{colortbl}
+\definecolor{qorixcyan}{HTML}{00FFFF}
+\definecolor{qorixblue}{HTML}{3A00F5}
+\definecolor{qorixgray}{HTML}{F2F2F2}
+\sphinxsetup{
+  TableRowColorHeader={HTML}{00FFFF},
+  TableRowColorOdd={HTML}{FFFFFF},
+  TableRowColorEven={HTML}{FFFFFF}
+}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.6pt}
+\fancyhead[L]{\small\qorixconfigid}
+\fancyhead[C]{\small\qorixversion}
+\fancyhead[R]{\small\qorixdocdate}
+\fancyfoot[L]{\raisebox{-0.3\height}{\includegraphics[height=10pt]{qorix_logo.png}}}
+\fancyfoot[C]{\small Restricted \& Confidential \textcopyright{}QORIX GmbH}
+\fancyfoot[R]{\small\thepage}
+% Sphinx's own "howto"/"manual" classes switch to \pagestyle{plain} before
+% the table of contents and \pagestyle{normal} right after it,
+% unconditionally overriding whatever style was active. Make both of
+% those page styles behave exactly like our fancy header/footer (deferred
+% to \AtBeginDocument since \ps@fancy itself is only fully defined once
+% fancyhdr finishes initializing at \pagestyle{fancy} above).
+\AtBeginDocument{\let\ps@plain\ps@fancy\let\ps@normal\ps@fancy}
+\newcommand{\qorixconfigid}{<Config ID>}
+\newcommand{\qorixversion}{<X.Y.Z>}
+\newcommand{\qorixdocdate}{dd-Mmm-YYYY}
+\newcommand{\qorixstatus}{Draft}
+\newcommand{\qorixpreparedby}{QORIX GmbH}
+\newcommand{\qorixpreparedloc}{Germany}
+""",
+    "maketitle": r"""
+\begin{titlepage}
+\newgeometry{margin=0cm}
+\begin{minipage}[t]{0.62\textwidth}
+\vspace{2.2cm}\hspace{1.6cm}
+\begin{minipage}{0.85\textwidth}{\LARGE\bfseries\makeatletter\@title\makeatother}\end{minipage}
+\end{minipage}%
+\begin{minipage}[t]{0.38\textwidth}
+\vspace{0pt}\hfill\includegraphics[width=0.9\textwidth]{qorix_cover_graphic.png}
+\end{minipage}
+\vspace{4cm}\hspace{1.6cm}%
+\colorbox{qorixcyan}{\begin{minipage}[t][5.6cm][t]{0.3cm}\mbox{}\end{minipage}}%
+\colorbox{qorixgray}{\begin{minipage}[t][5.6cm][t]{11.3cm}
+\vspace{0.4cm}\hspace{0.4cm}\begin{minipage}{10.5cm}
+\textbf{Prepared By:}\\[4pt]
+{\Large\qorixpreparedby}\\[2pt]
+\qorixpreparedloc\\[16pt]
+\begin{tabular}{@{}ll@{}}
+CONFIG ID & : \qorixconfigid \\
+VERSION   & : \qorixversion \\
+DATE      & : \qorixdocdate \\
+STATUS    & : \qorixstatus \\
+\end{tabular}
+\end{minipage}
+\end{minipage}}
+\end{titlepage}
+\restoregeometry
+\tableofcontents
+\newpage
+""",
+}

@@ -6,11 +6,13 @@ on:
     paths:
       - "doc/manuals/user_manual.rst"
       - "doc/manuals/_static/**"
+      - "doc/manuals/_pdf_template/**"
       - ".github/workflows/user_manual_pdf.yml"
   pull_request:
     paths:
       - "doc/manuals/user_manual.rst"
       - "doc/manuals/_static/**"
+      - "doc/manuals/_pdf_template/**"
       - ".github/workflows/user_manual_pdf.yml"
   workflow_dispatch: {}
 
@@ -20,14 +22,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Pandoc + LaTeX (PDF engine)
+      - name: Install Pandoc + XeLaTeX (Qorix-branded template needs fontspec/Carlito)
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-latex-recommended texlive-latex-extra lmodern
+          sudo apt-get install -y pandoc texlive-xetex texlive-latex-recommended \
+            texlive-latex-extra fonts-crosextra-carlito
 
-      - name: Build PDF from user_manual.rst
+      - name: Build Qorix-branded PDF from user_manual.rst
         working-directory: doc/manuals
-        run: pandoc user_manual.rst -o user_manual.pdf --pdf-engine=pdflatex
+        run: ./_pdf_template/build_pdf.sh user_manual.rst user_manual.pdf \
+          "Qorix Product User Manual" "<Config ID>" "0.1.0" "$(date +%d-%b-%Y)" \
+          "Draft" "QORIX GmbH" "Germany"
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
