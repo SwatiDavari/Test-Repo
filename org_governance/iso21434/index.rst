@@ -1,5 +1,5 @@
-ISO/SAE 21434 — Organization Level (Clause 5 CSMS)
-=======================================================
+Cybersecurity — Organization Level (Clause 5 CSMS)
+==================================================
 
 .. toctree::
    :maxdepth: 1

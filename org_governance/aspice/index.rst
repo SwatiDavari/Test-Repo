@@ -1,5 +1,5 @@
-ASPICE — Organization Level (SUP.1 Quality Management)
-============================================================
+ASPICE — Organization Level (Quality Management)
+================================================
 
 .. toctree::
    :maxdepth: 1
