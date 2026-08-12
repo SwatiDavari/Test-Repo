@@ -6,11 +6,11 @@ Product Verification Strategy
    ``SYSR_*``-prefixed requirements (e.g. ``SYSR_OTA_010``) that don't
    exist anywhere in this repo — Test_Dashboard-era content, byte-
    identical to
-   ``org_verification/iso29119/strategy/product-verification-strategy.rst``
+   ``organisation/verification/iso29119/strategy/product-verification-strategy.rst``
    (which is itself the wrong place for product-specific content — see
    that file's own note). Rewritten below as this project's actual
    tailoring of the organizational template (``ORG_TESTSTRATEGY_001`` /
-   :doc:`../../org_verification/iso29119/strategy/product-verification-strategy`)
+   :doc:`../../organisation/verification/iso29119/strategy/product-verification-strategy`)
    against Qorix Engineering Processes' real requirements.
 
 Product verification exercises ``SYS_001`` (inter-application

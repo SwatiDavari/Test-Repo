@@ -36,11 +36,25 @@ needs_types = [
     # "Unknown directive type eng_need".
     dict(directive="eng_need", prefix="NEED_", color="#8E9AAF", style="node",
          title="Stakeholder / Business / Operational Need"),
+
+    # ISO 26262-6 Safety User Manual content — the customer-facing safety
+    # feature / recommendation / restriction tables previously hand-maintained
+    # in Qorix_SafetyUserManual.docx per module. Modeled as needs so each
+    # entry traces to the fsr/tsr chain above (:links:) instead of living as
+    # unlinked prose in a Word table. Module-specific IDs (e.g. COM_FEA_001)
+    # still satisfy needs_id_regex below — the prefix here is just the
+    # auto-id default, not enforced per-module.
+    dict(directive="safefeat", prefix="SAFEFEAT_", color="#7B1FA2", style="node",
+         title="Module Safety Feature — ISO 26262-6 Safety User Manual"),
+    dict(directive="rec", prefix="REC_", color="#F57F17", style="node",
+         title="Operational Recommendation — ISO 26262-6 Safety User Manual"),
+    dict(directive="res", prefix="RES_", color="#EF6C00", style="node",
+         title="Operational Restriction — ISO 26262-6 Safety User Manual"),
 ]
 
 # Free-text fields on needs.
 # `standard` and `derives_from` are intentionally NOT registered as
-# needs_extra_links: elsewhere in this repo (org_governance/, governed by
+# needs_extra_links: elsewhere in this repo (organisation/governance/, governed by
 # the root conf.py) derives_from mixes real need ids with external
 # standard-clause citations that have no matching need — as a real link
 # that would fail needs_report_dead_links. Kept as free text here too, for
@@ -74,6 +88,52 @@ needs_fields = {
     "lifecycle_stage": {
         "description": "Lifecycle stage this need belongs to, e.g. "
                         "stakeholder_needs",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+
+    # Safety User Manual fields (safefeat / rec / res). Free text, same
+    # rationale as `derives_from` above: these frequently cite DFMEA action
+    # IDs and other identifiers that live outside the needs graph, so a
+    # real link type would trip needs_report_dead_links on legitimate
+    # citations.
+    "rationale": {
+        "description": "safefeat: rationale for claiming safety in this feature",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "use_case": {
+        "description": "safefeat: use case for the safety feature",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "dependency": {
+        "description": "safefeat: internal or external dependency, if any",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "input_reference": {
+        "description": "rec/res: Safety Requirement ID or Safety Analysis "
+                        "ID (e.g. a DFMEA action ID) this entry originates "
+                        "from",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "req_type": {
+        "description": "rec/res: Timing, Execution Sequence, Resource, "
+                        "Performance, Implementation, External Dependency, "
+                        "Configuration, etc.",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "actions": {
+        "description": "rec/res: recommended action for the integrator",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "impact": {
+        "description": "rec/res: impact of non-adherence to the "
+                        "recommended action",
         "schema": {"type": "string"},
         "nullable": True,
     },

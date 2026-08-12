@@ -2,7 +2,7 @@ Cybersecurity (ISO/SAE 21434) — Product Level
 =================================================
 
 This folder is the product-level counterpart to
-``org_governance/iso21434/org_cybsec_requirements.rst`` (organizational
+``organisation/governance/cybersecurity/org_cybsec_requirements.rst`` (organizational
 CSMS-level clauses). Nothing at product level currently exists in this
 repo — no threat, cyber goal, or cyber requirement has been captured
 against ``Needs/Communication`` or ``Needs/Diagnostics``.

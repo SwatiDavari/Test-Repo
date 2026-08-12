@@ -8,13 +8,13 @@ component, and unit level, one folder per module.
    :maxdepth: 2
 
    needs_types_definition
-   sys/index
+   systemslifecycle/index
    stakeholder-needs
    business-needs
    operational-needs
-   Communication/index
-   Diagnostics/index
-   safety/index
+   communication/index
+   diagnostics/index
+   functionalsafety/index
    cybersecurity/index
    quality/index
 

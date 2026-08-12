@@ -18,5 +18,5 @@ Problem reports, tracked as ``problem`` needs — migrated in-place from
 ``SWR_OTA_SEC_005`` and ``SWR_DIAG_SEC_002`` don't resolve to any actual
 need in this repo. They're the same illustrative ``PROD_X`` placeholder
 ids already used elsewhere (see ``test/test-strategy/`` and
-``org_verification/iso29119/strategy/``), so registering this field as a
+``organisation/verification/iso29119/strategy/``), so registering this field as a
 dead-link-checked link would fail the build.

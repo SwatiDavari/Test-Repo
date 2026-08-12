@@ -1,0 +1,109 @@
+@startuml process_metamodel
+skinparam backgroundColor white
+skinparam DefaultFontName Arial
+skinparam DefaultFontSize 12
+skinparam ArrowColor #3A00F5
+skinparam ArrowFontColor #3A00F5
+skinparam ArrowFontSize 10
+skinparam RectangleBackgroundColor #EDEBFF
+skinparam RectangleBorderColor #4B00FF
+skinparam RectangleFontSize 11
+skinparam rectangle {
+  Padding 8
+}
+skinparam PackageBackgroundColor #F7F6FF
+skinparam PackageBorderColor #3A00F5
+skinparam PackageFontSize 14
+skinparam PackageFontStyle bold
+skinparam ActorBackgroundColor #4FE0C4
+skinparam ActorBorderColor #2c9c86
+skinparam NoteBackgroundColor #F4FFDA
+skinparam NoteBorderColor #A7F04A
+skinparam CloudBackgroundColor #EAFBF6
+skinparam CloudBorderColor #4FE0C4
+skinparam DatabaseBackgroundColor #EDEBFF
+skinparam DatabaseBorderColor #4B00FF
+skinparam nodesep 30
+skinparam ranksep 45
+
+package "Contribution & Governance Layer" as Shared {
+  actor "AI Project\nAssistant" as AI
+  actor "Contributor" as Contrib
+  actor "Committer" as Commit
+
+  database "Repo\n(test_repo)" as Repo
+  rectangle "TOOLS\n(organisation/tools/tool_register.yml)" as Tools
+  rectangle "Contribution\n(commit / pull request)" as Contribution
+  rectangle "DOCUMENT\n(.rst work product)" as Doc
+  rectangle "Reports & Guidance\n(getting_started.rst, README.md)" as Reports
+  cloud "Governance Board\n(reviews, steering)" as Steering
+  rectangle "Project Goals\n(organisation/strategy/strategy.rst,\nroadmap.rst)" as Goals
+  rectangle "Progress Documentation\n(needs.json export,\nbuilt HTML docs)" as Progress
+}
+
+package "PROJECT Process\n(this repo's tailored instance)" as ProjProc {
+  rectangle "PROJECT Workflow\n(.github/workflows/*.yml)\n<<gateway>>" as PWorkflow
+  rectangle "PROJECT Workproduct\n(Needs/ traceability graph,\nsource/, test/)" as PWorkproduct
+  rectangle "Guidance Set\n(Method, Guideline, Template,\nChecklist)" as PGuidance
+  rectangle "Definition(s) / Requirements\n(org_req, SYS_/FEAT_/COMP_/UNIT_)" as PDefs
+  note bottom of PGuidance
+    Experiences / KPIs / Lessons Learned /
+    Expectations / Foreseeable misuse /
+    Assurance of standards
+    -- recorded in management/risk/,
+    management/problem/, test/test-reports/
+  end note
+}
+
+actor "Process Development\nCommunity" as PDC
+actor "Line Manager" as LM
+
+package "PROJECT Process Description\n(org-level enterprise framework)" as ProcDesc {
+  rectangle "PROJECT Workflow\n(governance-area generator /\nscaffolding process)\n<<gateway>>" as OWorkflow
+  rectangle "Standards\n(ASPICE / ISO 26262 /\nISO 21434 / ISO 29119)" as Standards
+  rectangle "Workproducts\n(tool_register.yml,\nchange-register.yml)" as OrgWorkproducts
+  rectangle "PROJECT Workproduct\n(organisation/governance/, organisation/tools/,\norganisation/verification/)" as OWorkproduct
+  rectangle "Guidance Set\n(Method, Guideline, Template,\nChecklist)" as OGuidance
+  rectangle "Published Docs\n(getting_started.rst,\nframework/index.rst)" as PubDocs
+  rectangle "Standard Requirements\n(ORG_FRAMEWORK_001, org_req)" as StdReqs
+}
+
+' --- outer layer: actors and artifacts, all external to both packages ---
+AI -down-> Tools : uses
+AI -down-> Reports : creates
+AI -down-> Repo : uses
+Reports -up-> Steering : uses
+Goals -up-> Steering : complies
+Contrib -down-> Contribution : creates
+Contrib -down-> Tools : uses
+Contribution -right-> Doc : creates
+Doc -down-> Progress : creates
+Progress -up-> Steering : creates
+Doc -left-> Tools : uses
+Doc -up-> Steering : evaluates, qualifies\nif applicable
+Commit -down-> Doc : verifies, approves,\nreleases
+
+' --- gateway edges: exactly one entry node per package, to keep layout contained ---
+Contrib -down-> PWorkflow : executes,\nfulfills roles RASIC
+PDC -down-> OWorkflow : defines,\nincluding roles RASIC
+Commit -down-> OWorkflow : executes
+LM -down-> OWorkflow : is codeowner
+
+' --- the project-level workflow tailors the org-level workflow description ---
+PWorkflow ..> OWorkflow : tailors
+
+' --- internal to PROJECT Process only ---
+PWorkflow -down-> PWorkproduct : contains,\nincluding input/output
+PWorkproduct -down-> PGuidance : fulfills
+PWorkproduct -down-> PDefs : contains
+
+' --- internal to PROJECT Process Description only ---
+Standards -down-> OrgWorkproducts : contains
+OrgWorkproducts -down-> OWorkflow : contains
+OWorkflow -down-> OWorkproduct : contains,\nincluding input/output
+OWorkproduct -down-> OGuidance : fulfills
+OWorkproduct -down-> PubDocs : has
+OWorkproduct -down-> StdReqs : satisfies
+OGuidance -down-> StdReqs : contains
+
+@enduml

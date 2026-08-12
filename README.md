@@ -6,8 +6,8 @@ crosswalk.
 
 This repo has **two independent Sphinx projects**:
 
-- **Root** (this `conf.py`) — organizational governance (`org_governance/`,
-  `org_verification/`), strategy (`org_strategy/`), and project management
+- **Root** (this `conf.py`) — organizational governance (`organisation/governance/`,
+  `organisation/verification/`), strategy (`organisation/strategy/`), and project management
   (`management/`, `test/`). Renders `org_req` needs only.
 - **`Needs/`** (its own `conf.py`) — the product traceability graph:
   system/feature/component/unit requirements and the safety chain
@@ -113,10 +113,10 @@ test_repo/
 │   ├── operational-needs.rst
 │   ├── requirements.txt
 │   └── stakeholder-needs.rst
-├── org_common_framework/
+├── organisation/common_framework/
 │   ├── core lib/   (empty)
 │   └── HAL/   (empty)
-├── org_governance/
+├── organisation/governance/
 │   ├── aspice/
 │   │   ├── index.rst
 │   │   └── org_aspice_requirements.rst
@@ -139,10 +139,10 @@ test_repo/
 │   │       ├── Cargo.toml
 │   │       ├── README.md
 │   │       └── rustfmt.toml
-│   ├── iso21434/
+│   ├── cybersecurity/
 │   │   ├── index.rst
 │   │   └── org_cybsec_requirements.rst
-│   ├── iso26262/
+│   ├── functionalsafety/
 │   │   ├── index.rst
 │   │   └── org_fusa_requirements.rst
 │   ├── policies/
@@ -150,14 +150,14 @@ test_repo/
 │   │   ├── quality.rst
 │   │   └── safety.rst
 │   └── index.rst
-├── org_strategy/
+├── organisation/strategy/
 │   ├── roadmap.rst
 │   └── strategy.rst
-├── org_tools/
+├── organisation/tools/
 │   ├── index.rst
 │   ├── policy.rst
 │   └── tool_qualification_requirements.rst
-├── org_verification/
+├── organisation/verification/
 │   └── iso29119/
 │       ├── policy/   (empty)
 │       ├── strategy/
@@ -264,8 +264,8 @@ test_repo/
 ```
 
 `(empty)` marks directories that exist but currently hold no tracked
-content — `management/exceptions/`, `org_common_framework/core lib/`,
-`org_common_framework/HAL/`, and `org_verification/iso29119/policy/`.
+content — `management/exceptions/`, `organisation/common_framework/core lib/`,
+`organisation/common_framework/HAL/`, and `organisation/verification/iso29119/policy/`.
 They're scaffolded, not yet filled in.
 
 ## Build docs locally
@@ -287,13 +287,13 @@ Python) — see `.github/workflows/` for the exact commands run in CI.
 - `Needs/` — product traceability: `Communication/`, `Diagnostics/`
   (feature/component/unit design per module), `safety/` (safety chain +
   `analyses/`), `cybersecurity/`, `quality/` — see `Needs/` for details.
-- `org_governance/` — organization-level requirements per standard
+- `organisation/governance/` — organization-level requirements per standard
   (ASPICE, ISO 26262, ISO/SAE 21434).
-- `org_verification/` — ISO 29119 organization-level test-process
+- `organisation/verification/` — ISO 29119 organization-level test-process
   requirements.
-- `org_tools/` — tool qualification & usage governance (ISO 26262-8
-  clause 11, ASPICE SUP.8/SUP.1) — see `org_tools/index.rst`.
-- `org_strategy/`, `org_common_framework/` — not yet reviewed as part of
+- `organisation/tools/` — tool qualification & usage governance (ISO 26262-8
+  clause 11, ASPICE SUP.8/SUP.1) — see `organisation/tools/index.rst`.
+- `organisation/strategy/`, `organisation/common_framework/` — not yet reviewed as part of
   this documentation pass.
 - `source/` — implementation, one folder per language.
 - `test/` — test basis, conditions, design, procedures, cases, suites,
@@ -312,5 +312,5 @@ Python) — see `.github/workflows/` for the exact commands run in CI.
   fixing it again is pending that investigation.
 - `FEAT_A_001` and `FEAT_Z_001` both link to `SYS_001`, which doesn't exist
   anywhere in this repo (dead link).
-- `org_common_framework/` and `org_strategy/` have not been reviewed for
+- `organisation/common_framework/` and `organisation/strategy/` have not been reviewed for
   correctness as part of this documentation pass.

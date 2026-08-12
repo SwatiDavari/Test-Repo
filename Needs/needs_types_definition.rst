@@ -1,7 +1,7 @@
 Needs Type Definitions
 ========================
 
-This (``Needs/``) Sphinx project registers eight Sphinx-Needs directives in
+This (``Needs/``) Sphinx project registers eleven Sphinx-Needs directives in
 ``conf.py``'s ``needs_types``. Every ``.. sys::``, ``.. feat::``,
 ``.. eng_need::``, etc. in this project's content only renders and links
 because it's registered here — an unregistered directive fails the build
@@ -87,6 +87,38 @@ requirements-definition chain itself.
        ``business-needs.rst``, ``operational-needs.rst``)
      - ``#8E9AAF``
 
+ISO 26262-6 Safety User Manual (customer-deliverable) types
+----------------------------------------------------------------
+
+Model the safety feature / recommendation / restriction tables that used
+to live only in ``Qorix_SafetyUserManual.docx``. Module-specific IDs
+(e.g. ``SAFEFEAT_A_001``) still satisfy ``needs_id_regex`` below — the
+prefix column is just the auto-id default, not enforced per module.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 15 55 15
+
+   * - Directive
+     - ID prefix
+     - Standard mapping
+     - Color
+   * - ``safefeat``
+     - ``SAFEFEAT_``
+     - Module Safety Feature — ISO 26262-6 Safety User Manual
+     - ``#7B1FA2``
+   * - ``rec``
+     - ``REC_``
+     - Operational Recommendation — ISO 26262-6 Safety User Manual
+     - ``#F57F17``
+   * - ``res``
+     - ``RES_``
+     - Operational Restriction — ISO 26262-6 Safety User Manual
+     - ``#EF6C00``
+
+See ``communication/safety_user_manual.rst`` for a worked example that
+links a ``safefeat`` into the existing ``TSR_001``/``SG_001`` chain.
+
 Extra fields
 --------------
 
@@ -104,6 +136,11 @@ Registered in ``needs_fields`` alongside the types above:
   ``operational``, ``business``.
 - ``lifecycle_stage`` — lifecycle stage this need belongs to, e.g.
   ``stakeholder_needs``.
+- ``rationale``, ``use_case``, ``dependency`` — ``safefeat`` fields.
+- ``input_reference``, ``req_type``, ``actions``, ``impact`` — ``rec``/
+  ``res`` fields. ``input_reference`` is free text (not a real link) for
+  the same reason as ``derives_from``: it frequently cites a DFMEA action
+  ID that has no matching need.
 
 Where the ID format comes from
 ---------------------------------

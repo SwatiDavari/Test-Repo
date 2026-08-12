@@ -5,8 +5,8 @@
 # conf.py and builds independently (sys/feat/comp/unit + sg/fsr/tsr — the
 # product traceability graph). This root project covers everything that
 # sits outside Needs/: organization-level requirements (org_req, used under
-# org_governance/), plus plain narrative docs (doc/, management/, test/,
-# org_verification/, org_strategy/).
+# organisation/governance/), plus plain narrative docs (doc/, management/, test/,
+# organisation/verification/, organisation/strategy/).
 #
 # NOTE: this file previously contained Test_Dashboard's full conf.py
 # (project = "product-x", a needs_types list with sys_req/hazard/threat/
@@ -34,7 +34,7 @@ needs_types = [
                 "ISO/SAE 21434 Clause 5 / ASPICE org-level / ISO 29119 "
                 "org-level / ISO/IEC/IEEE 15288 clause 6.2"),
 
-    # Management registers (management/) and the tool register (org_tools/).
+    # Management registers (management/) and the tool register (organisation/tools/).
     # Previously each entry lived only in a .yml file this Sphinx build
     # never read (risk-register.yml, problem-register.yml,
     # change-register.yml, tool_register.yml) with an .rst stub pointing at
@@ -49,7 +49,7 @@ needs_types = [
          title="Change Request"),
     dict(directive="exception", prefix="EXC_", color="#8E24AA", style="node",
          title="Tailoring Exception — deviation from the org-level process "
-                "described in org_governance/framework/process_metamodel"),
+                "described in organisation/governance/framework/process_metamodel"),
     dict(directive="tool", prefix="TOOL_", color="#00838F", style="node",
          title="Qualified Tool — invoked by a CI workflow or pre-commit hook, "
                 "per ASPICE SUP.8/SUP.9 tool qualification"),

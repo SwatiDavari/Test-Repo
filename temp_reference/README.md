@@ -6,8 +6,8 @@ crosswalk.
 
 This repo has **two independent Sphinx projects**:
 
-- **Root** (this `conf.py`) — organizational governance (`org_governance/`,
-  `org_verification/`), strategy (`org_strategy/`), and project management
+- **Root** (this `conf.py`) — organizational governance (`organisation/governance/`,
+  `organisation/verification/`), strategy (`organisation/strategy/`), and project management
   (`management/`, `test/`). Renders `org_req` needs only.
 - **`Needs/`** (its own `conf.py`) — the product traceability graph:
   system/feature/component/unit requirements and the safety chain
@@ -32,11 +32,11 @@ Python) — see `.github/workflows/` for the exact commands run in CI.
 - `Needs/` — product traceability: `Communication/`, `Diagnostics/`
   (feature/component/unit design per module), `safety/` (safety chain +
   `analyses/`), `cybersecurity/`, `quality/` — see `Needs/` for details.
-- `org_governance/` — organization-level requirements per standard
+- `organisation/governance/` — organization-level requirements per standard
   (ASPICE, ISO 26262, ISO/SAE 21434).
-- `org_verification/` — ISO 29119 organization-level test-process
+- `organisation/verification/` — ISO 29119 organization-level test-process
   requirements.
-- `org_strategy/`, `org_common_framework/`, `org_tools/` — not yet
+- `organisation/strategy/`, `organisation/common_framework/`, `organisation/tools/` — not yet
   reviewed as part of this documentation pass.
 - `source/` — implementation, one folder per language.
 - `test/` — test basis, conditions, design, procedures, cases, suites,
@@ -55,5 +55,5 @@ Python) — see `.github/workflows/` for the exact commands run in CI.
   fixing it again is pending that investigation.
 - `FEAT_A_001` and `FEAT_Z_001` both link to `SYS_001`, which doesn't exist
   anywhere in this repo (dead link).
-- `org_common_framework/`, `org_tools/`, `org_strategy/` have not been
+- `organisation/common_framework/`, `organisation/tools/`, `organisation/strategy/` have not been
   reviewed for correctness as part of this documentation pass.

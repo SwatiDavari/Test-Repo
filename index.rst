@@ -21,22 +21,22 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
    :maxdepth: 2
    :caption: Organizational Governance
 
-   org_governance/index
-   org_governance/framework/index
-   org_verification/iso29119/index
-   org_tools/index
+   organisation/governance/index
+   organisation/governance/framework/index
+   organisation/verification/iso29119/index
+   organisation/tools/index
 
 .. toctree::
    :maxdepth: 1
    :caption: Enterprise Strategy
 
-   org_strategy/index
+   organisation/strategy/index
 
 .. toctree::
    :maxdepth: 2
    :caption: Common Framework
 
-   org_common_framework/index
+   organisation/common_framework/index
 
 .. toctree::
    :maxdepth: 1

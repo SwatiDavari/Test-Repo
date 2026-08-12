@@ -19,4 +19,4 @@ Operational Needs
    stale, rather than leaving dependent application instances unable to
    communicate at all. This is the same open dependency this repo's
    dependent-failure analysis already flags between Communication and
-   Diagnostics (see ``Needs/safety/analyses/dependent-failure-analysis``).
+   Diagnostics (see ``Needs/functionalsafety/analyses/dependent-failure-analysis``).

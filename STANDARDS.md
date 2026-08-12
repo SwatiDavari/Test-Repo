@@ -44,18 +44,18 @@ ISO 15288 doesn't name specific document types (that's 29119's and ASPICE's job)
 |---|---|
 | `manuals/` | ASPICE SUP.7 Documentation (operator/user documentation) |
 | `tutorials/` | ASPICE SUP.7 Documentation |
-| `reference/` | ASPICE SUP.7 Documentation; also where ISO 26262 confirmation-measure records (review minutes, audit reports) belong if you don't want them as `Needs/safety` traceability nodes |
+| `reference/` | ASPICE SUP.7 Documentation; also where ISO 26262 confirmation-measure records (review minutes, audit reports) belong if you don't want them as `Needs/functionalsafety` traceability nodes |
 | `release_notes/` | ISO 15288 6.4.9 Transition Process (release output) |
 | `errata/` | ASPICE SUP.9 Problem Resolution Management (published-doc corrections, not code defects — those go in `test/incidents/`) |
 
-## org_tools/ — tool qualification and usage governance
+## organisation/tools/ — tool qualification and usage governance
 
 Organization-level policy and requirements about tools, not the tools themselves — actual scripts live in `tools/` (repo root), actual CI/CD in `.github/workflows/`, actual dev-environment config in `.vscode/`.
 
 | Folder / file | ASPICE process | ISO 26262 |
 |---|---|---|
-| `org_tools/policy.rst` | SUP.1 Quality Assurance, SUP.8 Configuration Management (policy statement) | Part 8 clause 11 — Confidence in the Use of Software Tools (policy statement) |
-| `org_tools/tool_qualification_requirements.rst` (`org_req` needs) | SUP.8 Configuration Management (tool register, version pinning); SUP.1 Quality Assurance (re-verification on change) | Part 8 clause 11.4.2 (Tool Identification), 11.4.5-11.4.7 (Tool Confidence Level determination) |
+| `organisation/tools/policy.rst` | SUP.1 Quality Assurance, SUP.8 Configuration Management (policy statement) | Part 8 clause 11 — Confidence in the Use of Software Tools (policy statement) |
+| `organisation/tools/tool_qualification_requirements.rst` (`org_req` needs) | SUP.8 Configuration Management (tool register, version pinning); SUP.1 Quality Assurance (re-verification on change) | Part 8 clause 11.4.2 (Tool Identification), 11.4.5-11.4.7 (Tool Confidence Level determination) |
 
 ## Process-level folders (not artifact folders)
 

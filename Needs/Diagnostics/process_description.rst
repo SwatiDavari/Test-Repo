@@ -29,7 +29,7 @@ Metrics
 ~~~~~~~
 
 <Optional. Only include once real KPIs are defined for this process. Cite
-the metric ID from ``org_governance/metrics/`` rather than duplicating
+the metric ID from ``organisation/governance/metrics/`` rather than duplicating
 trend data here.>
 
 Activities
@@ -42,14 +42,14 @@ Roles
 -----
 
 <Roles/RASIC involved in this process. Cite canonical role definitions from
-``org_governance/process/roles/`` rather than redefining them here.>
+``organisation/governance/process/roles/`` rather than redefining them here.>
 
 Work Products
 -------------
 
 <Work products produced/consumed by this process, each linked to the
 outcome(s) it evidences. This is the traceability anchor — link to the
-actual Sphinx-needs objects (FEAT_/COMP_/UNIT_ or equivalent) here.>
+actual Sphinx-needs objects (``FEAT_``/``COMP_``/``UNIT_`` or equivalent) here.>
 
 Guide
 -----
