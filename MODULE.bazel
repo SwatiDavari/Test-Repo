@@ -1,0 +1,22 @@
+"""Bzlmod root module for the Qorix Engineering repo.
+
+This repo is currently docs-only from Bazel's point of view (no BUILD.bazel
+targets exist yet — content is Sphinx/Sphinx-Needs .rst, Python, Rust via
+Cargo, etc.). This file's only job is to mark the repo root as a Bazel
+workspace so `bazel build //...` / `bazel test //...` (run by
+.github/workflows/ci.yml's bazel-build-test job) can execute at all instead
+of failing with:
+
+    ERROR: The 'build' command is only supported from within a workspace
+    (below a directory having a MODULE.bazel file).
+
+With no BUILD.bazel files anywhere in the tree, `//...` currently expands
+to an empty target set, so build/test both succeed trivially (0 targets).
+When real Bazel targets are added under any subdirectory, add their
+dependencies as bazel_dep() entries below.
+"""
+
+module(
+    name = "qorix_engineering",
+    version = "0.0.0",
+)
