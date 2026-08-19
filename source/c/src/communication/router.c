@@ -1,5 +1,5 @@
-#include "example.h"
+#include "communication/router.h"
 
-int example_add(int a, int b) {
+int router_add(int a, int b) {
     return a + b;
 }

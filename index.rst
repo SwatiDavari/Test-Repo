@@ -4,8 +4,8 @@ Qorix Engineering Processes
 This is the root-level documentation project for Qorix Engineering Processes. It covers
 organizational governance and project process; the product traceability
 graph (system/feature/component/unit requirements, safety chain) lives in
-``Needs/`` as a **separate** Sphinx project — build it independently from
-inside ``Needs/`` (``sphinx-build -b html . _build``). See ``STANDARDS.md``
+``needs/`` as a **separate** Sphinx project — build it independently from
+inside ``needs/`` (``sphinx-build -b html . _build``). See ``STANDARDS.md``
 for how each folder maps onto ASPICE / ISO 15288 / ISO 26262 / ISO 29119
 terminology. Published documentation lives under ``doc/`` (``manuals/``,
 ``tutorials/``, ``reference/``, ``release_notes/``, ``errata/`` — see
@@ -23,7 +23,7 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
 
    organisation/governance/index
    organisation/governance/framework/index
-   organisation/verification/iso29119/index
+   organisation/testing/iso29119/index
    organisation/tools/index
 
 .. toctree::
@@ -52,11 +52,10 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
    :maxdepth: 1
    :caption: Verification
 
-   test/index
+   integration test/index
 
 .. toctree::
    :maxdepth: 1
    :caption: Traceability (organizational requirements only)
 
    needs_types_definition
-   needs_overview

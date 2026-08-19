@@ -49,7 +49,8 @@ Work Products
 
 <Work products produced/consumed by this process, each linked to the
 outcome(s) it evidences. This is the traceability anchor — link to the
-actual Sphinx-needs objects (FEAT_/COMP_/UNIT_ or equivalent) here.>
+actual Sphinx-needs objects (``FEAT_``/``COMP_``/``UNIT_`` or
+equivalent) here.>
 
 Guide
 -----

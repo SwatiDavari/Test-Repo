@@ -14,6 +14,7 @@ detailed "shall" requirements) live under ``policies/``.
    aspice/index
    cybersecurity/index
    functionalsafety/index
+   quality/index
    systemslifecycle/index
 
 .. toctree::

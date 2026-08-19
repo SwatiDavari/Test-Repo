@@ -51,7 +51,7 @@ package "PROJECT Process\n(this repo's tailored instance)" as ProjProc {
     Expectations / Foreseeable misuse /
     Assurance of standards
     -- recorded in management/risk/,
-    management/problem/, test/test-reports/
+    management/problem/, test/testreports/
   end note
 }
 

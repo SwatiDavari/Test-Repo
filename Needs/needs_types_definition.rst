@@ -142,6 +142,56 @@ Registered in ``needs_fields`` alongside the types above:
   the same reason as ``derives_from``: it frequently cites a DFMEA action
   ID that has no matching need.
 
+Link types
+------------
+
+Beyond the built-in ``:links:`` field, ``needs_links`` in this project's
+``conf.py`` (and the root project's) registers seven named, directional
+link types — additive, not a replacement; nothing existing had to be
+renamed to adopt them. Copied verbatim from ``qorix-ik-main``'s
+``qik-axon`` scaffold so this repo's link vocabulary aligns with that
+tooling if it's ever adopted here.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 30 50
+
+   * - Field
+     - Meaning (outgoing)
+     - Used so far for
+   * - ``derived_from``
+     - derived from
+     - not yet used
+   * - ``satisfies``
+     - satisfies
+     - the ASPICE requirement/architecture/design chain: ``feat``
+       satisfies ``sys``, ``comp`` satisfies ``feat``, ``unit``
+       satisfies ``comp``
+   * - ``fulfils``
+     - fulfils
+     - not yet used
+   * - ``implements``
+     - implements
+     - not yet used
+   * - ``verifies``
+     - verifies
+     - test cases: ``tc`` verifies ``unit``, ``itc`` verifies ``comp``
+   * - ``belongs_to``
+     - belongs to
+     - not yet used
+   * - ``consists_of``
+     - consists of
+     - not yet used
+
+The ISO 26262 ``sg``/``fsr``/``tsr`` chain deliberately still uses plain
+``:links:`` — which of the above verbs is exactly right there (ISO
+26262's own language leans toward "derived from" rather than
+"satisfies") wasn't obvious enough to guess, so it's left as a disclosed
+gap rather than asserted. Every field above is dead-link-checked
+identically to ``:links:`` (verified with a real ``-W`` build), and
+``tools/check_broken_links.py`` / ``tools/check_orphan_needs.py`` were
+updated in the same change to inspect all of them, not just ``links``.
+
 Where the ID format comes from
 ---------------------------------
 
@@ -149,8 +199,8 @@ Where the ID format comes from
 ``PREFIX_rest`` shape for every need ID in this project — the same shape
 each prefix column above defines per type. ``needs_id_required = True``
 and ``needs_report_dead_links = True`` mean a missing ID, or a
-``:links:`` field pointing at an ID that doesn't exist, fails the build
-(``-W``) rather than just warning.
+``:links:``/named-link field pointing at an ID that doesn't exist, fails
+the build (``-W``) rather than just warning.
 
 Not this project's types
 ---------------------------

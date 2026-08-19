@@ -109,10 +109,6 @@ Appendix A — Qorix Brand Palette
 The table below lists the official Qorix brand color palette used in
 this and related customer-facing documents.
 
-.. image:: _static/qorix_palette.png
-   :alt: Qorix Brand Palette swatches
-   :width: 420px
-
 This image renders identically in both the PDF and HTML builds (unlike an
 HTML color table, which Pandoc silently drops when targeting PDF). The
 table below is a plain-text/searchable fallback of the same values.

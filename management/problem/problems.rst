@@ -17,6 +17,6 @@ Problem reports, tracked as ``problem`` needs — migrated in-place from
 ``affected_needs`` is kept as free text, not a real ``:links:`` —
 ``SWR_OTA_SEC_005`` and ``SWR_DIAG_SEC_002`` don't resolve to any actual
 need in this repo. They're the same illustrative ``PROD_X`` placeholder
-ids already used elsewhere (see ``test/test-strategy/`` and
+ids already used elsewhere (see ``test/teststrategy/`` and
 ``organisation/verification/iso29119/strategy/``), so registering this field as a
 dead-link-checked link would fail the build.

@@ -4,7 +4,7 @@ Service Discovery
 .. feat:: Service Discovery
    :id: FEAT_Z_001
    :status: approved
-   :links: SYS_001
+   :satisfies: SYS_001
    :standard: ASPICE SWE.1 / ISO 15288 6.4.3
 
    The communication component shall allow adaptive applications to

@@ -4,16 +4,16 @@ on:
   push:
     branches: [main]
     paths:
-      - "Needs/communication/safety_user_manual.rst"
-      - "Needs/_static/**"
-      - "Needs/conf.py"
+      - "needs/communication/safety_user_manual.rst"
+      - "needs/_static/**"
+      - "needs/conf.py"
       - "build_safety_manual_pdf.sh"
       - ".github/workflows/safety_user_manual_pdf.yml"
   pull_request:
     paths:
-      - "Needs/communication/safety_user_manual.rst"
-      - "Needs/_static/**"
-      - "Needs/conf.py"
+      - "needs/communication/safety_user_manual.rst"
+      - "needs/_static/**"
+      - "needs/conf.py"
       - "build_safety_manual_pdf.sh"
   workflow_dispatch: {}
 
@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: safety-user-manual-pdf
-          path: Needs/_build/latex/qorix_module_a_safety_user_manual.pdf
+          path: needs/_build/latex/qorix_module_a_safety_user_manual.pdf

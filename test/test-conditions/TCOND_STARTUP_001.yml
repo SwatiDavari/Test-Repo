@@ -1,2 +1,0 @@
-id: TCOND_STARTUP_001
-condition: All dependencies (signal-router, logging-service) available at update start.

@@ -1,26 +1,48 @@
 name: CI - Needs (Sphinx-needs)
 on:
   push:
-    paths: ["Needs/**"]
+    paths: ["needs/**", "organisation/governance/**"]
   pull_request:
-    paths: ["Needs/**"]
+    paths: ["needs/**", "organisation/governance/**"]
 jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: Needs
+        working-directory: needs
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - run: pip install -r requirements.txt
+
+      # Export organisation/governance/'s org_req needs so this project's
+      # :links: fields can cite them as real, checked link targets via
+      # needs_external_needs (see needs/conf.py) instead of unenforced
+      # free-text prose. Runs from the repo root — the root project (not
+      # this one) owns org_req.
+      - name: Install root-project deps (for org_req export)
+        working-directory: .
+        run: pip install sphinx sphinx-needs sphinxcontrib-plantuml Pillow
+
+      - name: Export organisation/governance/ needs.json
+        working-directory: .
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre-headless graphviz plantuml
+          sphinx-build -b needs . _build/org_needs
+          mkdir -p needs/_external_needs
+          cp _build/org_needs/needs.json needs/_external_needs/org_needs.json
+
       # Fails on: duplicate need ids, links pointing at a non-existent id
-      # (broken sys->feat->comp->unit traceability), any Sphinx warning.
+      # (broken sys->feat->comp->unit traceability, or now a broken link to
+      # an org_req id), any Sphinx warning.
       - name: Build with warnings as errors
         run: sphinx-build -b html -W . _build/html
+
       - uses: actions/upload-artifact@v4
         with:
           name: needs-html
-          path: Needs/_build/html
+          path: needs/_build/html

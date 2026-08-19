@@ -10,11 +10,12 @@ Model across all projects, at a defined and audited capability level,
 with tailoring governed centrally rather than left to individual project
 discretion.
 
-The detailed, individually-tracked requirements that implement this
-policy — PRM adoption, capability level policy, the SUP.1 process itself,
-competence, the appraisal program, tailoring rules, and the
-safety/cybersecurity interface — live in
-:doc:`../aspice/org_aspice_requirements`.
+The organization's adopted process model and scope live in
+:doc:`../aspice/org_aspice_requirements`. The detailed, individually-tracked
+requirements that implement this policy — capability level policy, the
+SUP.1 process itself, competence, the appraisal program, tailoring rules,
+and the safety/cybersecurity interface — live in
+:doc:`../quality/org_quality_requirements`.
 
 Scope
 -----

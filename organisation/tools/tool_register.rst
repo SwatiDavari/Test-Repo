@@ -15,6 +15,35 @@ is a real, disclosed gap, not an oversight. ``tcl`` and
 Confidence Level determination (ISO 26262-8 clause 11.4.5-11.4.7) has
 been performed yet — see :need:`ORG_TOOLQUAL_001`.
 
+.. org_req:: Tool register exists and is kept current
+   :id: ORG_TOOLREG_001
+   :status: approved
+   :standard: ASPICE SUP.8/SUP.9 tool qualification
+
+   The organization shall maintain a register of every tool invoked by a
+   CI workflow or pre-commit hook, recording at minimum: what the tool
+   is, where it is used, which CI workflow invokes it, whether its
+   version is pinned, and its current tool-qualification status.
+
+.. note::
+   Every ``tool`` need below already declared ``:links: ORG_TOOLREG_001``
+   before this need existed, which made ``ORG_TOOLREG_001`` a dead link
+   on all 20 of them — the same dead-link pattern found and fixed at
+   ``SYS_001`` (see ``needs/systemslifecycle/sys_001.rst``), one layer
+   up, in the organizational graph instead of the product graph. Found
+   by actually building this project with the external-needs pipeline
+   wired up end to end, not by static file inspection. Added here as
+   the parent this file's own opening line was already asserting
+   ("The register satisfying :need:`ORG_TOOLREG_001`"), not as new
+   scope.
+
+   ``ORG_TOOLCFG_001`` and ``ORG_TOOLQUAL_001``, referenced in prose
+   above, now exist in :doc:`tool_qualification_requirements` (added at
+   the same time as this need, both decomposing it) — the pinning and
+   TCL-determination work they require is still genuinely open, disclosed
+   there and in each tool entry's ``pinned``/``tcl``/``qualification_status``
+   fields below, not silently claimed done.
+
 .. tool:: CMake
    :id: TOOL_CMAKE
    :links: ORG_TOOLREG_001

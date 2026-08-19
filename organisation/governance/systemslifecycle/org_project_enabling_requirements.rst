@@ -65,7 +65,7 @@ methods and tools with a track record.
    and processes it uses, to confirm they remain suitable, adequate,
    and effective.
 
-   **Gap, disclosed rather than closed here:** :need:`ORG_ASPICE_APPRAISAL_001`
+   **Gap, disclosed rather than closed here:** :need:`ORG_QUALITY_APPRAISAL_001`
    requires a periodic appraisal program against the adopted PAM — but
    it is a requirement, not a record. No appraisal of this
    organization's life cycle model has actually taken place yet.
@@ -307,7 +307,7 @@ with business needs.
    The organization shall develop, maintain, or enhance the skills of
    its personnel.
 
-   **Partial, disclosed rather than closed here:** :need:`ORG_ASPICE_COMPETENCE_001`
+   **Partial, disclosed rather than closed here:** :need:`ORG_QUALITY_COMPETENCE_001`
    (process-assessor and QA competence, training records) and
    :need:`ORG_COMPETENCE_001` (safety personnel) both require records of
    competence development — but each is scoped to one specific role,
@@ -347,7 +347,7 @@ subclause 4.1.
 
    **Partial, disclosed rather than closed here:** :doc:`../policies/quality`
    states the policy, and :need:`ORG_ASPICE_PRM_001` /
-   :need:`ORG_ASPICE_SUP1_001` define the adopted process model and the
+   :need:`ORG_QUALITY_SUP1_001` define the adopted process model and the
    SUP.1 quality assurance process. Defined — yes. Implemented — the
    policy page says outright that ``Needs/quality/`` is "currently
    scaffolding only (no review or metric data has been captured yet),"
@@ -361,7 +361,7 @@ subclause 4.1.
    The organization shall establish criteria and methods for evaluating
    quality.
 
-   **Partial, disclosed rather than closed here:** :need:`ORG_ASPICE_CL_POLICY_001`
+   **Partial, disclosed rather than closed here:** :need:`ORG_QUALITY_CL_POLICY_001`
    sets up the ASPICE capability-level rating scale (0-5) as the
    intended evaluation method. The scale is defined; no project has
    actually been evaluated against it yet.
@@ -437,7 +437,7 @@ knowledge, skills, and knowledge assets, including system elements.
    taxonomy's folders hold real content, and other capture points named
    in :doc:`../framework/process_metamodel` are populated too —
    ``management/risk/``, ``management/problem/`` (both migrated to real
-   needs this session), and ``test/test-reports/``. But three of the
+   needs this session), and ``test/testreports/``. But three of the
    five ``doc/`` folders — ``manuals/``, ``tutorials/``, ``reference/``
    — hold nothing but a ``.gitkeep``.
 
@@ -452,7 +452,7 @@ knowledge, skills, and knowledge assets, including system elements.
    **Partial, disclosed rather than closed here:** the same split as
    outcome (b) applies — available where content exists
    (``management/risk/``, ``management/problem/``,
-   ``test/test-reports/``), not available where the folder is still
+   ``test/testreports/``), not available where the folder is still
    just a placeholder (``manuals/``, ``tutorials/``, ``reference/``).
 
 .. org_req:: Knowledge management usage data is gathered and analyzed (outcome d)

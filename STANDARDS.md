@@ -6,15 +6,15 @@ What each folder corresponds to in ISO/IEC/IEEE 29119 (software testing), ISO/IE
 
 | Folder / need type | ASPICE process | ISO 15288 process | ISO 26262 |
 |---|---|---|---|
-| `sys/` (`sys` needs) | SYS.2 System Requirements Analysis, SYS.3 System Architectural Design | 6.4.3 System/Software Requirements Definition | — |
-| `mod_*/feat/` (`feat` needs) | SWE.1 Software Requirements Analysis | 6.4.3 System/Software Requirements Definition | — |
-| `mod_*/comp/` (`comp` needs) | SWE.2 Software Architectural Design | 6.4.4 Architecture Definition | — |
-| `mod_*/unit/` (`unit` needs) | SWE.3 Software Detailed Design and Unit Construction | 6.4.5 Design Definition | — |
-| `safety/` (`sg` needs) | — | 6.3.4 Risk Management (technical management process) | Part 3 clause 6 — Hazard Analysis and Risk Assessment (HARA), Safety Goal |
-| `safety/` (`fsr` needs) | — | — | Part 3 clause 8 — Functional Safety Concept |
-| `safety/` (`tsr` needs) | — | — | Part 4 clause 6 — Technical Safety Concept; Part 6 — Software Safety Requirements |
+| `systemslifecycle/` (`sys` needs, e.g. `sys_001.rst`) | SYS.2 System Requirements Analysis, SYS.3 System Architectural Design | 6.4.3 System/Software Requirements Definition | — |
+| `<module>/feature/` (`feat` needs, e.g. `communication/feature/feat_a_001.rst`, `diagnostics/feature/feat_z_001.rst`) | SWE.1 Software Requirements Analysis | 6.4.3 System/Software Requirements Definition | — |
+| `<module>/component/` (`comp` needs, e.g. `communication/component/comp_a_001.rst`, `diagnostics/component/comp_z_001.rst`) | SWE.2 Software Architectural Design | 6.4.4 Architecture Definition | — |
+| `<module>/unit design/` (`unit` needs, e.g. `communication/unit design/unit_a_001.rst`, `diagnostics/unit design/unit_z_001.rst`) | SWE.3 Software Detailed Design and Unit Construction | 6.4.5 Design Definition | — |
+| `functionalsafety/` (`sg` needs, e.g. `sg_001.rst`) | — | 6.3.4 Risk Management (technical management process) | Part 3 clause 6 — Hazard Analysis and Risk Assessment (HARA), Safety Goal |
+| `functionalsafety/` (`fsr` needs, e.g. `fsr_001.rst`) | — | — | Part 3 clause 8 — Functional Safety Concept |
+| `functionalsafety/` (`tsr` needs, e.g. `tsr_001.rst`) | — | — | Part 4 clause 6 — Technical Safety Concept; Part 6 — Software Safety Requirements |
 
-Every need in `safety/` links either up to a `sys`/`feat` need or down into a `comp`/`unit` need (see `TSR_001` linking into `COMP_A_001`), because ISO 26262 doesn't replace the ASPICE requirements chain — it adds a safety-integrity layer on top of it. A safety case built from this graph is only as complete as ISO 26262 Part 2's confirmation measures require (confirmation review, functional safety audit, functional safety assessment) — those review artifacts aren't modeled here as needs; they'd be records under `doc/reference/` or a dedicated safety-case document, not traceability nodes.
+`<module>/` today is `communication/` and `diagnostics/` — the two live modules under `Needs/`. Every need in `functionalsafety/` links either up to a `sys`/`feat` need or down into a `comp`/`unit` need (see `TSR_001` linking into `COMP_A_001`), because ISO 26262 doesn't replace the ASPICE requirements chain — it adds a safety-integrity layer on top of it. A safety case built from this graph is only as complete as ISO 26262 Part 2's confirmation measures require (confirmation review, functional safety audit, functional safety assessment) — those review artifacts aren't modeled here as needs; they'd be records under `doc/manuals/` (or a dedicated safety-case document), not traceability nodes.
 
 ## source/ — implementation
 
@@ -27,14 +27,17 @@ Every need in `safety/` links either up to a `sys`/`feat` need or down into a `c
 
 | Folder | ISO 29119-3 document type | ASPICE process |
 |---|---|---|
-| `plans/` | Level Test Plan | SWE.4/SWE.5/SWE.6, SYS.4/SYS.5 (planning) |
-| `cases/<mod>/` | Level Test Case (Test Case Specification) | SWE.4/SWE.5/SWE.6 |
-| `suites/<mod>/` | Test Procedure Specification | SWE.5/SWE.6, SYS.4/SYS.5 |
-| `runs/<mod>/` | Level Test Log (Test Execution Log) | SWE.5/SWE.6 (execution records) |
-| `reports/<mod>/` | Test Completion Report | SWE.6/SYS.5 (qualification reporting) |
-| `incidents/` | Incident Report | SUP.9 Problem Resolution Management |
+| `testbasis/` | Test Basis (the source material a test is derived from, e.g. `basis.yml`) | SWE.4/SWE.5/SWE.6, SYS.4/SYS.5 (planning) |
+| `teststrategy/` | Test Plan / Level Test Strategy (e.g. `product-verification-strategy.rst`) | SWE.4/SWE.5/SWE.6, SYS.4/SYS.5 (planning) |
+| `testconditions/` | Test Condition (e.g. `TCOND_STARTUP_001.yml`) | SWE.4/SWE.5/SWE.6 |
+| `testdesign/` | Test Design Specification (currently scaffolded, no content yet) | SWE.4/SWE.5/SWE.6 |
+| `testcases/<module>/` | Level Test Case (Test Case Specification, e.g. `testcases/communication/case_a_001.md`) | SWE.4/SWE.5/SWE.6 |
+| `testprocedures/` | Test Procedure Specification (e.g. `PROC_SYS_STARTUP_001.yml`) | SWE.5/SWE.6, SYS.4/SYS.5 |
+| `testsuites/` | Test Suite grouping (e.g. `SUITE_RELEASE_SMOKE.yml`) | SWE.5/SWE.6, SYS.4/SYS.5 |
+| `executions/` | Level Test Log (Test Execution Log, e.g. `EXEC_BUILD_2026_081.yml`) | SWE.5/SWE.6 (execution records) |
+| `testreports/` | Test Completion Report (e.g. `product-verification-report.rst`) | SWE.6/SYS.5 (qualification reporting) |
 
-`test/` as a whole is what ISO 15288 calls out as the **Verification Process** (6.4.8, "did we build it right" — traces to `comp`/`unit`) and the **Validation Process** (6.4.11, "did we build the right thing" — traces to `sys`/`feat`); which folder content serves which depends on what level the test case covers, not on the folder itself.
+There is currently no `incidents/`-equivalent folder under `test/` — published-doc corrections and defect tracking are not yet modeled here; see "Process-level folders" below for where that would live once it is. `test/` as a whole is what ISO 15288 calls out as the **Verification Process** (6.4.8, "did we build it right" — traces to `comp`/`unit`) and the **Validation Process** (6.4.11, "did we build the right thing" — traces to `sys`/`feat`); which folder content serves which depends on what level the test case covers, not on the folder itself.
 
 ## doc/ — published documentation
 
@@ -42,11 +45,11 @@ ISO 15288 doesn't name specific document types (that's 29119's and ASPICE's job)
 
 | Folder | Closest standard term |
 |---|---|
-| `manuals/` | ASPICE SUP.7 Documentation (operator/user documentation) |
-| `tutorials/` | ASPICE SUP.7 Documentation |
-| `reference/` | ASPICE SUP.7 Documentation; also where ISO 26262 confirmation-measure records (review minutes, audit reports) belong if you don't want them as `Needs/functionalsafety` traceability nodes |
-| `release_notes/` | ISO 15288 6.4.9 Transition Process (release output) |
-| `errata/` | ASPICE SUP.9 Problem Resolution Management (published-doc corrections, not code defects — those go in `test/incidents/`) |
+| `manuals/` | ASPICE SUP.7 Documentation (operator/user documentation; includes `manuals/safety/safety_user_manual.rst` and the `_pdf_template/` used to render it) |
+| `release_notes/` | ISO 15288 6.4.9 Transition Process (release output, e.g. `v0.1.0.md`) |
+| `errata/` | ASPICE SUP.9 Problem Resolution Management (published-doc corrections, not code defects — see the `test/` note above on where defect tracking would live) |
+
+`tutorials/` and `reference/` do not exist under `doc/` yet — only `errata/`, `manuals/`, and `release_notes/` are present on disk today. If those two are still intended, add them when there's content to put in them rather than carrying empty placeholders.
 
 ## organisation/tools/ — tool qualification and usage governance
 

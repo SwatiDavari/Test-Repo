@@ -19,6 +19,18 @@ master_doc = "index"
 extensions = ["sphinx_needs", "sphinxcontrib.plantuml"]
 html_theme = "furo"
 
+# sphinx-needs' needs_external_needs loader (used by needs/conf.py to pull
+# this project's org_req/risk/problem/change/exception/tool/infra needs in
+# as real, dead-link-checked citations instead of free text) requires a
+# non-empty Sphinx `version`. Without one, sphinx-needs writes an
+# empty-string current_version into needs.json and the loader raises
+# NeedsExternalException("No version defined...") on every needs/ build —
+# a hard failure unrelated to any actual traceability content, found while
+# verifying the SYS_001 fix end-to-end with a real build instead of
+# trusting static file inspection.
+version = "1.0"
+release = "1.0"
+
 # CRITICAL: without this, `sphinx-build -b html . _build/html` run from the
 # repo root (exactly what .github/workflows/docs.yml does) walks into
 # Needs/ and tries to parse its sg/fsr/tsr/comp/feat/unit directives using
@@ -26,7 +38,7 @@ html_theme = "furo"
 # type" errors, confirmed by testing the exact CI invocation locally.
 # Needs/ is a separate Sphinx project with its own conf.py and its own CI
 # job (ci-needs.yml, working-directory: Needs) — it must stay excluded here.
-exclude_patterns = ["Needs", "_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["needs", "_build", "Thumbs.db", ".DS_Store"]
 
 needs_types = [
     dict(directive="org_req", prefix="ORG_", color="#B8003D", style="node",
@@ -97,7 +109,7 @@ needs_fields = {
                         "problem-register.yml / change-register.yml. Kept "
                         "as free text, not a real link — these ids "
                         "(SWR_*, SYSR_*) are illustrative placeholders used "
-                        "elsewhere in the repo (see test/test-strategy/) "
+                        "elsewhere in the repo (see test/teststrategy/) "
                         "and don't resolve to any actual need, so "
                         "registering this as a needs_extra_links option "
                         "would fail the dead-link gate.",
@@ -168,6 +180,28 @@ needs_fields = {
         "schema": {"type": "string"},
         "nullable": True,
     },
+}
+
+# Named link types, additive alongside the default `:links:` field — nothing
+# existing is renamed or required to use these. Copied verbatim from
+# qorix-ik-main's qik-axon scaffold (rust/qik-axon/templates/needs/conf.py)
+# so this project's link vocabulary aligns with the org's own tooling if it
+# is ever adopted here. sphinx-needs dead-link-checks every field listed
+# here exactly like the built-in `links` field (verified with a real -W
+# build before this was added) — but tools/check_broken_links.py and
+# tools/check_orphan_needs.py, which pre-date this, only inspected the
+# `links`/`links_back` keys in needs.json. Both were updated in the same
+# change (see their own comments) so a need connected only via one of
+# these named fields is neither missed by the dead-link gate nor
+# misreported as an orphan.
+needs_links = {
+    "derived_from": {"incoming": "gives rise to",     "outgoing": "derived_from"},
+    "satisfies":    {"incoming": "is satisfied by",   "outgoing": "satisfies"},
+    "fulfils":      {"incoming": "is fulfilled by",   "outgoing": "fulfils"},
+    "implements":   {"incoming": "is implemented by", "outgoing": "implements"},
+    "verifies":     {"incoming": "is verified by",    "outgoing": "verifies"},
+    "belongs_to":   {"incoming": "consists of",       "outgoing": "belongs_to"},
+    "consists_of":  {"incoming": "belongs to",        "outgoing": "consists_of"},
 }
 
 needs_id_required = True

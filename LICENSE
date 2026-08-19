@@ -1,0 +1,38 @@
+*** DRAFT — NOT YET REVIEWED BY LEGAL/IP COUNSEL ***
+*** Do not treat this file as final or binding. Replace this notice only
+*** after your legal/IP team has confirmed the copyright holder, scope,
+*** and wording below for this specific repository. ***
+
+Copyright (c) 2026 [LEGAL ENTITY NAME — confirm with Legal, e.g. "Qorix
+India Private Limited" or the correct parent/holding entity]
+
+All rights reserved.
+
+This repository and its contents (including but not limited to source
+code, requirements and design artifacts under `needs/`, documentation,
+build configuration, and scripts) are proprietary and confidential to
+[LEGAL ENTITY NAME] ("the Company").
+
+No license, express or implied, to any intellectual property rights is
+granted by this repository or its contents except as explicitly stated in
+a separate written agreement signed by the Company.
+
+Access to this repository is limited to employees, contractors, and
+authorized third parties who have a documented need to access it in
+connection with their work for the Company, subject to the confidentiality
+and IP-assignment terms of their employment or engagement agreement with
+the Company. Access does not, by itself, grant any right to copy, modify,
+distribute, sublicense, or use this repository's contents outside the
+scope of that work, or to disclose its contents to any party not
+authorized by the Company.
+
+This repository may incorporate third-party open-source or otherwise
+licensed components. Those components remain subject to their own
+respective licenses, which are not superseded by this notice. See
+THIRD_PARTY_NOTICES.md (if present in this repository) for the list of
+included third-party components and their licenses.
+
+Nothing in this file should be construed as an open-source license grant.
+For questions about permitted use, redistribution, or licensing of any
+part of this repository, contact [LEGAL/IP CONTACT — e.g. legal@qorix.ai
+or the designated IP owner], not the repository's engineering maintainers.

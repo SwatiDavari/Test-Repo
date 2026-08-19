@@ -1,5 +1,5 @@
-ASPICE — Organization Level (Quality Management)
-================================================
+ASPICE — Organization Level (Process Model)
+============================================
 
 .. toctree::
    :maxdepth: 1

@@ -68,12 +68,12 @@ package "Workspace Root (qorix-engg.code-workspace)" as Workspace #3A00F5 {
     }
 
     package "test/ -- verification" as Test #A7F04A {
-      component "test-basis" as TBasis
-      component "test-cases" as TCases
-      component "test-strategy" as TStrat
-      component "test-suites" as TSuites
+      component "testbasis" as TBasis
+      component "testcases" as TCases
+      component "teststrategy" as TStrat
+      component "testsuites" as TSuites
       component "executions" as TExec
-      component "test-reports" as TReports
+      component "testreports" as TReports
     }
 
     package "doc/ -- published docs" as Doc #FFFFFF
