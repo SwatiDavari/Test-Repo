@@ -16,9 +16,7 @@ This is **governance about tools**, not the tools themselves:
 qualified for safety- or cybersecurity-relevant work, and *why* — per
 ISO 26262 Part 8 Clause 11 and ASPICE SUP.8/SUP.1.
 
-.. toctree::
-   :maxdepth: 1
-
-   policy
-   tool_qualification_requirements
-   tool_register
+See :doc:`policy`, :doc:`tool_qualification_requirements`, and
+:doc:`tool_register` (all listed directly in the root sidebar, not
+nested under this page — see organisation/governance/index.rst's note
+on sidebar flattening).

@@ -246,6 +246,65 @@ type. Deliberately not added to the imported ``risk``/``problem``/
 uses ``version`` for something else) — see the field's description in
 ``conf.py`` for the exact split.
 
+Safety and cybersecurity classification
+-------------------------------------------
+
+``asil`` (ISO 26262 Automotive Safety Integrity Level) and ``cal``
+(ISO/SAE 21434 Cybersecurity Assurance Level) are registered in
+``needs_fields``, both nullable, both **populated only where a real
+HARA or TARA outcome exists** — not stamped across every need of a
+given type.
+
+``asil`` is set today on exactly seven needs — the determined safety
+chain and what it links into:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 15 60
+
+   * - Need
+     - ASIL
+     - Why
+   * - ``SG_001``
+     - ``ASIL B``
+     - The Safety Goal itself — HARA output.
+   * - ``FSR_001``
+     - ``ASIL B``
+     - Functional Safety Concept, inherits from ``SG_001``.
+   * - ``TSR_001``
+     - ``ASIL B``
+     - Technical Safety Concept, inherits from ``FSR_001``.
+   * - ``COMP_A_001``
+     - ``ASIL B``
+     - Architecture ``TSR_001`` is allocated to.
+   * - ``UNIT_A_001``
+     - ``ASIL B``
+     - Design implementing that architecture.
+   * - ``TC_UNIT_A_001``
+     - ``ASIL B``
+     - Verifies ``UNIT_A_001``.
+   * - ``ITC_COMP_A_001_001``
+     - ``ASIL B``
+     - Verifies ``COMP_A_001``.
+
+Diagnostics (``COMP_Z_001``/``UNIT_Z_001``/their test cases) is
+deliberately **not** given an ASIL: ``functionalsafety/analyses/
+dependent-failure-analysis.rst`` records Diagnostics as "not yet
+assessed." Setting an ASIL there would assert a HARA outcome that
+hasn't happened. The same discipline applies to every other need type
+(``eng_need``, the external ``org_req``/``risk``/``problem``/
+``change``/``tool``/etc.) — none of them are safety requirements, and
+none carry an ``asil`` value.
+
+``cal`` is registered but **populated nowhere yet**: ``needs/
+cybersecurity/tara/index.rst`` is an explicit empty stub ("Nothing
+captured yet") — there is no TARA-derived cybersecurity goal in this
+project for a CAL to attach to. The field exists so it's ready the
+moment ``cyber_req``/``threat`` need types are added (see that file's
+own "Pending" list) and a real TARA produces one; putting ``CAL 3`` on
+an organizational Clause 5 requirement in the meantime would misrepresent
+an org policy as a TARA-derived cybersecurity goal, which it isn't.
+
 Where the ID format comes from
 ---------------------------------
 

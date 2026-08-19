@@ -1,9 +1,8 @@
 Product Verification
 =======================
 
-.. toctree::
-   :maxdepth: 1
-
-   test strategy/product-verification-strategy
-   test cases/index
-   test reports/product-verification-report
+See :doc:`test strategy/product-verification-strategy`,
+:doc:`test cases/index`, and
+:doc:`test reports/product-verification-report` (all listed directly in
+the root sidebar, not nested under this page — see
+organisation/governance/index.rst's note on sidebar flattening).

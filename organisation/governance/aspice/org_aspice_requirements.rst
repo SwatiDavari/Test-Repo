@@ -22,7 +22,7 @@ Process Reference & Assessment Model Adoption
 .. org_req:: Adopted process model and scope
    :id: ORG_ASPICE_PRM_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ASPICE_PAM
 
    The organization shall adopt a defined version of the Automotive

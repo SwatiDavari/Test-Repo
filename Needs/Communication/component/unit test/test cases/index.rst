@@ -25,7 +25,8 @@ Unit Test Cases — communication
 .. tc:: Publish/subscribe dispatch — unit
    :id: TC_UNIT_A_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
+   :asil: ASIL B
    :verifies: UNIT_A_001
 
    Unit-level verification (no process boundary, no network, no

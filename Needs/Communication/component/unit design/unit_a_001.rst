@@ -4,7 +4,8 @@ Proxy Serialization Unit
 .. unit:: Proxy Serialization Unit
    :id: UNIT_A_001
    :version: 1.0.0
-   :status: approved
+   :status: proposed
+   :asil: ASIL B
    :satisfies: COMP_A_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
 

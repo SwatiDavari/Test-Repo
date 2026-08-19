@@ -1,8 +1,7 @@
-ISO/IEC/IEEE 29119 — Organization Level (Test Process)
-============================================================
+Organization Level (Test Process)
+=====================================
 
-.. toctree::
-   :maxdepth: 1
-
-   organizational_requirements
-   strategy/product-verification-strategy
+See :doc:`organizational_requirements` and
+:doc:`strategy/product-verification-strategy` (both listed directly in
+the root sidebar, not nested under this page — see
+organisation/governance/index.rst's note on sidebar flattening).

@@ -18,7 +18,7 @@ been performed yet — see :need:`ORG_TOOLQUAL_001`.
 .. org_req:: Tool register exists and is kept current
    :id: ORG_TOOLREG_001
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :standard: ASPICE SUP.8/SUP.9 tool qualification
 
    The organization shall maintain a register of every tool invoked by a

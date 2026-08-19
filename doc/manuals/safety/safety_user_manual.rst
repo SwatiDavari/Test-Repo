@@ -126,7 +126,7 @@ concept this feature realizes.
 .. safefeat:: Subscriber Authorization Enforcement
    :id: SAFEFEAT_A_001
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :links: TSR_001
    :rationale: Prevents actuation from messages delivered to an
       unauthorized subscriber, which could otherwise trigger an
@@ -189,7 +189,7 @@ Recommendation
 .. rec:: Configure the identity service before first Subscribe() call
    :id: REC_A_001
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :links: SAFEFEAT_A_001
    :input_reference: FSR_001
    :req_type: Configuration
@@ -208,7 +208,7 @@ Restrictions
 .. res:: Do not disable AuthTokenRequired at ASIL D
    :id: RES_A_001
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :links: SAFEFEAT_A_001
    :input_reference: SG_001
    :req_type: Configuration

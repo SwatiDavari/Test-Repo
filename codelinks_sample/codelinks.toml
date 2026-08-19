@@ -1,0 +1,39 @@
+# sphinx-codelinks project configuration for this sample.
+#
+# Referenced from conf.py via `src_trace_config_from_toml = "codelinks.toml"`.
+# See conf.py's comment on that line for why this has to be a TOML file
+# rather than a `src_trace_projects = {...}` dict assigned directly in
+# conf.py (the direct-dict form builds but crashes when the `.. src-trace::`
+# directive actually runs).
+
+[codelinks]
+set_local_url = true
+
+[codelinks.projects.source_c.source_discover]
+src_dir = "../source/c"
+comment_type = "cpp"
+
+[codelinks.projects.source_c.analyse]
+get_oneline_needs = true
+# `git_root` deliberately left unset: sphinx-codelinks auto-discovers it by
+# walking up from src_dir looking for a real `.git` directory
+# (analyse/utils.py:locate_git_root). On the real device, test_repo IS a
+# git checkout, so walking up from source/c finds test_repo/.git and this
+# resolves for free — no path to hardcode, nothing to keep in sync if the
+# repo ever moves.
+#
+# This sandbox mirror (/mnt/user-data/uploads/test_repo) has no `.git` at
+# all (confirmed: `git status` -> "fatal: not a git repository"), so
+# auto-discovery genuinely fails here and a build in *this* environment
+# warns `[codelinks.git_root]`. Tried hardcoding `git_root = ".."` to work
+# around it: that trades the one "not found" warning for two different
+# ones (`codelinks.git_config` / `codelinks.git_head`), because once
+# git_root is non-None sphinx-codelinks unconditionally tries to read
+# `<git_root>/.git/config` and `<git_root>/.git/HEAD` for the remote URL
+# and current rev (analyse/utils.py:get_remote_url / get_current_rev) —
+# and those files don't exist here either, since there's no real `.git` to
+# read them from. Confirmed by reading that source, not guessed after the
+# traceback. Leaving this unset is strictly better: 1 sandbox-only warning
+# instead of 2, and it's the config that will actually resolve cleanly on
+# the real device. See README.md's "Known gaps" section — this is a
+# sandbox-environment limitation, not a defect in this sample.

@@ -26,7 +26,7 @@ methods and tools with a track record.
 .. org_req:: Policies and procedures for managing and deploying life cycle models are established (outcome a)
    :id: ORG_LCM_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.1.2, outcome a
 
    The organization shall establish and maintain policies and
@@ -46,7 +46,7 @@ methods and tools with a track record.
 .. org_req:: Responsibility, accountability, and authority for life cycle models are defined (outcome b)
    :id: ORG_LCM_002
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.1.2, outcome b
 
    The organization shall name who is responsible, accountable, and
@@ -61,7 +61,7 @@ methods and tools with a track record.
 .. org_req:: Life cycle models and processes are assessed (outcome c)
    :id: ORG_LCM_003
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.1.2, outcome c
 
    The organization shall periodically assess the life cycle models
@@ -76,7 +76,7 @@ methods and tools with a track record.
 .. org_req:: Prioritized life cycle model improvements are implemented (outcome d)
    :id: ORG_LCM_004
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.1.2, outcome d
 
    The organization shall prioritize and implement improvements to its
@@ -103,7 +103,7 @@ one requirement asserting all four at once.
 .. org_req:: Infrastructure requirements are defined (outcome a)
    :id: ORG_INFRA_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.2.2, outcome a
 
    The organization shall define what every project actually needs from
@@ -126,7 +126,7 @@ one requirement asserting all four at once.
 .. org_req:: Infrastructure elements are identified and specified (outcome b)
    :id: ORG_INFRA_002
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.2.2, outcome b
 
    The organization shall identify each infrastructure element and
@@ -139,7 +139,7 @@ one requirement asserting all four at once.
 .. org_req:: Infrastructure elements are developed or acquired (outcome c)
    :id: ORG_INFRA_003
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.2.2, outcome c
 
    The organization shall develop or acquire each infrastructure element
@@ -156,7 +156,7 @@ one requirement asserting all four at once.
 .. org_req:: Infrastructure is available (outcome d)
    :id: ORG_INFRA_004
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.2.2, outcome d
 
    The organization shall ensure its infrastructure is available when
@@ -185,7 +185,7 @@ whole life, from being proposed to being closed.
 .. org_req:: Business opportunities and investments are qualified and prioritized (outcome a)
    :id: ORG_PORTFOLIO_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.3.2, outcome a
 
    The organization shall qualify candidate ventures, investments, or
@@ -203,7 +203,7 @@ whole life, from being proposed to being closed.
 .. org_req:: Projects are identified (outcome b)
    :id: ORG_PORTFOLIO_002
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.3.2, outcome b
 
    The organization shall identify the projects it is running.
@@ -218,7 +218,7 @@ whole life, from being proposed to being closed.
 .. org_req:: Resources and budgets are allocated per project (outcome c)
    :id: ORG_PORTFOLIO_003
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.3.2, outcome c
 
    The organization shall allocate resources and budget to each project
@@ -231,7 +231,7 @@ whole life, from being proposed to being closed.
 .. org_req:: Project management responsibilities, accountability, and authorities are defined (outcome d)
    :id: ORG_PORTFOLIO_004
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.3.2, outcome d
 
    The organization shall define who manages each project, and who is
@@ -246,7 +246,7 @@ whole life, from being proposed to being closed.
 .. org_req:: Projects meeting their agreement and stakeholder requirements are sustained (outcome e)
    :id: ORG_PORTFOLIO_005
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.3.2, outcome e
 
    The organization shall confirm which of its projects are meeting
@@ -259,7 +259,7 @@ whole life, from being proposed to being closed.
 .. org_req:: Projects not meeting requirements are redirected or terminated (outcome f)
    :id: ORG_PORTFOLIO_006
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.3.2, outcome f
 
    The organization shall redirect or terminate projects that are not
@@ -272,7 +272,7 @@ whole life, from being proposed to being closed.
 .. org_req:: Completed projects are closed (outcome g)
    :id: ORG_PORTFOLIO_007
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.3.2, outcome g
 
    The organization shall close projects once their agreements are
@@ -292,7 +292,7 @@ with business needs.
 .. org_req:: Skills required by projects are identified (outcome a)
    :id: ORG_HR_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.4.2, outcome a
 
    The organization shall identify the skills its projects need.
@@ -307,7 +307,7 @@ with business needs.
 .. org_req:: Necessary human resources are provided to projects (outcome b)
    :id: ORG_HR_002
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.4.2, outcome b
 
    The organization shall provide the human resources its projects need.
@@ -319,7 +319,7 @@ with business needs.
 .. org_req:: Personnel skills are developed, maintained, or enhanced (outcome c)
    :id: ORG_HR_003
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.4.2, outcome c
 
    The organization shall develop, maintain, or enhance the skills of
@@ -336,7 +336,7 @@ with business needs.
 .. org_req:: Multi-project resource conflicts are resolved (outcome d)
    :id: ORG_HR_004
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.4.2, outcome d
 
    The organization shall resolve conflicts arising when more than one
@@ -359,7 +359,7 @@ subclause 4.1.
 .. org_req:: Quality management policies, objectives, and procedures are defined and implemented (outcome a)
    :id: ORG_QM_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.5.2, outcome a
 
    The organization shall define and implement quality management
@@ -376,7 +376,7 @@ subclause 4.1.
 .. org_req:: Quality evaluation criteria and methods are established (outcome b)
    :id: ORG_QM_002
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.5.2, outcome b
 
    The organization shall establish criteria and methods for evaluating
@@ -390,7 +390,7 @@ subclause 4.1.
 .. org_req:: Resources and information are provided to support project QA activities (outcome c)
    :id: ORG_QM_003
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.5.2, outcome c
 
    The organization shall provide the resources and information
@@ -405,7 +405,7 @@ subclause 4.1.
 .. org_req:: Quality assurance evaluation results are gathered and analyzed (outcome d)
    :id: ORG_QM_004
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.5.2, outcome d
 
    The organization shall gather and analyze the results of quality
@@ -418,7 +418,7 @@ subclause 4.1.
 .. org_req:: Quality policies and procedures are improved from results (outcome e)
    :id: ORG_QM_005
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.5.2, outcome e
 
    The organization shall improve its quality management policies and
@@ -437,7 +437,7 @@ knowledge, skills, and knowledge assets, including system elements.
 .. org_req:: A taxonomy for knowledge assets is identified (outcome a)
    :id: ORG_KM_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.6.2, outcome a
 
    The organization shall identify a taxonomy for organizing its
@@ -453,7 +453,7 @@ knowledge, skills, and knowledge assets, including system elements.
 .. org_req:: Knowledge, skills, and knowledge assets are developed or acquired (outcome b)
    :id: ORG_KM_002
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.6.2, outcome b
 
    The organization shall develop or acquire the knowledge, skills, and
@@ -470,7 +470,7 @@ knowledge, skills, and knowledge assets, including system elements.
 .. org_req:: Knowledge, skills, and knowledge assets are available (outcome c)
    :id: ORG_KM_003
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.6.2, outcome c
 
    The organization shall make the knowledge, skills, and knowledge
@@ -485,7 +485,7 @@ knowledge, skills, and knowledge assets, including system elements.
 .. org_req:: Knowledge management usage data is gathered and analyzed (outcome d)
    :id: ORG_KM_004
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 15288 clause 6.2.6.2, outcome d
 
    The organization shall gather and analyze data on how its knowledge

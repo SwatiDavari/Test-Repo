@@ -12,7 +12,7 @@ Operational Needs
    :domain: operational
    :lifecycle_stage: stakeholder_needs
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :derives_from: NEED_DISC_001
 
    The platform needs to remain in a controlled, diagnosable state if the

@@ -12,7 +12,7 @@ Business Needs
    :domain: business
    :lifecycle_stage: stakeholder_needs
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :derives_from: NEED_COMM_001
 
    The Qorix Engineering Processes communication and service-discovery middleware shall be

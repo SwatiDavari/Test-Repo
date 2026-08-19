@@ -3,6 +3,20 @@ extensions = ["sphinx_needs"]
 project = "Qorix Engineering Processes Needs"
 master_doc = "index"
 
+# Sphinx `version`/`release` — needed so this project's OWN exported
+# needs.json (`-b needs`, or needs_build_json) has a non-empty
+# `current_version`. Without one, any other project that later tries to
+# import this project's needs via needs_external_needs — as
+# codelinks_sample/conf.py's sample does, to resolve `:links: UNIT_A_001` —
+# fails outright with NeedsExternalException("No version defined...").
+# Found while building that sample, the same class of failure root
+# conf.py's own `version`/`release` comment already documents for the
+# opposite import direction. This project's needs.json is still not
+# committed (CI-generated, like organisation/'s), so this only matters to
+# whoever builds it, not to anything checked into the tree.
+version = "1.0"
+release = "1.0"
+
 # --- Cross-project traceability to organisation/governance/ -----------------
 # organisation/governance/ (org_req needs) and this needs/ tree are
 # deliberately separate Sphinx-needs projects (see the note in the root
@@ -161,6 +175,48 @@ needs_fields = {
                         "deprecated needs_statuses config — see "
                         "NEEDS_STATUS_ENUM above.",
         "schema": {"enum": NEEDS_STATUS_ENUM},
+        "nullable": True,
+    },
+    "asil": {
+        "description": "ISO 26262 Automotive Safety Integrity Level, "
+                        "assigned by a HARA to a Safety Goal (`sg`) and "
+                        "inherited down through the Functional/Technical "
+                        "Safety Concept (`fsr`/`tsr`) into whichever "
+                        "design (`comp`/`unit`) and test (`tc`/`itc`) "
+                        "needs actually implement or verify that chain. "
+                        "Populate only on needs inside a determined "
+                        "safety chain — do not set this on a need that "
+                        "hasn't gone through a HARA. As of this field's "
+                        "introduction, that's `SG_001`/`FSR_001`/"
+                        "`TSR_001` and the Communication-module needs "
+                        "they link into (`COMP_A_001`, `UNIT_A_001`, "
+                        "`TC_UNIT_A_001`, `ITC_COMP_A_001_001`) — all "
+                        "`ASIL B`. Diagnostics is deliberately left "
+                        "unset: functionalsafety/analyses/"
+                        "dependent-failure-analysis.rst records it as "
+                        "\"not yet assessed,\" and setting an ASIL there "
+                        "would assert a HARA outcome that hasn't "
+                        "happened.",
+        "schema": {"type": "string",
+                   "enum": ["QM", "ASIL A", "ASIL B", "ASIL C", "ASIL D"]},
+        "nullable": True,
+    },
+    "cal": {
+        "description": "ISO/SAE 21434 Cybersecurity Assurance Level, "
+                        "assigned to a cybersecurity goal derived from a "
+                        "TARA (clause 15). Registered here so the field "
+                        "exists the moment a real cybersecurity goal is "
+                        "modeled, but deliberately left unpopulated on "
+                        "every need today: needs/cybersecurity/tara/"
+                        "index.rst is an explicit empty stub (\"Nothing "
+                        "captured yet\") — there is no TARA-derived "
+                        "cybersecurity goal in this repo yet for a CAL "
+                        "to attach to. Do not set this on an org_req or "
+                        "any other need type as a placeholder; that "
+                        "would assert a TARA outcome that hasn't "
+                        "happened, the same reasoning as `asil` above.",
+        "schema": {"type": "string",
+                   "enum": ["CAL 1", "CAL 2", "CAL 3", "CAL 4"]},
         "nullable": True,
     },
     "standard": {

@@ -10,7 +10,8 @@ Component Integration Test Cases — Communication Manager Architecture
 .. itc:: Proxy layer wiring — serialization unit inside the component
    :id: ITC_COMP_A_001_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
+   :asil: ASIL B
    :verifies: COMP_A_001
 
    Verifies that ``UNIT_A_001`` (the proxy-layer serialization/

@@ -7,10 +7,7 @@ renders as part of this build, so every future change to either is a
 reviewable diff, not a redrawn image), the lifecycle model those diagrams
 describe, and the templates their "Guidance" elements refer to.
 
-.. toctree::
-   :maxdepth: 1
-
-   architecture
-   process_metamodel
-   lifecycle_model
-   templates/index
+See :doc:`architecture`, :doc:`process_metamodel`, :doc:`lifecycle_model`,
+and :doc:`templates/index` (all listed directly in the root sidebar, not
+nested under this page — see organisation/governance/index.rst's note on
+sidebar flattening).

@@ -496,6 +496,49 @@ actually run a real `-W` build of the root project's full tree
 (`doc/manuals/`) end to end; the `docs.yml` CI workflow that would have
 caught it is intentionally not `-W` yet either (see below).
 
+**Added this pass: `asil` and `cal` fields.** Both registered in
+`needs/conf.py`'s `needs_fields`, nullable, each constrained to a real
+schema enum (`asil`: `QM`/`ASIL A`/`ASIL B`/`ASIL C`/`ASIL D`; `cal`:
+`CAL 1`–`CAL 4`). Deliberately **not** stamped across every requirement —
+only where a real HARA or TARA outcome exists to back the value up,
+following the same standard's-own-rigor discipline as the rest of this
+pass. `:asil: ASIL B` is set on the seven needs that make up the
+determined safety chain and what it links into: `SG_001`, `FSR_001`,
+`TSR_001`, `COMP_A_001`, `UNIT_A_001`, `TC_UNIT_A_001`,
+`ITC_COMP_A_001_001`. Diagnostics is deliberately left unset —
+`functionalsafety/analyses/dependent-failure-analysis.rst` already
+records it as "not yet assessed," and setting an ASIL there would
+assert a HARA outcome that never happened. `cal` is registered but
+populated on nothing: `needs/cybersecurity/tara/index.rst` is an
+explicit empty stub with no `cyber_req`/`threat` need type yet, so
+there is no TARA-derived cybersecurity goal anywhere in this project
+for a CAL to attach to. See `needs/needs_types_definition.rst`'s new
+"Safety and cybersecurity classification" section for the full table
+and rationale. Re-verified with a real `-W` build afterward: `needs/`
+still builds with 0 warnings.
+
+**Added this pass: every requirement-shaped need set to `:status:
+proposed`.** All 82 needs in the same scope as the `:version: 1.0.0`
+pass above (`sys`/`feat`/`comp`/`unit`/`sg`/`fsr`/`tsr`/`eng_need`/
+`safefeat`/`rec`/`res`/`tc`/`itc` in `needs/`, `org_req` in the root
+project) were set to `proposed`, overwriting whatever they held before
+— unconditionally, per the instruction, not just moving `draft` forward.
+Worth being explicit about the consequence, since it's a real governance
+change, not just a label swap: **35 of these had been `approved`**, and
+that set includes the entire determined ISO 26262 safety chain
+(`SG_001`, `FSR_001`, `TSR_001`, `COMP_A_001`, `UNIT_A_001`,
+`TC_UNIT_A_001`, `ITC_COMP_A_001_001` — the same seven needs that just
+got `asil: ASIL B` above) and every stakeholder/business/operational
+`eng_need`. Those are now `proposed` again, i.e. reviewed-but-not-yet-
+approved, not draft. `risk`/`problem`/`change`/`exception`/`tool`/
+`infra` needs were deliberately left untouched — `proposed` is a
+document-maturity state and doesn't fit an issue-lifecycle entry like
+`CR_001` (`change`, still `approved`) or `PRB_001` (`problem`, still
+`open`). Re-verified afterward: both projects still build the same as
+before this change (`needs/` 0 warnings; root project's pre-existing 26
+warnings, all already disclosed above, unchanged), 0 broken links, no
+new orphans.
+
 **Still open (out of scope of a link/toctree fix — flagged, not fixed):**
 
 - Five identical "Process Description" template stubs

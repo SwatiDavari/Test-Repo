@@ -15,7 +15,7 @@ Target Capability Level Policy
 .. org_req:: Target capability level per process
    :id: ORG_QUALITY_CL_POLICY_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_ASPICE_PRM_001
 
    The organization shall define the target Capability Level
@@ -30,7 +30,7 @@ Quality Assurance Process Definition
 .. org_req:: Independent quality assurance process (SUP.1)
    :id: ORG_QUALITY_SUP1_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_ASPICE_PRM_001
 
    The organization shall define an organization-wide Quality
@@ -44,7 +44,7 @@ Competence Management
 .. org_req:: Process assessor and quality engineer competence
    :id: ORG_QUALITY_COMPETENCE_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_QUALITY_SUP1_001
 
    The organization shall ensure personnel performing process
@@ -59,7 +59,7 @@ Process Assessment & Improvement Program
 .. org_req:: Periodic process appraisal program
    :id: ORG_QUALITY_APPRAISAL_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_QUALITY_CL_POLICY_001
 
    The organization shall run periodic internal or external process
@@ -73,7 +73,7 @@ Tailoring Rules
 .. org_req:: Project-independent tailoring rules
    :id: ORG_QUALITY_TAILORING_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_ASPICE_PRM_001
 
    The organization shall define rules for tailoring the process
@@ -87,7 +87,7 @@ Safety & Cybersecurity Interface
 .. org_req:: Process quality alignment with safety and cybersecurity
    :id: ORG_QUALITY_SAFETY_INTERFACE_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_QUALITY_SUP1_001
 
    The organization's Automotive SPICE quality assurance activities

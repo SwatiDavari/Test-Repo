@@ -15,7 +15,7 @@ Stakeholder Needs
    :domain: functional
    :lifecycle_stage: stakeholder_needs
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :tags: communication
 
    Application developers need adaptive application instances to exchange
@@ -28,7 +28,7 @@ Stakeholder Needs
    :domain: functional
    :lifecycle_stage: stakeholder_needs
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :tags: diagnostics
 
    Application developers need adaptive application instances to discover
@@ -41,7 +41,7 @@ Stakeholder Needs
    :domain: safety
    :lifecycle_stage: stakeholder_needs
    :version: 1.0.0
-   :status: approved
+   :status: proposed
    :tags: safety
    :derives_from: SG_001
 

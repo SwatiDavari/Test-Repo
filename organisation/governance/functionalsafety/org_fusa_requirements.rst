@@ -1,5 +1,5 @@
-ISO 26262 Part 2 — Organizational Safety Requirements
-==========================================================
+Part 2 — Organizational Safety Requirements
+================================================
 
 These requirements apply at the **organization level** — independent
 of any single product or project — per ISO 26262 Part 2 (Management
@@ -13,7 +13,7 @@ Safety Culture
 .. org_req:: Safety culture policy
    :id: ORG_SAFETY_CULTURE_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ISO26262_2_5_4_2_1
 
    The organization shall establish and maintain a safety culture in
@@ -27,7 +27,7 @@ Safety Management System
 .. org_req:: Safety management system definition
    :id: ORG_SMS_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
 
    The organization shall define and maintain a safety management
    system describing roles, responsibilities, and processes for
@@ -36,7 +36,7 @@ Safety Management System
 .. org_req:: Project-independent tailoring rules
    :id: ORG_SMS_002
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_SMS_001
 
    The organization shall define rules for tailoring the safety
@@ -49,7 +49,7 @@ Competence Management
 .. org_req:: Safety competence and training
    :id: ORG_COMPETENCE_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_SMS_001
 
    The organization shall ensure personnel performing safety-related
@@ -62,7 +62,7 @@ Quality Management System Interface
 .. org_req:: Quality management system alignment
    :id: ORG_QMS_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_SMS_001
 
    The organization's quality management system shall support the
@@ -75,7 +75,7 @@ Confirmation Measures
 .. org_req:: Confirmation measures — audit, assessment, confirmation review
    :id: ORG_CONFIRMATION_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_SMS_001
 
    The organization shall define and perform, independent of the
@@ -88,7 +88,7 @@ Field Monitoring
 .. org_req:: Field monitoring process
    :id: ORG_FIELD_MONITORING_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_SMS_001
 
    The organization shall establish a process to monitor field data

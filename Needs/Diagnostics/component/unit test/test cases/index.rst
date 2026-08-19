@@ -14,7 +14,7 @@ Unit Test Cases — diagnostics
 .. tc:: Service registry advertise/lookup/withdraw — unit
    :id: TC_UNIT_Z_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :verifies: UNIT_Z_001
 
    Unit-level verification (no process boundary, no network, no

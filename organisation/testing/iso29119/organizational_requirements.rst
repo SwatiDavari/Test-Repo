@@ -1,5 +1,5 @@
-ISO/IEC/IEEE 29119 — Organizational Test Process Requirements
-====================================================================
+Organizational Test Process Requirements
+============================================
 
 These requirements apply at the **organization level** — independent of
 any single product or project — per ISO/IEC/IEEE 29119-2 (Test Processes).
@@ -19,7 +19,7 @@ Test Policy
 .. org_req:: Organizational test policy
    :id: ORG_TESTPOLICY_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :standard: ISO/IEC/IEEE 29119-2 — Organizational Test Process
 
    The organization shall define and maintain a test policy stating its
@@ -33,7 +33,7 @@ Organizational Test Strategy
 .. org_req:: Organizational test strategy
    :id: ORG_TESTSTRATEGY_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_TESTPOLICY_001
    :standard: ISO/IEC/IEEE 29119-2 — Organizational Test Process
 
@@ -48,7 +48,7 @@ Tester Competence
 .. org_req:: Tester competence and training
    :id: ORG_TESTCOMP_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_TESTPOLICY_001
 
    The organization shall ensure personnel performing test design,
@@ -63,7 +63,7 @@ Test Documentation Standards
 .. org_req:: Organizational test documentation standard
    :id: ORG_TESTDOC_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_TESTSTRATEGY_001
 
    The organization shall define the required test documentation set
@@ -78,7 +78,7 @@ Independent Test Function
 .. org_req:: Independence of test execution from development
    :id: ORG_TESTINDEPENDENCE_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_TESTPOLICY_001
 
    The organization shall define the minimum degree of independence
@@ -93,7 +93,7 @@ Continuous Improvement
 .. org_req:: Test process metrics and improvement
    :id: ORG_TESTMETRICS_001
    :version: 1.0.0
-   :status: draft
+   :status: proposed
    :derives_from: ORG_TESTSTRATEGY_001
 
    The organization shall collect test process metrics (e.g. defect
