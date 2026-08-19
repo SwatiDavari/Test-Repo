@@ -38,17 +38,7 @@ release = "1.0"
 # type" errors, confirmed by testing the exact CI invocation locally.
 # Needs/ is a separate Sphinx project with its own conf.py and its own CI
 # job (ci-needs.yml, working-directory: Needs) — it must stay excluded here.
-#
-# codelinks_sample/ is the same situation for the same reason: it's a third,
-# separate Sphinx project (its own conf.py, loads sphinx_codelinks, requires
-# Python >=3.12 — see codelinks_sample/README.md) built independently, never
-# as part of this root project. Without this exclusion, this project's own
-# build was scanning codelinks_sample/index.rst too and failing outright
-# with `ERROR: Unknown directive type "src-trace"` (sphinx_codelinks isn't,
-# and must not be, an extension of this conf.py) — confirmed by a real
-# build, not assumed. Added when that was found, not when codelinks_sample/
-# was first created — this exclusion was missed at the time.
-exclude_patterns = ["needs", "codelinks_sample", "_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["needs", "_build", "Thumbs.db", ".DS_Store"]
 
 needs_types = [
     dict(directive="org_req", prefix="ORG_", color="#B8003D", style="node",

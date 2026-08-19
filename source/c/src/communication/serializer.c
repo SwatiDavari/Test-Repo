@@ -5,7 +5,6 @@ size_t serializer_encoded_size(const message_t *msg) {
     return sizeof(int) + sizeof(size_t) + msg->payload_len;
 }
 
-// @Serialize a message into wire format, IMPL_C_SERIALIZER_ENCODE, impl, [UNIT_A_001]
 size_t serializer_encode(const message_t *msg, unsigned char *out_buf, size_t out_buf_size) {
     size_t needed = serializer_encoded_size(msg);
     if (out_buf_size < needed) {
@@ -22,7 +21,6 @@ size_t serializer_encode(const message_t *msg, unsigned char *out_buf, size_t ou
     return offset;
 }
 
-// @Deserialize a message from wire format, IMPL_C_SERIALIZER_DECODE, impl, [UNIT_A_001]
 int serializer_decode(const unsigned char *buf, size_t buf_size, message_t *out_msg) {
     if (buf_size < sizeof(int) + sizeof(size_t)) {
         return 0;
