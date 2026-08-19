@@ -12,6 +12,7 @@ Safety Culture
 
 .. org_req:: Safety culture policy
    :id: ORG_SAFETY_CULTURE_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ISO26262_2_5_4_2_1
 
@@ -25,6 +26,7 @@ Safety Management System
 
 .. org_req:: Safety management system definition
    :id: ORG_SMS_001
+   :version: 1.0.0
    :status: draft
 
    The organization shall define and maintain a safety management
@@ -33,6 +35,7 @@ Safety Management System
 
 .. org_req:: Project-independent tailoring rules
    :id: ORG_SMS_002
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_SMS_001
 
@@ -45,6 +48,7 @@ Competence Management
 
 .. org_req:: Safety competence and training
    :id: ORG_COMPETENCE_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_SMS_001
 
@@ -57,6 +61,7 @@ Quality Management System Interface
 
 .. org_req:: Quality management system alignment
    :id: ORG_QMS_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_SMS_001
 
@@ -69,6 +74,7 @@ Confirmation Measures
 
 .. org_req:: Confirmation measures — audit, assessment, confirmation review
    :id: ORG_CONFIRMATION_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_SMS_001
 
@@ -81,6 +87,7 @@ Field Monitoring
 
 .. org_req:: Field monitoring process
    :id: ORG_FIELD_MONITORING_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_SMS_001
 

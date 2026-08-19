@@ -76,7 +76,39 @@ needs_types = [
 # with no matching need. Registering it as a needs_extra_links option would
 # fail the dead-link gate on every clause citation. Kept as a free-text
 # field instead — same rationale as Needs/conf.py.
+#
+# Closed status vocabulary, enforced on the built-in `status` field via
+# needs_fields.status.schema.enum (below) rather than the older
+# needs_statuses list config — this installed sphinx-needs (8.3.1) logs
+# 'Config option "needs_statuses" is deprecated. Please use
+# "needs_fields.status.schema.enum"...' the moment needs_statuses is
+# non-empty (confirmed by an actual -W build), so needs_statuses was
+# never committed here. Combines two things that were previously both
+# free text: (a) the document-maturity states used by every requirement-
+# shaped need (draft/approved today, 70/35 real usages respectively),
+# copied from qorix-ik-main's qik-axon scaffold; and (b) the issue-
+# lifecycle states used by this project's own registers (risk/problem/
+# change), where `open` is the one real example in use today
+# (management/problem/problems.rst). Folded into one enum rather than
+# kept separate because the status field has no per-type schema — one
+# list, applying repo-wide, is all the mechanism allows. `open` is kept
+# distinct from `draft`: a problem/risk/change register entry being
+# "open" describes whether the issue itself is still active, not
+# whether its *text* has been reviewed. Kept identical to the same
+# constant in Needs/conf.py.
+NEEDS_STATUS_ENUM = [
+    "none", "draft", "proposed", "approved", "released", "deprecated",
+    "retired", "open", "closed", "resolved",
+]
+
 needs_fields = {
+    "status": {
+        "description": "Need status. Enum enforced via schema, not the "
+                        "deprecated needs_statuses config — see the "
+                        "comment above NEEDS_STATUS_ENUM.",
+        "schema": {"enum": NEEDS_STATUS_ENUM},
+        "nullable": True,
+    },
     "standard": {
         "description": "Standard/clause this need satisfies",
         "schema": {"type": "string"},
@@ -123,8 +155,17 @@ needs_fields = {
         "nullable": True,
     },
     "version": {
-        "description": "Pinned version string, when known "
-                        "(from tool_register.yml)",
+        "description": "Two distinct uses, disambiguated by need type: for "
+                        "`tool` needs, the pinned version string when known "
+                        "(from tool_register.yml) — most tools still have "
+                        "none, a real disclosed gap, see ORG_TOOLCFG_001. "
+                        "For every other requirement-shaped need type "
+                        "(org_req/sys/feat/comp/unit/sg/fsr/tsr/eng_need/"
+                        "safefeat/rec/res/tc/itc), a baseline content "
+                        "version (currently 1.0.0 on all of them, added in "
+                        "the same pass as the `status` enum above) — not "
+                        "a tool's version, the requirement text's own "
+                        "revision.",
         "schema": {"type": "string"},
         "nullable": True,
     },

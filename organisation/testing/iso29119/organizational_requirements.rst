@@ -18,6 +18,7 @@ Test Policy
 
 .. org_req:: Organizational test policy
    :id: ORG_TESTPOLICY_001
+   :version: 1.0.0
    :status: draft
    :standard: ISO/IEC/IEEE 29119-2 — Organizational Test Process
 
@@ -31,6 +32,7 @@ Organizational Test Strategy
 
 .. org_req:: Organizational test strategy
    :id: ORG_TESTSTRATEGY_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_TESTPOLICY_001
    :standard: ISO/IEC/IEEE 29119-2 — Organizational Test Process
@@ -45,6 +47,7 @@ Tester Competence
 
 .. org_req:: Tester competence and training
    :id: ORG_TESTCOMP_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_TESTPOLICY_001
 
@@ -59,6 +62,7 @@ Test Documentation Standards
 
 .. org_req:: Organizational test documentation standard
    :id: ORG_TESTDOC_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_TESTSTRATEGY_001
 
@@ -73,6 +77,7 @@ Independent Test Function
 
 .. org_req:: Independence of test execution from development
    :id: ORG_TESTINDEPENDENCE_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_TESTPOLICY_001
 
@@ -87,6 +92,7 @@ Continuous Improvement
 
 .. org_req:: Test process metrics and improvement
    :id: ORG_TESTMETRICS_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_TESTSTRATEGY_001
 

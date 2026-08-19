@@ -3,6 +3,7 @@ Publish-Subscribe Messaging
 
 .. feat:: Publish-Subscribe Messaging
    :id: FEAT_A_001
+   :version: 1.0.0
    :status: approved
    :satisfies: SYS_001
    :standard: ASPICE SWE.1 / ISO 15288 6.4.3

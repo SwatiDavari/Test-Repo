@@ -3,6 +3,7 @@ Prevent Unauthorized Message Delivery
 
 .. sg:: Prevent unauthorized message delivery
    :id: SG_001
+   :version: 1.0.0
    :status: approved
    :links: ORG_SMS_001
    :standard: ISO 26262-3 clause 6 (HARA)

@@ -3,6 +3,7 @@ Subscriber Authorization Check
 
 .. fsr:: Subscriber authorization check
    :id: FSR_001
+   :version: 1.0.0
    :status: approved
    :links: SG_001
    :standard: ISO 26262-3 clause 8 (Functional Safety Concept)

@@ -3,6 +3,7 @@ Inter-Application Communication and Service Discovery
 
 .. sys:: Inter-application communication and service discovery
    :id: SYS_001
+   :version: 1.0.0
    :status: approved
    :standard: ASPICE SYS.2 / ISO 15288 6.4.3 System Requirements Definition
 

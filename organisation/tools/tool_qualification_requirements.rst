@@ -11,6 +11,7 @@ as open versus actually done.
 
 .. org_req:: Tool versions are pinned where correctness depends on them
    :id: ORG_TOOLCFG_001
+   :version: 1.0.0
    :status: draft
    :links: ORG_TOOLREG_001
    :standard: ASPICE SUP.8/SUP.9 tool qualification
@@ -28,6 +29,7 @@ as open versus actually done.
 
 .. org_req:: Tool Confidence Level is determined for qualification-relevant tools
    :id: ORG_TOOLQUAL_001
+   :version: 1.0.0
    :status: draft
    :links: ORG_TOOLREG_001
    :standard: ISO 26262-8 clause 11.4.5-11.4.7

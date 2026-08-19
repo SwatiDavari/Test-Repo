@@ -11,6 +11,7 @@ Business Needs
    :kind: need
    :domain: business
    :lifecycle_stage: stakeholder_needs
+   :version: 1.0.0
    :status: approved
    :derives_from: NEED_COMM_001
 

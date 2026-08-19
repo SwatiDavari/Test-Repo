@@ -13,6 +13,7 @@ Unit Test Cases — diagnostics
 
 .. tc:: Service registry advertise/lookup/withdraw — unit
    :id: TC_UNIT_Z_001
+   :version: 1.0.0
    :status: draft
    :verifies: UNIT_Z_001
 

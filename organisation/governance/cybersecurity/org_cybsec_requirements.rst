@@ -13,6 +13,7 @@ Cybersecurity Governance
 
 .. org_req:: Cybersecurity governance policy
    :id: ORG_CYBERSEC_GOVERNANCE_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ISO21434_5_4_1
 
@@ -26,6 +27,7 @@ Cybersecurity Culture
 
 .. org_req:: Cybersecurity culture policy
    :id: ORG_CYBERSEC_CULTURE_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ISO21434_5_4_2
 
@@ -39,6 +41,7 @@ Information Sharing
 
 .. org_req:: Cybersecurity information sharing process
    :id: ORG_CYBERSEC_INFOSHARE_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ISO21434_5_4_3
 
@@ -53,6 +56,7 @@ Cybersecurity Management System
 
 .. org_req:: Cybersecurity management system definition
    :id: ORG_CSMS_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ISO21434_5_4_4
 
@@ -63,6 +67,7 @@ Cybersecurity Management System
 
 .. org_req:: Project-independent tailoring rules
    :id: ORG_CSMS_002
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_CSMS_001
 
@@ -77,6 +82,7 @@ Tool Management
 
 .. org_req:: Cybersecurity tool management
    :id: ORG_CYBERSEC_TOOL_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ISO21434_5_4_5
 
@@ -91,6 +97,7 @@ Information Security Management
 
 .. org_req:: Information security management alignment
    :id: ORG_ISM_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ISO21434_5_4_6
 
@@ -104,6 +111,7 @@ Organizational Cybersecurity Audit
 
 .. org_req:: Cybersecurity audit — audit, assessment, review
    :id: ORG_CYBERSEC_AUDIT_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ISO21434_5_4_7
 
@@ -117,6 +125,7 @@ Continuous Cybersecurity Monitoring
 
 .. org_req:: Continuous cybersecurity monitoring process
    :id: ORG_CYBERSEC_MONITORING_001
+   :version: 1.0.0
    :status: draft
    :derives_from: ORG_CSMS_001
 

@@ -3,6 +3,7 @@ Service Registry Unit
 
 .. unit:: Service Registry Unit
    :id: UNIT_Z_001
+   :version: 1.0.0
    :status: approved
    :satisfies: COMP_Z_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5

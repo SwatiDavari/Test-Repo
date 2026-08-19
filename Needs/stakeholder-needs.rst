@@ -14,6 +14,7 @@ Stakeholder Needs
    :kind: need
    :domain: functional
    :lifecycle_stage: stakeholder_needs
+   :version: 1.0.0
    :status: approved
    :tags: communication
 
@@ -26,6 +27,7 @@ Stakeholder Needs
    :kind: need
    :domain: functional
    :lifecycle_stage: stakeholder_needs
+   :version: 1.0.0
    :status: approved
    :tags: diagnostics
 
@@ -38,6 +40,7 @@ Stakeholder Needs
    :kind: need
    :domain: safety
    :lifecycle_stage: stakeholder_needs
+   :version: 1.0.0
    :status: approved
    :tags: safety
    :derives_from: SG_001

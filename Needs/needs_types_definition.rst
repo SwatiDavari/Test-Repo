@@ -192,6 +192,60 @@ identically to ``:links:`` (verified with a real ``-W`` build), and
 ``tools/check_broken_links.py`` / ``tools/check_orphan_needs.py`` were
 updated in the same change to inspect all of them, not just ``links``.
 
+Status and version
+---------------------
+
+``needs_statuses`` (``conf.py``) is a closed vocabulary, combined from two
+sources because sphinx-needs' status list is global rather than scoped
+per need type: the qik document-maturity states, and the issue-lifecycle
+states this project's imported ``risk``/``problem``/``change`` types use.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Status
+     - Meaning
+   * - ``none``
+     - No status has been set yet.
+   * - ``draft``
+     - Drafted, not yet reviewed.
+   * - ``proposed``
+     - Reviewed and proposed for approval.
+   * - ``approved``
+     - Approved; considered ready to implement against.
+   * - ``released``
+     - Released as part of a baselined revision.
+   * - ``deprecated``
+     - Superseded; kept for traceability, no longer to be implemented
+       against.
+   * - ``retired``
+     - No longer applicable; retained for historical record only.
+   * - ``open``
+     - Issue-register entry (risk/problem/change) still
+       active/unresolved.
+   * - ``closed``
+     - Issue-register entry closed without a recorded resolution outcome.
+   * - ``resolved``
+     - Issue-register entry closed with a recorded resolution outcome.
+
+Only ``draft``, ``approved``, and ``open`` are actually in use today (70,
+35, and 1 real occurrences respectively) — the rest of the list exists so
+a future status change doesn't require a ``conf.py`` edit, not because
+those states are already exercised. ``open`` is kept distinct from
+``draft`` deliberately: it describes whether a register entry is still
+active, not whether its text has been reviewed.
+
+``:version:`` (``needs_fields``) now carries ``1.0.0`` on every native
+requirement-shaped need in this project (``sys``/``feat``/``comp``/
+``unit``/``sg``/``fsr``/``tsr``/``eng_need``/``safefeat``/``rec``/``res``/
+``tc``/``itc``) — a content baseline version, distinct from the pinned
+tool-version meaning the same field already had for the external ``tool``
+type. Deliberately not added to the imported ``risk``/``problem``/
+``change``/``exception``/``infra`` types, or to ``tool`` (which already
+uses ``version`` for something else) — see the field's description in
+``conf.py`` for the exact split.
+
 Where the ID format comes from
 ---------------------------------
 

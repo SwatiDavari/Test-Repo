@@ -9,6 +9,7 @@ Component Integration Test Cases — Service Discovery Architecture
 
 .. itc:: Registry wiring — registry unit inside the component
    :id: ITC_COMP_Z_001_001
+   :version: 1.0.0
    :status: draft
    :verifies: COMP_Z_001
 

@@ -144,7 +144,25 @@ needs_types = [
 # the same reason and for consistency between the two conf.py files, even
 # though every derives_from usage actually inside Needs/ today happens to
 # cite a real eng_need id.
+#
+# Closed status vocabulary, kept identical to the constant of the same
+# name in root conf.py — see that file's comment for the full rationale
+# (needs_statuses is deprecated in this installed sphinx-needs (8.3.1);
+# needs_fields.status.schema.enum is the replacement, confirmed by an
+# actual -W build).
+NEEDS_STATUS_ENUM = [
+    "none", "draft", "proposed", "approved", "released", "deprecated",
+    "retired", "open", "closed", "resolved",
+]
+
 needs_fields = {
+    "status": {
+        "description": "Need status. Enum enforced via schema, not the "
+                        "deprecated needs_statuses config — see "
+                        "NEEDS_STATUS_ENUM above.",
+        "schema": {"enum": NEEDS_STATUS_ENUM},
+        "nullable": True,
+    },
     "standard": {
         "description": "Standard/clause this need satisfies",
         "schema": {"type": "string"},
@@ -260,8 +278,17 @@ needs_fields = {
         "nullable": True,
     },
     "version": {
-        "description": "Pinned version string, when known "
-                        "(from tool_register.yml)",
+        "description": "Two distinct uses, disambiguated by need type: for "
+                        "the external `tool` type (imported only, see "
+                        "needs_external_needs above), the pinned version "
+                        "string when known. For every requirement-shaped "
+                        "type native to this project (sys/feat/comp/unit/"
+                        "sg/fsr/tsr/eng_need/safefeat/rec/res/tc/itc), a "
+                        "baseline content version (currently 1.0.0 on all "
+                        "of them, added in the same pass as the `status` "
+                        "enum above) — not a tool's version, the "
+                        "requirement text's own revision. Kept identical "
+                        "to root conf.py's copy.",
         "schema": {"type": "string"},
         "nullable": True,
     },
@@ -339,6 +366,10 @@ needs_links = {
     "belongs_to":   {"incoming": "consists of",       "outgoing": "belongs_to"},
     "consists_of":  {"incoming": "belongs to",        "outgoing": "consists_of"},
 }
+
+# (Status enum lives at the top of this file, in NEEDS_STATUS_ENUM /
+# needs_fields["status"] — not here as needs_statuses, which this
+# installed sphinx-needs treats as deprecated.)
 
 # Every need must declare at least one upstream link via the built-in
 # `links` option or one of the named types above (sys <- feat <- comp <-

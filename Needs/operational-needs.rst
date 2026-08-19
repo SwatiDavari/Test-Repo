@@ -11,6 +11,7 @@ Operational Needs
    :kind: need
    :domain: operational
    :lifecycle_stage: stakeholder_needs
+   :version: 1.0.0
    :status: approved
    :derives_from: NEED_DISC_001
 

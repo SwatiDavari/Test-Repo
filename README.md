@@ -437,6 +437,65 @@ as new orphans the moment `:satisfies:`/`:verifies:` replaced their
 files) — re-verified with a real build afterward showing 0 broken links
 and no new orphans.
 
+**Added this pass: closed `status` vocabulary + `:version: 1.0.0` on
+requirement-shaped needs.** Both `conf.py` and `needs/conf.py` now
+constrain the built-in `status` field to a fixed 10-value enum (`none`/
+`draft`/`proposed`/`approved`/`released`/`deprecated`/`retired`, the qik
+document-maturity states, folded together with `open`/`closed`/
+`resolved`, this project's own issue-lifecycle states used by the
+`risk`/`problem`/`change` registers). The two sets had to be one list:
+sphinx-needs has no per-type status schema, so a status field is either
+unconstrained repo-wide or constrained repo-wide.
+
+This is enforced as `needs_fields["status"]["schema"]["enum"]`
+(`NEEDS_STATUS_ENUM` in both `conf.py` files), **not** the
+`needs_statuses` config option the qik scaffold uses — the installed
+sphinx-needs here (8.3.1) logs `Config option "needs_statuses" is
+deprecated. Please use "needs_fields.status.schema.enum"...` under a
+real `-W` build the moment `needs_statuses` is non-empty. Caught by
+actually building, not by copying the qik pattern uncritically. Every
+existing `:status:` value in the repo (`draft` ×70, `approved` ×35,
+`open` ×1) is a member of the enum, so this is non-breaking today; it
+only starts rejecting anything going forward that isn't one of the ten.
+
+`:version: 1.0.0` was added to every need of a native, requirement-
+shaped type — `sys`/`feat`/`comp`/`unit`/`sg`/`fsr`/`tsr`/`eng_need`/
+`safefeat`/`rec`/`res`/`tc`/`itc` in `needs/`, `org_req` in the root
+project — 82 needs across 26 files, mechanically via a script that
+inserts the field right after each need's `:status:` line and reports
+what it touched (verified against the printed report before trusting
+it: 0 needs of a target type had no `:status:` line to anchor on, 0
+already had a `version`). Deliberately **not** added to `risk`/
+`problem`/`change`/`exception`/`infra` (issue-register entries, not
+versioned requirement text) or to `tool` (where `version` already means
+the tool's own pinned version, per the field's pre-existing
+description — adding a baseline "1.0.0" there would read as a false
+claim that a tool's version is pinned when for most tools it isn't, see
+`ORG_TOOLCFG_001`). The `version` field's description in both `conf.py`
+files was updated to spell out this dual meaning, since it previously
+only documented the tool-pinned-version half. Re-verified with real
+`-W` builds of both projects afterward: `needs/` builds with 0
+warnings (19 native needs, all 19 carrying `version`); the root
+project's own count is 67 versioned needs (54 `org_req` newly
+versioned this pass, plus 6 more from `organizational_requirements.rst`,
+plus 7 `tool` needs that already had a pinned `version` from before,
+left untouched).
+
+Found while verifying this change, not caused by it, and **not fixed**
+(out of scope — see the next section): the root project's own `-W`
+build errors on `doc/manuals/safety/safety_user_manual.rst` with
+`Unknown directive type "safefeat"` (and `"rec"`/`"res"`) — that file
+lives in the root project's tree (`doc/`, not excluded) but uses need
+types that are only registered in `needs/conf.py`, not in root
+`conf.py`. Every `:need:`/`:need:` cross-reference in that file to
+`TSR_001`/`SAFEFEAT_A_001` renders as "Unknown need" rather than a real
+link as a result. This predates this pass — the `:version:`/`:status:`
+edits made to that file's `safefeat`/`rec`/`res` entries didn't create
+or worsen it — and was never caught before because no prior pass had
+actually run a real `-W` build of the root project's full tree
+(`doc/manuals/`) end to end; the `docs.yml` CI workflow that would have
+caught it is intentionally not `-W` yet either (see below).
+
 **Still open (out of scope of a link/toctree fix — flagged, not fixed):**
 
 - Five identical "Process Description" template stubs
@@ -532,11 +591,13 @@ work — this correction exists so that claim isn't taken at face value.
   `:verifies:`, etc.) — verified directly, not assumed.
 - `.github/workflows/docs.yml` (root project, **as delivered, not yet
   placed** — see the correction above): the main `html` build is
-  intentionally not `-W` (see the two disclosed content gaps above —
-  turning `-W` on would fail on those, not on anything link-related),
-  but two dedicated, unconditional steps gate the traceability graph
-  specifically — `tools/check_broken_links.py` (any dead link-type field
-  target fails, no exceptions — verified clean across all 86 needs) and
+  intentionally not `-W` (see the three disclosed content gaps above —
+  the two pre-existing ones plus the newly-found `safefeat`/`rec`/`res`
+  registration gap — turning `-W` on would fail on those, not on
+  anything link-related), but two dedicated, unconditional steps gate
+  the traceability graph specifically — `tools/check_broken_links.py`
+  (any dead link-type field target fails, no exceptions — verified
+  clean across all 86 needs) and
   `tools/check_orphan_needs.py --baseline tools/orphan_baseline.json`
   (any orphan not already in the baseline fails). Neither is wrapped in
   `|| echo "::warning::..."` anymore. Both scripts now check every field
