@@ -53,7 +53,7 @@ Unit template
 Populated examples
 --------------------
 
-For each template applied to a real module, see ``Needs/systemslifecycle/sys_001.rst``,
-``Needs/Communication/feature/feat_a_001.rst``,
-``Needs/Communication/component/comp_a_001.rst``, and
-``Needs/Communication/unit design/unit_a_001.rst``.
+For each template applied to a real module, see ``needs/systemslifecycle/index.rst``,
+``needs/communication/feature/index.rst``,
+``needs/communication/component/index.rst``, and
+``needs/communication/component/unit design/units.rst``.

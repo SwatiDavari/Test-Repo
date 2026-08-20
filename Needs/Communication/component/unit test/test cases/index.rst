@@ -2,13 +2,9 @@ Unit Test Cases — communication
 ==================================
 
 .. note::
-   This folder previously contained a byte-for-byte copy of the root
-   ``test/`` tree's system-level content (``TC_SYS_STARTUP_001``,
-   referencing ``SYS_001`` and an OTA-firmware scenario unrelated to this
-   module). Rewritten to actually cover this module's unit-level design,
-   ``UNIT_A_001`` — and, this pass, converted from a plain prose
-   "Covers: UNIT_A_001" line into a real ``tc`` need below, so the link
-   to ``UNIT_A_001`` is dead-link-checked instead of just narrative text.
+   Covers this module's unit-level design, ``UNIT_A_001``, via a real
+   ``tc`` need below rather than free-text prose, so the link is
+   dead-link-checked.
 
 .. warning::
    Content mismatch, flagged not silently fixed: ``UNIT_A_001`` ("Proxy
@@ -33,7 +29,7 @@ Unit Test Cases — communication
    timeout): given a message payload and a subscriber callback
    registered on a topic, confirm the routine delivers the exact payload
    to that callback exactly once and does not invoke callbacks
-   registered on other topics. See :doc:`../../../feature/feat_a_001` for
+   registered on other topics. See :doc:`../../../feature/index` for
    the corresponding end-to-end (feature-level) verification of the same
    behavior across a real timeout window, which belongs in
    ``integration test/`` at the root, not here.

@@ -30,7 +30,7 @@ been performed yet — see :need:`ORG_TOOLQUAL_001`.
    Every ``tool`` need below already declared ``:links: ORG_TOOLREG_001``
    before this need existed, which made ``ORG_TOOLREG_001`` a dead link
    on all 20 of them — the same dead-link pattern found and fixed at
-   ``SYS_001`` (see ``needs/systemslifecycle/sys_001.rst``), one layer
+   ``SYS_001`` (see ``needs/systemslifecycle/index.rst``), one layer
    up, in the organizational graph instead of the product graph. Found
    by actually building this project with the external-needs pipeline
    wired up end to end, not by static file inspection. Added here as

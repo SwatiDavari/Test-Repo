@@ -147,6 +147,9 @@ needs_types = [
     dict(directive="infra", prefix="INFRA_", color="#455A64", style="node",
          title="Infrastructure Element — ISO/IEC/IEEE 15288 clause 6.2.2, "
                 "outcome (b): infrastructure identified and specified"),
+    dict(directive="decision", prefix="DEC_", color="#F9A825", style="node",
+         title="Decision Record — architecture/engineering decision, "
+                "proposed or accepted, with context and options considered"),
 ]
 
 # Free-text fields on needs.

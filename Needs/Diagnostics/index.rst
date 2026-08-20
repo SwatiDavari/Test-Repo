@@ -5,5 +5,5 @@ Module Z — Service Discovery
    :maxdepth: 1
 
    process_description
-   feature/feat_z_001
+   feature/index
    component/index

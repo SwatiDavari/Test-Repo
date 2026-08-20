@@ -1,25 +1,24 @@
 Communication Manager — Component
 =======================================
 
-.. note::
-   This file previously contained a byte-identical duplicate of
-   ``Needs/Communication/feature/index.rst`` — the same orphaned
-   ``FEAT_DIAGNOSTICS_001`` stub. Replaced with real content and wired
-   into :doc:`../index`.
+Register of component-level (``comp``) design for the Communication
+module — one file per module, not one file per component.
+
+.. comp:: Communication Manager Architecture
+   :id: COMP_A_001
+   :version: 1.0.0
+   :status: proposed
+   :asil: ASIL B
+   :satisfies: FEAT_A_001
+   :standard: ASPICE SWE.2 / ISO 15288 6.4.4
+
+   Defines the structural decomposition of the communication manager into
+   proxy, skeleton, and binding layers.
 
 .. toctree::
    :maxdepth: 1
 
-   comp_a_001
    requirements/index
-   itc_comp_a_001
-   unit design/unit_a_001
+   integration_test_cases
+   unit design/units
    unit test/index
-
-.. note::
-   ``unit design/`` and ``unit test/`` are wired in from here, not the
-   module-level ``../index.rst`` — matching
-   ``diagnostics/component/index.rst``'s layout and its own note on the
-   same point. ``../index.rst`` previously (and incorrectly) tried to
-   reference them one level too shallow; fixed there, added here,
-   verified with a real ``-W`` build.
