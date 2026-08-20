@@ -9,12 +9,14 @@
 # pulled out here as a standalone, reusable script instead of living only
 # as YAML, so it can be run locally too.
 #
-# There is no separate "governance" repo to fetch from: the root project
-# (this same repo, built from repo root) is the org_req source of truth.
-# needs/ imports its exported needs.json as external-need citations so
-# needs/'s own :links: fields can point at a real, checked org_req id
-# instead of unenforced free-text — see needs/conf.py's own comment on
-# needs_external_needs for the mechanics.
+# organisation/ (org_req's home) is no longer part of this repo — it's
+# owned by Org_processes and only ever materialized locally by
+# scripts/sync_org_content.sh (gitignored, never committed here; see
+# scripts/README.md). This script used to assume organisation/ was always
+# present because it was committed; now it checks for it explicitly and
+# fails fast with a clear message instead of silently exporting zero
+# org_req needs, which would make every `:links: ORG_*` citation in
+# needs/ resolve as broken with no obvious cause.
 #
 # Requires the root project's own doc-build dependencies (see
 # .github/workflows/ci-needs.yml's "Install root-project deps" step):
@@ -33,6 +35,13 @@ DEST_FILE="${DEST_DIR}/org_needs.json"
 BUILD_DIR="${REPO_ROOT}/_build/org_needs"
 
 cd "${REPO_ROOT}"
+
+if [[ ! -d "${REPO_ROOT}/organisation/governance" ]]; then
+  echo "error: organisation/governance/ not found — org_req needs live there and it's not present." >&2
+  echo "       organisation/ is no longer committed to this repo (owned by Org_processes now)." >&2
+  echo "       Run scripts/sync_org_content.sh first, then re-run this script." >&2
+  exit 1
+fi
 
 echo "-- building root project's needs export (org_req, risk, problem, change, exception, tool, infra)"
 sphinx-build -b needs . "${BUILD_DIR}"

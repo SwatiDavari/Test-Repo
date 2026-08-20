@@ -1,7 +1,12 @@
 {
 	"folders": [
 		{
+			"name": "test_repo",
 			"path": "."
+		},
+		{
+			"name": "Org_processes",
+			"path": "../Org_processes"
 		}
 	],
 	"settings": {

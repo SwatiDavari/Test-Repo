@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 bazel-*
 .DS_Store
+
+# organisation/ moved to the Org_processes repo (owned by the org/governance
+# team) as the single source of truth. Regenerated locally before a build by
+# scripts/sync_org_content.sh — never committed here. See scripts/README.md.
+organisation/

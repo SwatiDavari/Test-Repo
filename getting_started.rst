@@ -51,6 +51,29 @@ render ``.. uml::`` diagrams. Skip this unless you're editing one:
 Then point ``conf.py``'s ``plantuml`` setting at your downloaded
 ``plantuml.jar``.
 
+Populate organisation/ (governance content, from Org_processes)
+------------------------------------------------------------------
+
+``organisation/`` is no longer committed to this repo — it's owned by the
+Org_processes repo (a different team) and is only ever generated on disk
+locally, never checked in. ``qorix-engg.code-workspace`` already mounts
+Org_processes as a sibling root folder; ``scripts/sync_org_content.sh``
+copies its governance folders into ``organisation/`` from there by
+default. Run this before building the root project or refreshing
+``needs/_external_needs/org_needs.json`` — both need
+``organisation/governance/`` physically present:
+
+.. code-block:: bat
+
+   scripts\sync_org_content.sh
+
+.. note::
+   This only works if you have a local checkout of Org_processes next to
+   this repo (as the workspace file assumes). Org_processes isn't yet its
+   own pushed GitHub repository, so CI (``docs.yml``, ``ci-needs.yml``)
+   does **not** run this step yet and will fail on a missing
+   ``organisation/`` until that's set up — see ``scripts/README.md``.
+
 Build the documentation
 -------------------------
 
