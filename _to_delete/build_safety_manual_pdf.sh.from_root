@@ -1,17 +1,16 @@
 #!/bin/bash
-# scripts/build_safety_manual_pdf.sh
-#
 # Build the Qorix-branded Safety User Manual PDF from
 # needs/communication/safety_user_manual.rst via Sphinx's own LaTeX builder
 # (required -- Sphinx-Needs directives like .. safefeat:: are NOT understood
 # by plain Pandoc, which silently drops their content).
 #
-# Kept in scripts/ alongside build_needs.sh and fetch_external_needs.sh
-# rather than at repo root -- .github/workflows/safety_user_manual_pdf.yml
-# has been updated to call it here (see that file's "paths" triggers and
-# its "run: bash ./scripts/build_safety_manual_pdf.sh" step).
+# Moved here from scripts/ to repo root because .github/workflows/
+# safety_user_manual_pdf.yml already expects this exact path
+# ("run: bash ./build_safety_manual_pdf.sh", triggered on the root-level
+# path "build_safety_manual_pdf.sh") -- it was never actually reachable
+# from scripts/.
 #
-# KNOWN GAP, not fixed by this change: needs/conf.py's latex_documents entry
+# KNOWN GAP, not fixed by this move: needs/conf.py's latex_documents entry
 # for this manual points at needs/communication/safety_user_manual.rst,
 # which does not exist in this repo today. The only real safety-manual
 # content currently lives at doc/manuals/safety/safety_user_manual.rst, in
@@ -21,14 +20,11 @@
 # this script -- and the safety_user_manual_pdf.yml CI job that calls it --
 # will fail at the sphinx-build step below.
 #
-# Run from anywhere (repo root, scripts/, or invoked directly) -- resolves
-# needs/ relative to this script's own location, not the caller's cwd.
+# Run from repo root (also works run from inside needs/, or invoked
+# directly -- see the cd fallback below).
 # Produces needs/_build/latex/qorix_module_a_safety_user_manual.pdf
 set -euo pipefail
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
-cd "${REPO_ROOT}/needs"
+cd "$(dirname "${BASH_SOURCE[0]}")/needs" 2>/dev/null || cd needs
 
 rm -rf _build/latex
 sphinx-build -b latex . _build/latex

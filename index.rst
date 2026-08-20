@@ -104,6 +104,12 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
 
 .. toctree::
    :maxdepth: 1
+   :caption: Decision Records
+
+   decision records/decision_register
+
+.. toctree::
+   :maxdepth: 1
    :caption: Traceability (organizational requirements only)
 
    needs_types_definition

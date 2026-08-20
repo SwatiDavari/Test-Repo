@@ -1,79 +1,51 @@
 #!/usr/bin/env bash
-# tools/fetch_external_needs.sh
+# scripts/fetch_external_needs.sh
 #
-# Pull the central qorix-governance repo's published needs.json at the
-# version pinned in .qik/governance.lock, and place it where needs/conf.py's
+# Export this repo's own root-project needs (org_req, risk, problem, change,
+# exception, tool, infra) and place the result where needs/conf.py's
 # needs_external_needs expects it: needs/_external_needs/org_needs.json.
+# This is the exact mechanism the real "Export organisation/governance/
+# needs.json" step of .github/workflows/ci-needs.yml already runs inline —
+# pulled out here as a standalone, reusable script instead of living only
+# as YAML, so it can be run locally too.
 #
-# This is the cross-repo generalization of the mechanism test_repo already
-# runs *inside one repo* (root project's org_req needs exported into
-# Needs/_external_needs/org_needs.json, per the existing ci-needs.yml job)
-# — same idea, just fetching a GitHub Release asset from a separate repo
-# instead of building a local Sphinx project first.
+# There is no separate "governance" repo to fetch from: the root project
+# (this same repo, built from repo root) is the org_req source of truth.
+# needs/ imports its exported needs.json as external-need citations so
+# needs/'s own :links: fields can point at a real, checked org_req id
+# instead of unenforced free-text — see needs/conf.py's own comment on
+# needs_external_needs for the mechanics.
 #
-# Requires: gh (GitHub CLI), authenticated with read access to
-# qorix/qorix-governance.
+# Requires the root project's own doc-build dependencies (see
+# .github/workflows/ci-needs.yml's "Install root-project deps" step):
+#   pip install sphinx sphinx-needs sphinxcontrib-plantuml Pillow
+#   apt-get install -y default-jre-headless graphviz plantuml
+# Not installed by this script — it assumes the environment already has
+# them (matching how ci-needs.yml itself separates the two steps).
 #
-# Usage: tools/fetch_external_needs.sh [--version X.Y.Z]
-#   Without --version, reads the pinned version from .qik/governance.lock.
+# Usage: scripts/fetch_external_needs.sh
 
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-LOCK_FILE="${REPO_ROOT}/.qik/governance.lock"
 DEST_DIR="${REPO_ROOT}/needs/_external_needs"
 DEST_FILE="${DEST_DIR}/org_needs.json"
-GOVERNANCE_REPO="qorix/qorix-governance"
-VERSION=""
+BUILD_DIR="${REPO_ROOT}/_build/org_needs"
 
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    --version) VERSION="$2"; shift 2 ;;
-    --repo) GOVERNANCE_REPO="$2"; shift 2 ;;
-    *) echo "unknown argument: $1" >&2; exit 2 ;;
-  esac
-done
+cd "${REPO_ROOT}"
 
-if [[ -z "${VERSION}" ]]; then
-  if [[ ! -f "${LOCK_FILE}" ]]; then
-    echo "error: no --version given and ${LOCK_FILE} does not exist" >&2
-    exit 1
-  fi
-  VERSION="$(grep -E '^version\s*=' "${LOCK_FILE}" | head -n1 | sed -E 's/^version\s*=\s*"?([^"[:space:]]+)"?.*/\1/')"
-  if [[ -z "${VERSION}" ]]; then
-    echo "error: could not parse a version out of ${LOCK_FILE}" >&2
-    echo "       expected a line like: version = \"1.4.0\"" >&2
-    exit 1
-  fi
-fi
+echo "-- building root project's needs export (org_req, risk, problem, change, exception, tool, infra)"
+sphinx-build -b needs . "${BUILD_DIR}"
 
-echo "-- fetching ${GOVERNANCE_REPO} @ v${VERSION} needs.json"
-
-if ! command -v gh >/dev/null 2>&1; then
-  echo "error: gh (GitHub CLI) is required — https://cli.github.com/" >&2
+if [[ ! -f "${BUILD_DIR}/needs.json" ]]; then
+  echo "error: expected ${BUILD_DIR}/needs.json was not produced" >&2
   exit 1
 fi
 
 mkdir -p "${DEST_DIR}"
-TMP_FILE="$(mktemp)"
-trap 'rm -f "${TMP_FILE}"' EXIT
+cp "${BUILD_DIR}/needs.json" "${DEST_FILE}"
 
-if ! gh release download "v${VERSION}" \
-      --repo "${GOVERNANCE_REPO}" \
-      --pattern "needs.json" \
-      --output "${TMP_FILE}" \
-      --clobber; then
-  echo "error: could not download needs.json for v${VERSION} from ${GOVERNANCE_REPO}" >&2
-  echo "       check that the release/tag exists and gh is authenticated" >&2
-  exit 1
-fi
-
-python3 -c "import json,sys; json.load(open(sys.argv[1]))" "${TMP_FILE}" \
-  || { echo "error: downloaded file is not valid JSON" >&2; exit 1; }
-
-mv "${TMP_FILE}" "${DEST_FILE}"
-trap - EXIT
-
-echo "-- wrote ${DEST_FILE} (governance v${VERSION})"
-echo "   .gitignore should exclude needs/_external_needs/ — this file is"
-echo "   fetched at build time, never committed."
+echo "-- wrote ${DEST_FILE}"
+echo "   needs/_external_needs/ is CI-generated, never committed — matches"
+echo "   needs/conf.py's own comment on needs_external_needs. Re-run this"
+echo "   any time root-project needs change before building needs/."

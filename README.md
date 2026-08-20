@@ -646,3 +646,19 @@ work — this correction exists so that claim isn't taken at face value.
   `|| echo "::warning::..."` anymore. Both scripts now check every field
   in `needs_links` (see the named-link section above), not just the
   built-in `links` field.
+
+**Added this pass: `THIRD_PARTY_NOTICES.md`.** A technical inventory of
+the third-party software this repo's own manifests and CI workflows name
+directly (Sphinx, sphinx-needs, furo, sphinxcontrib-plantuml, Pillow,
+PlantUML, Graphviz, the OpenJDK JRE, each `source/<language>/`
+sub-project's dev/test tooling, Bazel, and the GitHub Actions used),
+with each license taken from that package's own published metadata —
+checked directly (installed package metadata, apt `copyright` files, and
+upstream `LICENSE` files), not recalled from memory. Deliberately does
+**not** enumerate the full transitive dependency tree (e.g.
+`sphinx-needs`'s own further runtime dependencies) — none of this repo's
+manifests pin exact versions, so that tree isn't fixed or reproducible
+today, and the file says so explicitly rather than faking completeness.
+Marked as draft, mirroring `LICENSE`'s own "not yet reviewed by Legal/IP
+counsel" status — this is a starting inventory for that review, not a
+substitute for it.

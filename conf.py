@@ -68,6 +68,18 @@ needs_types = [
     dict(directive="infra", prefix="INFRA_", color="#455A64", style="node",
          title="Infrastructure Element — ISO/IEC/IEEE 15288 clause 6.2.2, "
                 "outcome (b): infrastructure identified and specified"),
+
+    # decision records/ (repo root) — same migration shape as tool above:
+    # a lightweight ADR/MADR-style record, now a real need instead of a
+    # loose Markdown file this build never parses (no myst_parser/
+    # recommonmark is registered in extensions above, so a bare .md under
+    # "decision records/" would sit outside the build entirely). Body text
+    # carries the ADR's Context / Decision drivers / Options considered /
+    # Decision outcome / Consequences sections as ordinary RST prose inside
+    # the directive, the same way org_req and tool bodies already do.
+    dict(directive="decision", prefix="DEC_", color="#F9A825", style="node",
+         title="Decision Record — architecture/engineering decision, "
+                "proposed or accepted, with context and options considered"),
 ]
 
 # Same treatment as Needs/conf.py: `derives_from` is used inconsistently in

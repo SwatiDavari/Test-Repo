@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
-# tools/build_needs.sh
+# scripts/build_needs.sh
 #
-# Build this product's Sphinx-needs traceability graph: HTML docs for humans,
-# needs.json for machines (qik axon, tools/check_broken_links.py, the
-# needs-gate.yml CI job).
+# Build needs/'s Sphinx-needs traceability graph: HTML docs for humans,
+# needs.json for machines (tools/check_broken_links.py,
+# tools/check_orphan_needs.py, the ci-needs.yml CI job).
 #
-# Assumes needs/_external_needs/org_needs.json has already been fetched
-# (see tools/fetch_external_needs.sh) — the central governance content this
-# product cites by ID must be present before the build, or every :links:
-# field pointing at a governance id will resolve as broken.
+# Assumes needs/_external_needs/org_needs.json has already been generated
+# (see scripts/fetch_external_needs.sh) — the root project's org_req/risk/
+# problem/change/exception/tool/infra needs that needs/'s :links: fields
+# cite by ID must be present before the build, or every link to one of those
+# ids will resolve as broken (see needs/conf.py's needs_external_needs).
 #
-# Usage: tools/build_needs.sh [--venv PATH]
+# Usage: scripts/build_needs.sh [--venv PATH]
 
 set -euo pipefail
 
@@ -32,8 +33,9 @@ fi
 
 if [[ ! -f "${NEEDS_DIR}/_external_needs/org_needs.json" ]]; then
   echo "warning: needs/_external_needs/org_needs.json is missing." >&2
-  echo "         Run tools/fetch_external_needs.sh first, or every link" >&2
-  echo "         to a central-governance id will build as broken." >&2
+  echo "         Run scripts/fetch_external_needs.sh first, or every link" >&2
+  echo "         to a root-project (org_req/risk/problem/...) id will" >&2
+  echo "         build as broken." >&2
 fi
 
 if [[ ! -d "${VENV_DIR}" ]]; then
@@ -43,8 +45,8 @@ fi
 # shellcheck disable=SC1091
 source "${VENV_DIR}/bin/activate"
 
-echo "-- installing needs/requirements-docs.txt"
-pip install --quiet -r "${NEEDS_DIR}/requirements-docs.txt"
+echo "-- installing needs/requirements.txt"
+pip install --quiet -r "${NEEDS_DIR}/requirements.txt"
 
 echo "-- building HTML (warnings as errors)"
 sphinx-build -b html -W "${NEEDS_DIR}" "${NEEDS_DIR}/_build/html"
