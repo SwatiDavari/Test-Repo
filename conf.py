@@ -299,6 +299,26 @@ html_theme_options = {
     # Actions runners can't reach it (confirmed: build fails with
     # ExtensionError / ProxyError without this).
     "font": False,
+    # Light/dark toggle - genuinely supported by this theme (unlike
+    # breadcrumbs / the Ctrl+K search hint, checked directly against the
+    # installed sphinx-immaterial 0.13.9 package source and confirmed
+    # absent there). "default" keeps the Qorix navy/purple palette
+    # already defined in custom.css; "slate" is the theme's own built-in
+    # dark palette, left un-overridden deliberately - picking Qorix's own
+    # dark-mode brand colors is a brand-team decision, not mine to make
+    # unilaterally.
+    "palette": [
+        {
+            "media": "(prefers-color-scheme: light)",
+            "scheme": "default",
+            "toggle": {"icon": "material/toggle-switch-off-outline", "name": "Switch to dark mode"},
+        },
+        {
+            "media": "(prefers-color-scheme: dark)",
+            "scheme": "slate",
+            "toggle": {"icon": "material/toggle-switch", "name": "Switch to light mode"},
+        },
+    ],
     "features": [
         "navigation.tabs",
         "navigation.tabs.sticky",
