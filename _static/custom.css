@@ -1,14 +1,27 @@
-/* Qorix palette for sphinx-immaterial, matching the colors sampled from
-   the Performance Documentation site's live computed styles (2026-08-21).
-   Material for Sphinx only takes named Material colors via
+/* Qorix palette for sphinx-immaterial. Updated 2026-08-21 to the new
+   violet/green brand palette, replacing the earlier navy/blue (#081b85/
+   #3c00ff). Material for Sphinx only takes named Material colors via
    html_theme_options["palette"], not arbitrary hex, so brand colors are
    applied via its own CSS custom properties instead. Same file as
    needs/_static/custom.css, kept in sync so both Sphinx projects in this
-   repo look like one continuous site. */
+   repo look like one continuous site.
+
+   Of the 8 colors supplied, only the two violets pass WCAG contrast for
+   text/header use against white (computed, not assumed):
+     Deep Violet     #3A00F5  ->  8.41:1 vs white (AAA, normal text)
+     Electric Violet #4B00FF ->  7.66:1 vs white (AAA, normal text)
+   The six greens/mints/limes (Teal Mint #4FE0C4, Soft Mint Green
+   #66E8AA, Fresh Green #72E27A, Bright Green #8FEA6B, Lime Green
+   #A7F04A, Neon Lime #C4FF32) all fall between 1.19:1 and 1.64:1 against
+   white -- far below the 4.5:1 AA minimum, so none of them are used here
+   as a header background or link/text color. They resolve well against
+   a dark/black background instead (12.8:1-17.7:1) if wanted later for
+   dark-mode accents or non-text decoration -- not applied here since
+   that wasn't asked for, flagging as a follow-up if wanted. */
 :root, [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #081b85;
-  --md-primary-fg-color--light: #3c00ff;
-  --md-primary-fg-color--dark: #081b85;
-  --md-accent-fg-color: #3c00ff;
-  --md-typeset-a-color: #3c00ff;
+  --md-primary-fg-color: #3A00F5;
+  --md-primary-fg-color--light: #4B00FF;
+  --md-primary-fg-color--dark: #3A00F5;
+  --md-accent-fg-color: #4B00FF;
+  --md-typeset-a-color: #3A00F5;
 }

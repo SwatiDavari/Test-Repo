@@ -18,7 +18,7 @@ it was built from, disclosed rather than hidden. Split out of
   ``integration test/index`` toctree entry (that folder no longer exists
   on disk; still tracked as deleted in git, unresolved — see the
   separate flag on this in :doc:`/changelog`).
-- "Docs" is ``doc/`` — release notes and errata. The product/safety user
-  manuals originally sketched here moved to ``needs/user_guide/``
-  instead (see that page for why) and are reachable from the root "User
-  Guide" entry, not from here.
+- "Docs" is ``doc/`` — manuals, release notes, and errata. The
+  product/safety user manuals briefly moved to ``needs/user_guide/`` on
+  2026-08-21 and back the same day, at a request to keep them here — see
+  :doc:`/changelog` and ``doc/README.md`` for why.
