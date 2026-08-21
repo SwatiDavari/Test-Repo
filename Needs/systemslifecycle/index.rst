@@ -7,7 +7,7 @@ per requirement. Add new system requirements here as additional
 ``.. sys::`` directives.
 
 .. sys:: Inter-application communication and service discovery
-   :id: SYS_001
+   :id: SYS_MSGDISC_001
    :version: 1.0.0
    :status: proposed
    :standard: ASPICE SYS.2 / ISO 15288 6.4.3 System Requirements Definition
@@ -20,6 +20,6 @@ per requirement. Add new system requirements here as additional
 .. note::
    Both ``FEAT_A_001`` (Communication — Publish-Subscribe Messaging) and
    ``FEAT_Z_001`` (Diagnostics — Service Discovery) declare
-   ``:links: SYS_001`` — this is their shared system-level parent:
+   ``:links: SYS_MSGDISC_001`` — this is their shared system-level parent:
    adaptive application instances need both capabilities to find and
    message each other.

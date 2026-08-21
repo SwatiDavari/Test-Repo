@@ -12,7 +12,7 @@ and ``../README.md``) — organizational governance content
 every build of this project — including the ``-W`` hard-gated build in
 ``.github/workflows/ci-needs.yml`` — crash with "Sphinx is unable to load
 the master document," regardless of any need content. Found and fixed
-while verifying the SYS_001 fix end-to-end with a real build; see
+while verifying the SYS_MSGDISC_001 fix end-to-end with a real build; see
 README.md's "Known gaps" for how this was found.
 
 Found while verifying the named-link change below with a real ``-W``

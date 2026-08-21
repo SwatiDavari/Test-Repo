@@ -6,7 +6,7 @@ Stakeholder Needs
    product named "product-x" — Test_Dashboard's scope, not this repo's.
    The real features in Qorix Engineering Processes are Communication (publish-subscribe
    messaging, ``FEAT_A_001``) and Diagnostics (service discovery,
-   ``FEAT_Z_001``), both under the shared system requirement ``SYS_001``.
+   ``FEAT_Z_001``), both under the shared system requirement ``SYS_MSGDISC_001``.
    Rewritten below to actually describe this product.
 
 .. eng_need:: Reliable, authorized inter-application messaging

@@ -304,6 +304,76 @@ Python) — see `.github/workflows/` for the exact commands run in CI.
 - `doc/` — published documentation (manuals, tutorials, reference,
   release notes, errata).
 
+## Need ID naming convention
+
+Adopted 2026-08-21, currently applied to the **Communication** module and
+to the shared `sys` tier only — see the scope note below before assuming
+it holds repo-wide.
+
+Format: `<TYPE>_<MODULE>_<TOPIC>_NNN` (the `sys` tier omits `<MODULE>`,
+since a system requirement spans modules by definition).
+
+| Tier | Format | Example |
+|---|---|---|
+| `sys` | `SYS_<TOPIC>_NNN` | `SYS_MSGDISC_001` |
+| `feat` | `FEAT_<MODULE>_<TOPIC>_NNN` | `FEAT_COM_SOMEIP_005` |
+| `comp` | `COMP_<MODULE>_<TOPIC>_NNN` | `COMP_COM_SD_001` |
+| `unit` | `UNIT_<MODULE>_<TOPIC>_NNN` | `UNIT_COM_SD_004` |
+
+Segment breakdown for that same chain — `sys` has 3 segments (no module),
+the other three tiers have 4:
+
+| ID | Type | Module | Topic | NNN |
+|---|---|---|---|---|
+| `SYS_MSGDISC_001` | `SYS` | — | `MSGDISC` | `001` |
+| `FEAT_COM_SOMEIP_005` | `FEAT` | `COM` | `SOMEIP` | `005` |
+| `COMP_COM_SD_001` | `COMP` | `COM` | `SD` | `001` |
+| `UNIT_COM_SD_004` | `UNIT` | `COM` | `SD` | `004` |
+
+Reading an ID top to bottom tells you what it's about without opening the
+file — a real `:satisfies:` chain from this repo, not a hypothetical:
+
+| Tier | ID | Title | Satisfies |
+|---|---|---|---|
+| `sys` | `SYS_MSGDISC_001` | Inter-application communication and service discovery | — |
+| `feat` | `FEAT_COM_SOMEIP_005` | Compatibility with Open SOME/IP Service Discovery Protocol Specification | `SYS_MSGDISC_001` |
+| `comp` | `COMP_COM_SD_001` | SOME/IP Service Discovery Protocol | `FEAT_COM_SOMEIP_005` |
+| `unit` | `UNIT_COM_SD_004` | SOME/IP FindService message | `COMP_COM_SD_001` |
+
+Module codes in use: `COM` (Communication). Topic codes are assigned per
+tier based on what the need is actually about — they don't have to match
+between tiers (a feature can be broader than the component that
+implements it, as in the example above: `SOMEIP` at the feat tier,
+`SD` at the comp/unit tier, because the component is more specific than
+the feature it satisfies).
+
+**Scope, as of this pass — read before citing an ID:**
+
+- Every `feat`/`comp`/`unit` id introduced for the Communication module
+  during this pass follows this scheme in full, including the 49
+  top-level Communication features, which were grouped into 9 topic
+  buckets (`ARCH`, `IFC`, `SAFETY`, `PERF`, `BINDING`, `VM`, `DEPLOY`,
+  `TRACE`, `ACL`) precisely so no id would be left topic-less.
+- `SYS_001` was renamed to `SYS_MSGDISC_001` since it's the one `sys`
+  requirement that exists today; every file that referenced it
+  (`needs/systemslifecycle/index.rst`, `needs/stakeholder-needs.rst`,
+  `needs/index.rst`, `needs/diagnostics/feature/index.rst`,
+  `needs/quality/metrics/index.rst`) was updated to match.
+- **Diagnostics has not been converted.** `FEAT_Z_001`, `COMP_Z_001`,
+  `UNIT_Z_001` still use the original flat, module-only style with no
+  topic code — applying this scheme there is separate, not-yet-done
+  work.
+- **Three pre-existing Communication ids were deliberately left
+  unrenamed**: `FEAT_A_001`, `COMP_A_001`, `UNIT_A_001`. They predate
+  this pass and anchor the established ISO 26262 safety chain
+  (`SG_001`→`FSR_001`→`TSR_001`→`COMP_A_001`→`UNIT_A_001`,
+  `ITC_COMP_A_001_001`) — renumbering them was out of scope. Expect the
+  Communication module to mix both styles (3 old-style ids alongside the
+  new-style ones) rather than read that as an oversight.
+- New Communication needs going forward should follow this scheme
+  (assign the real topic the need belongs to — don't leave the topic
+  segment out to avoid the choice).
+
 ## Known gaps (disclosed, not yet resolved)
 
 **Resolved since the last pass** (kept here briefly for the audit trail,
