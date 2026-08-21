@@ -27,13 +27,19 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y default-jre-headless graphviz plantuml
       - name: Install Sphinx + Sphinx-Needs
-        run: pip install sphinx sphinx-needs furo sphinxcontrib-plantuml Pillow
+        run: pip install sphinx sphinx-needs sphinx-immaterial sphinxcontrib-plantuml Pillow
       - name: Build docs
         run: sphinx-build -b html . _build/html
-      - name: Traceability gate — fail on orphan needs
+      - name: Traceability gate - fail on orphan needs
         run: |
           sphinx-build -b needs . _build/needs
-          python tools/check_orphan_needs.py _build/needs/needs.json || echo "::warning::Orphan needs check reported issues — see diagnostic output above"
+          python tools/check_orphan_needs.py _build/needs/needs.json || echo "::warning::Orphan needs check reported issues - see diagnostic output above"
+      - name: Export org-level needs for cross-project linking
+        run: |
+          mkdir -p needs/_external_needs
+          cp _build/needs/needs.json needs/_external_needs/org_needs.json
+      - name: Build Sphinx-Needs docs
+        run: sphinx-build -b html needs _build/html/needs
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
