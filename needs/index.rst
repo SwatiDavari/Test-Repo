@@ -108,3 +108,9 @@ root, so the prefix has to be explicit or the generated GitHub link
    :caption: Quality
 
    quality/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: User Guide
+
+   user_guide/index

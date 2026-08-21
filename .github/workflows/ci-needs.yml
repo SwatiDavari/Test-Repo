@@ -50,7 +50,7 @@ jobs:
       # this one) owns org_req.
       - name: Install root-project deps (for org_req export)
         working-directory: .
-        run: pip install sphinx sphinx-needs sphinxcontrib-plantuml Pillow
+        run: pip install sphinx sphinx-needs sphinxcontrib-plantuml Pillow myst-parser
 
       - name: Export organisation/governance/ needs.json
         working-directory: .

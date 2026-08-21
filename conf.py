@@ -16,7 +16,7 @@
 
 project = "Qorix Engineering Processes"
 master_doc = "index"
-extensions = ["sphinx_needs", "sphinxcontrib.plantuml"]
+extensions = ["sphinx_needs", "sphinxcontrib.plantuml", "myst_parser"]
 
 # sphinx-needs' needs_external_needs loader (used by needs/conf.py to pull
 # this project's org_req/risk/problem/change/exception/tool/infra needs in
@@ -37,7 +37,24 @@ release = "1.0"
 # type" errors, confirmed by testing the exact CI invocation locally.
 # Needs/ is a separate Sphinx project with its own conf.py and its own CI
 # job (ci-needs.yml, working-directory: Needs) — it must stay excluded here.
-exclude_patterns = ["needs", "_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = [
+    "needs", "_build", "Thumbs.db", ".DS_Store",
+    # 2026-08-21: myst_parser was just registered so doc/release_notes/
+    # and source/*/README.md can build. Sphinx's source discovery has no
+    # "only these specific files" mode -- registering a suffix makes
+    # every matching file repo-wide a candidate document. These are
+    # repo-management/meta files or content already migrated to real
+    # needs directives elsewhere (see each area's own notes) -- excluded
+    # so they don't turn into a wall of new "not included in any
+    # toctree" orphan warnings that were never a problem while no
+    # Markdown parser was registered at all.
+    "README.md", "STANDARDS.md", "third_party_notices.md",
+    "scripts/README.md", "testing/README.md", "doc/README.md",
+    "testing/test cases/**/*.md",
+    "decision records/*.md",
+    "organisation/governance/README.md",
+    "organisation/governance/coding guidelines/**",
+]
 
 needs_types = [
     dict(directive="org_req", prefix="ORG_", color="#B8003D", style="node",
