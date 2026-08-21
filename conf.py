@@ -17,7 +17,6 @@
 project = "Qorix Engineering Processes"
 master_doc = "index"
 extensions = ["sphinx_needs", "sphinxcontrib.plantuml"]
-html_theme = "furo"
 
 # sphinx-needs' needs_external_needs loader (used by needs/conf.py to pull
 # this project's org_req/risk/problem/change/exception/tool/infra needs in
@@ -266,6 +265,20 @@ needs_report_dead_links = True
 #     and reviewed 2026-08-21; sphinx-immaterial + navigation.tabs chosen).
 # extensions was set once above (needs/plantuml) — appended to, not
 # replaced, so this stays additive if this file is edited again later.
+#
+# 2026-08-21: added the Score (score.dev) documentation UX patterns that
+# translate directly onto this theme's real, supported feature flags —
+# verified against the installed sphinx_immaterial package's own templates
+# rather than assumed, since not every mkdocs-material feature made it into
+# this Sphinx port (e.g. "navigation.path" breadcrumbs did NOT — see the
+# "Known gaps" note below):
+#   - content.action.edit / content.action.view: pencil + eye icons at the
+#     top of the content area, linking to this page's source on GitHub —
+#     same purpose as Score's "Edit this page" / "View page source" links.
+#     Needs a real edit_uri (was "", which disables both icons entirely).
+#   - search.suggest: autocomplete-style search suggestions, closer to the
+#     instant Algolia search Score's docs use.
+#   - navigation.top: back-to-top button on long pages.
 extensions = extensions + ["sphinx_immaterial"]
 html_theme = "sphinx_immaterial"
 html_static_path = ["_static"]
@@ -275,7 +288,12 @@ html_theme_options = {
     "site_url": "https://swatidavari.github.io/Test-Repo/",
     "repo_url": "https://github.com/SwatiDavari/Test-Repo",
     "repo_name": "Test-Repo",
-    "edit_uri": "",
+    # Root project's srcdir IS the repo root, so doc2path() already returns
+    # paths relative to the repo root (e.g. "index.rst") — edit_uri just
+    # needs the branch. Verified against a real build's rendered edit-link
+    # href, not assumed (see needs/conf.py for why this project's needs a
+    # "/needs" suffix instead).
+    "edit_uri": "edit/main",
     # Disables sphinx_immaterial.google_fonts's live fetch to
     # fonts.google.com at build time — required in CI, where GitHub
     # Actions runners can't reach it (confirmed: build fails with
@@ -285,7 +303,11 @@ html_theme_options = {
         "navigation.tabs",
         "navigation.tabs.sticky",
         "navigation.sections",
+        "navigation.top",
         "search.share",
+        "search.suggest",
         "toc.follow",
+        "content.action.edit",
+        "content.action.view",
     ],
 }

@@ -57,6 +57,15 @@ correctly group by ``:caption:``. ``software/index.rst`` was still added
 as a real landing page for that discipline — it's a better structure on
 its own merits regardless of theme, not just a workaround.
 
+**2026-08-21: added Score (score.dev) doc-site UX patterns** — see
+``../index.rst`` for the full rationale, the WCAG contrast numbers for
+the Qorix palette, and what was deliberately left out (breadcrumbs,
+per-page reading time) and why. Same ``conf.py`` changes apply here:
+working edit/view-source icons (``edit_uri`` now points at
+``edit/main/needs`` — this project's srcdir is ``needs/``, not the repo
+root, so the prefix has to be explicit or the generated GitHub link
+404s), search suggestions, and a back-to-top button.
+
 .. toctree::
    :hidden:
 

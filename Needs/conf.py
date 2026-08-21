@@ -3,6 +3,29 @@ extensions = ["sphinx_needs"]
 project = "Qorix Engineering Processes Needs"
 master_doc = "index"
 
+# 2026-08-21: found while verifying this repo's actual CI behavior end-to-end
+# (not just the curated sandbox used for earlier theme validation) — the
+# 2026-08-21 discipline reorg (see index.rst) copied communication/ and
+# diagnostics/ under software/, and renamed cybersecurity/ -> security/ and
+# functionalsafety/ -> safety/, but the OLD folders were never deleted from
+# this checkout (this environment's remote-device tools cannot delete files
+# on the user's machine). Sphinx builds every .rst file under this project's
+# source dir regardless of toctree membership, so the old folders were still
+# being parsed too, and since no need IDs changed in the move, this raised
+# ~300 "Need could not be created: ID already exists" warnings and made the
+# separate -W hard-gated build in .github/workflows/ci-needs.yml fail
+# outright — confirmed with a real build against the full repo content, not
+# assumed. Excluding the old paths fixes both that gate and the noise, and
+# is redundant-but-harmless once the folders are actually deleted (see
+# README.md's "Known gaps" / this project's index.rst for the manual
+# deletion note, still recommended for a clean checkout).
+exclude_patterns = [
+    "communication",
+    "diagnostics",
+    "cybersecurity",
+    "functionalsafety",
+]
+
 # Sphinx `version`/`release` — needed so this project's OWN exported
 # needs.json (`-b needs`, or needs_build_json) has a non-empty
 # `current_version`. Without one, any other project that later tries to
@@ -541,6 +564,12 @@ STATUS    & : \qorixstatus \\
 #     and reviewed 2026-08-21; sphinx-immaterial + navigation.tabs chosen).
 # extensions was set once above (["sphinx_needs"]) — appended to, not
 # replaced, so this stays additive if this file is edited again later.
+#
+# 2026-08-21: added the Score (score.dev) documentation UX patterns that
+# translate directly onto this theme's real, supported feature flags — see
+# ../conf.py for the full rationale and the "Known gaps" note (breadcrumbs
+# and reading time are Score/Docusaurus features this theme port doesn't
+# support and are NOT implemented here).
 extensions = extensions + ["sphinx_immaterial"]
 html_theme = "sphinx_immaterial"
 html_static_path = ["_static"]
@@ -550,7 +579,12 @@ html_theme_options = {
     "site_url": "https://swatidavari.github.io/Test-Repo/needs/",
     "repo_url": "https://github.com/SwatiDavari/Test-Repo",
     "repo_name": "Test-Repo",
-    "edit_uri": "",
+    # This project's srcdir is needs/, not the repo root, so doc2path()
+    # returns paths relative to needs/ (e.g. "index.rst", not
+    # "needs/index.rst") — edit_uri must carry the "/needs" prefix itself
+    # or the generated GitHub edit link 404s. Verified against a real
+    # build's rendered edit-link href, not assumed.
+    "edit_uri": "edit/main/needs",
     # Disables sphinx_immaterial.google_fonts's live fetch to
     # fonts.google.com at build time — required for the -W hard-gated
     # build in .github/workflows/ci-needs.yml, where GitHub Actions
@@ -561,7 +595,11 @@ html_theme_options = {
         "navigation.tabs",
         "navigation.tabs.sticky",
         "navigation.sections",
+        "navigation.top",
         "search.share",
+        "search.suggest",
         "toc.follow",
+        "content.action.edit",
+        "content.action.view",
     ],
 }
