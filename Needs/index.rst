@@ -44,16 +44,18 @@ No need IDs changed; this is a folder/toctree move only. See
 ``README.md``'s "Need ID naming convention" section and this project's
 autosar/eclipse-score conversion notes for the ID scheme itself.
 
-**2026-08-21: switched to pydata-sphinx-theme** (see ``conf.py``) to match
-the Performance Documentation site's navbar-driven look and feel. That
-theme turns each top-level toctree *entry* into its own navbar tab, using
-that entry's own page title as the label — so a caption with more than
-one entry (``Software`` had two: ``software/communication/index`` and
-``software/diagnostics/index``) doesn't render as one clean "Software"
-tab, it leaks the first child's own title into the navbar instead. Added
-``software/index.rst`` as a real landing page for that one caption so it
-gets a clean "Software" tab like every other discipline; no other caption
-here needed this since they were already one entry each.
+**2026-08-21: switched to sphinx-immaterial** (see ``conf.py``), after
+first trying pydata-sphinx-theme, to match the Performance Documentation
+site's navbar-driven look and feel — sphinx-immaterial was picked after a
+side-by-side comparison on this project's real content for its sharper
+UI (instant search, dark mode, sticky tabs). Unlike pydata-sphinx-theme's
+navbar-nav (which turns each top-level toctree *entry* into its own tab
+using that entry's own page title — so a caption with more than one
+entry, like ``Software`` with two, would leak the first child's title
+into the tab instead of showing "Software"), sphinx-immaterial's tabs
+correctly group by ``:caption:``. ``software/index.rst`` was still added
+as a real landing page for that discipline — it's a better structure on
+its own merits regardless of theme, not just a workaround.
 
 .. toctree::
    :hidden:

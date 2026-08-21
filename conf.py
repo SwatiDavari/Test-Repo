@@ -261,30 +261,31 @@ needs_id_required = True
 needs_id_regex = r"^[A-Z]+_[A-Za-z0-9_]+"
 needs_report_dead_links = True
 
-# --- Theme: match the Performance Documentation site's look and feel ---
-# Switched from Furo to pydata-sphinx-theme, per request to match Qorix's
-# Performance Documentation site's visual design and navigation flow (top
-# navbar generated from this project's top-level toctree entries,
-# secondary sidebar per section) while keeping this project's own content
-# unchanged. Palette in _static/custom.css was sampled from that site's
-# live computed styles, not copied from its stylesheet. Same brand/palette
-# as needs/conf.py so the two separately-built Sphinx projects in this
-# repo read as one continuous site.
-html_theme = "pydata_sphinx_theme"
+# --- Theme: match the Performance Documentation site's navigation, with a
+#     sharper UI than pydata-sphinx-theme (side-by-side comparison requested
+#     and reviewed 2026-08-21; sphinx-immaterial + navigation.tabs chosen).
+# extensions was set once above (needs/plantuml) — appended to, not
+# replaced, so this stays additive if this file is edited again later.
+extensions = extensions + ["sphinx_immaterial"]
+html_theme = "sphinx_immaterial"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 html_theme_options = {
-    "logo": {"text": "Qorix"},
-    "navbar_center": ["navbar-nav"],
-    "navbar_end": ["navbar-icon-links"],
-    "icon_links": [
-        {"name": "GitHub", "url": "https://github.com/SwatiDavari/Test-Repo",
-         "icon": "fa-brands fa-github"},
-        {"name": "Needs & Traceability",
-         "url": "https://swatidavari.github.io/Test-Repo/needs/",
-         "icon": "fa-solid fa-diagram-project"},
+    "icon": {"repo": "fontawesome/brands/github"},
+    "site_url": "https://swatidavari.github.io/Test-Repo/",
+    "repo_url": "https://github.com/SwatiDavari/Test-Repo",
+    "repo_name": "Test-Repo",
+    "edit_uri": "",
+    # Disables sphinx_immaterial.google_fonts's live fetch to
+    # fonts.google.com at build time — required in CI, where GitHub
+    # Actions runners can't reach it (confirmed: build fails with
+    # ExtensionError / ProxyError without this).
+    "font": False,
+    "features": [
+        "navigation.tabs",
+        "navigation.tabs.sticky",
+        "navigation.sections",
+        "search.share",
+        "toc.follow",
     ],
-    "show_nav_level": 1,
-    "navigation_depth": 3,
-    "header_links_before_dropdown": 8,
 }

@@ -12,15 +12,19 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
 ``doc/README.md``); it's plain Markdown, not part of this Sphinx build.
 
 .. note::
-   **2026-08-21: switched from Furo to pydata-sphinx-theme** to match the
-   look and navigation flow of Qorix's Performance Documentation site —
-   top navbar generated from this page's top-level toctree entries, each
-   pointing at one section landing page whose *own* toctree drives that
-   section's secondary sidebar. This replaces the previous Furo-specific
-   workaround (Furo's sidebar always rendered at full depth regardless of
-   ``:maxdepth:``, so every child page used to be listed flat here
-   instead of nested in its own section's landing page). Content is
-   unchanged — only where each page is linked from.
+   **2026-08-21: switched from Furo to sphinx-immaterial** (briefly via
+   pydata-sphinx-theme first) to match the navigation flow of Qorix's
+   Performance Documentation site — top navbar generated from this page's
+   top-level toctree entries, each pointing at one section landing page
+   whose *own* toctree drives that section's secondary sidebar. This
+   replaces the previous Furo-specific workaround (Furo's sidebar always
+   rendered at full depth regardless of ``:maxdepth:``, so every child
+   page used to be listed flat here instead of nested in its own
+   section's landing page). pydata-sphinx-theme got the same navigation
+   structure working first; sphinx-immaterial was chosen over it after a
+   side-by-side comparison on this content, for its search/dark-mode/
+   polish. Content is unchanged — only where each page is linked from and
+   which theme renders it.
 
    **Known, pre-existing gap, not introduced by this change**:
    ``organisation/governance/index``, ``organisation/strategy/index``, and
