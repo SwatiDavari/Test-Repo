@@ -21,8 +21,7 @@ See :doc:`changelog` for the dated history of structural and theme changes to th
    :maxdepth: 1
 
    getting_started
-   changelog
    organisation/index
    product/index
    decision records/decision_register
-   User Guide <user_guide_redirect>
+   changelog

@@ -24,6 +24,12 @@ exclude_patterns = [
     "diagnostics",
     "cybersecurity",
     "functionalsafety",
+    # 2026-08-21: user_guide/ briefly held the product/safety user
+    # manuals; they moved back to doc/manuals/ at the repo root the same
+    # day (see doc/README.md). Excluded rather than left to generate an
+    # orphan-doc warning -- the retirement stub at user_guide/index.rst
+    # explains why the file is still there instead of deleted.
+    "user_guide",
 ]
 
 # Sphinx `version`/`release` — needed so this project's OWN exported

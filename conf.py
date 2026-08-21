@@ -54,6 +54,7 @@ exclude_patterns = [
     "decision records/*.md",
     "organisation/governance/README.md",
     "organisation/governance/coding guidelines/**",
+    "user_guide_redirect.rst",
 ]
 
 needs_types = [
@@ -96,6 +97,24 @@ needs_types = [
     dict(directive="decision", prefix="DEC_", color="#F9A825", style="node",
          title="Decision Record — architecture/engineering decision, "
                 "proposed or accepted, with context and options considered"),
+
+    # doc/manuals/safety/safety_user_manual.rst — ISO 26262-6 Safety User
+    # Manual content. Copied verbatim from needs/conf.py (that project's
+    # own needs_types), where this schema was originally defined, so this
+    # page can build here without "Unknown directive type" errors. Its
+    # :links:/:need: references to TSR_001/SG_001/FSR_001/COMP_A_001 are
+    # real needs, but they're defined in the separate needs/ project, not
+    # here -- this project has no way to validate or resolve them without
+    # a two-way needs-import pipeline (needs/ already imports THIS
+    # project's org_req etc. one way; the reverse doesn't exist), so they
+    # show as "linked need not found" warnings -- disclosed in
+    # doc/README.md, not fixed here.
+    dict(directive="safefeat", prefix="SAFEFEAT_", color="#7B1FA2", style="node",
+         title="Module Safety Feature — ISO 26262-6 Safety User Manual"),
+    dict(directive="rec", prefix="REC_", color="#F57F17", style="node",
+         title="Operational Recommendation — ISO 26262-6 Safety User Manual"),
+    dict(directive="res", prefix="RES_", color="#EF6C00", style="node",
+         title="Operational Restriction — ISO 26262-6 Safety User Manual"),
 ]
 
 # Same treatment as Needs/conf.py: `derives_from` is used inconsistently in
@@ -246,6 +265,44 @@ needs_fields = {
                         "monitors it — ISO/IEC/IEEE 15288 clause 6.2.2 "
                         "outcome (d). Free text; disclose 'none' rather "
                         "than implying monitoring that doesn't exist.",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+
+    # --- Fields used by the safefeat/rec/res types above (doc/manuals/
+    # safety/safety_user_manual.rst). Copied verbatim from needs/conf.py;
+    # keep both in sync if either changes.
+    "rationale": {
+        "description": "safefeat: rationale for claiming safety in this feature",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "use_case": {
+        "description": "safefeat: use case for the safety feature",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "dependency": {
+        "description": "safefeat: internal or external dependency, if any",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "input_reference": {
+        "description": "rec/res: Safety Requirement ID or Safety Analysis "
+                        "ID (e.g. a DFMEA action ID) this entry originates "
+                        "from",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "req_type": {
+        "description": "rec/res: Timing, Execution Sequence, Resource, "
+                        "Performance, Implementation, External Dependency, "
+                        "Configuration, etc.",
+        "schema": {"type": "string"},
+        "nullable": True,
+    },
+    "actions": {
+        "description": "rec/res: recommended action for the integrator",
         "schema": {"type": "string"},
         "nullable": True,
     },

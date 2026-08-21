@@ -5,27 +5,32 @@ Dated history of structural/theme changes to this documentation site.
 Split out of ``index.rst`` on 2026-08-21 so that page stays short — see
 each dated entry below for the full rationale behind a given change.
 
-2026-08-21: four top-level entries
+2026-08-21: three top-level entries
 ------------------------------------
 
-Collapsed the root sidebar to four top-level entries — Organization,
-Product / Program, Decision Records, User Guide — per a request for one
-main menu each, everything else nested as collapsible sub-menus.
+Collapsed the root sidebar to Organization, Product / Program, and
+Decision Records — per a request for one main menu each, everything
+else nested as collapsible sub-menus.
 
 "Product / Program" is new — see :doc:`product/index` for what moved
-under it (management, a new architecture placeholder, this repo's own
-``testing/`` folder, source, this project's needs types, and a link into
-``needs/``) and its own disclosed divergences from the original sketch.
-
-"User Guide" is new too, and is a link into ``needs/user_guide/`` — see
-that project's own ``needs/user_guide/index.rst`` (a separate Sphinx
-project; not cross-referenceable from here) for why the product/safety
-user manuals live there now instead of under ``doc/``.
+under it (docs, management, a new architecture placeholder, this repo's
+own ``testing/`` folder, source, this project's needs types, and a link
+into ``needs/``) and its own disclosed divergences from the original
+sketch.
 
 The previously-broken ``integration test/index`` toctree entry is
 removed (that folder no longer exists on disk — still showing as
 deleted, uncommitted, in ``git status``; unresolved, flagging separately
 rather than guessing whether to restore it).
+
+A "User Guide" top-level entry existed briefly the same day, pointing at
+a ``needs/user_guide/`` location the product/safety user manuals moved
+to. Both manuals moved back to ``doc/manuals/`` (under Product / Program
+→ Docs) shortly after, at a request to keep them where they originally
+were — see ``doc/README.md`` for the schema fix that let them come back
+without reintroducing the build errors that first triggered the move.
+"User Guide" was removed as a result; there's no separate top-level
+entry for it any more.
 
 2026-08-21: single "Organization" entry
 -------------------------------------------

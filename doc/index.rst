@@ -6,17 +6,17 @@ Published documentation deliverables for this repo, as distinct from
 and coding-guideline READMEs). See ``doc/README.md`` for how each
 subfolder is meant to be used and built.
 
-**2026-08-21: added ``myst_parser`` so this section can actually build.**
-``release_notes/`` is plain Markdown and previously wasn't part of any
-Sphinx build at all — no Markdown parser was registered. Registered here
-because the content is small (one file per release) and didn't need
-rewriting to RST. The product/safety user manuals that used to live
-under a sibling ``manuals/`` folder here have moved to
-``needs/user_guide/`` — see ``doc/README.md`` and
-``needs/user_guide/index.rst`` for why.
+**2026-08-21: added ``myst_parser`` so ``release_notes/`` can actually
+build** — it's plain Markdown and previously wasn't part of any Sphinx
+build at all. ``manuals/`` briefly moved to ``needs/user_guide/`` the
+same day and moved back here shortly after — see ``doc/README.md`` for
+why (the safety manual's directive types are now registered in this
+project's own ``conf.py`` instead).
 
 .. toctree::
    :maxdepth: 1
 
+   manuals/user_manual
+   manuals/safety/safety_user_manual
    release_notes/v0.1.0
    errata/index

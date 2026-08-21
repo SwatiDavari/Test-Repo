@@ -4,15 +4,15 @@ on:
   push:
     branches: [main]
     paths:
-      - "needs/user_guide/user_manual.rst"
-      - "needs/user_guide/_static/**"
-      - "needs/user_guide/_pdf_template/**"
+      - "doc/manuals/user_manual.rst"
+      - "doc/manuals/_static/**"
+      - "doc/manuals/_pdf_template/**"
       - ".github/workflows/user_manual_pdf.yml"
   pull_request:
     paths:
-      - "needs/user_guide/user_manual.rst"
-      - "needs/user_guide/_static/**"
-      - "needs/user_guide/_pdf_template/**"
+      - "doc/manuals/user_manual.rst"
+      - "doc/manuals/_static/**"
+      - "doc/manuals/_pdf_template/**"
       - ".github/workflows/user_manual_pdf.yml"
   workflow_dispatch: {}
 
@@ -29,7 +29,7 @@ jobs:
             texlive-latex-extra fonts-crosextra-carlito
 
       - name: Build Qorix-branded PDF from user_manual.rst
-        working-directory: needs/user_guide
+        working-directory: doc/manuals
         run: bash ./_pdf_template/build_pdf.sh user_manual.rst user_manual.pdf \
           "Qorix Product User Manual" "<Config ID>" "0.1.0" "$(date +%d-%b-%Y)" \
           "Draft" "QORIX GmbH" "Germany"
@@ -38,4 +38,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: user-manual-pdf
-          path: needs/user_guide/user_manual.pdf
+          path: doc/manuals/user_manual.pdf
