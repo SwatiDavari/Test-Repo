@@ -1,2 +1,3 @@
 sphinx
 sphinx-needs
+pydata-sphinx-theme

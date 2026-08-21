@@ -1,0 +1,26 @@
+/* Qorix palette — matches the Performance Documentation site's rendered
+   pydata-sphinx-theme colors (sampled from its live computed styles,
+   2026-08-21). Original recreation via pydata-sphinx-theme's own CSS
+   custom properties, not a copy of that site's stylesheet. Same file as
+   needs/_static/custom.css, kept in sync so both Sphinx projects in this
+   repo look like one continuous site. */
+html[data-theme="light"], html[data-theme="dark"], :root {
+  --pst-color-primary: #081b85;
+  --pst-color-secondary: #3c00ff;
+  --pst-color-accent: #9DE0AD;
+  --pst-color-link-hover: #3c00ff;
+  --pst-color-table-row-hover-bg: #3c00ff;
+  --pst-font-size-base: 17px;
+}
+
+.bd-header {
+  background-color: #3c00ff !important;
+}
+.bd-header .navbar-brand,
+.bd-header a,
+.bd-header .navbar-nav a {
+  color: #ffffff !important;
+}
+.bd-header .navbar-nav a:hover {
+  color: #9DE0AD !important;
+}

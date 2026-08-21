@@ -260,3 +260,31 @@ needs_links = {
 needs_id_required = True
 needs_id_regex = r"^[A-Z]+_[A-Za-z0-9_]+"
 needs_report_dead_links = True
+
+# --- Theme: match the Performance Documentation site's look and feel ---
+# Switched from Furo to pydata-sphinx-theme, per request to match Qorix's
+# Performance Documentation site's visual design and navigation flow (top
+# navbar generated from this project's top-level toctree entries,
+# secondary sidebar per section) while keeping this project's own content
+# unchanged. Palette in _static/custom.css was sampled from that site's
+# live computed styles, not copied from its stylesheet. Same brand/palette
+# as needs/conf.py so the two separately-built Sphinx projects in this
+# repo read as one continuous site.
+html_theme = "pydata_sphinx_theme"
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]
+html_theme_options = {
+    "logo": {"text": "Qorix"},
+    "navbar_center": ["navbar-nav"],
+    "navbar_end": ["navbar-icon-links"],
+    "icon_links": [
+        {"name": "GitHub", "url": "https://github.com/SwatiDavari/Test-Repo",
+         "icon": "fa-brands fa-github"},
+        {"name": "Needs & Traceability",
+         "url": "https://swatidavari.github.io/Test-Repo/needs/",
+         "icon": "fa-solid fa-diagram-project"},
+    ],
+    "show_nav_level": 1,
+    "navigation_depth": 3,
+    "header_links_before_dropdown": 8,
+}

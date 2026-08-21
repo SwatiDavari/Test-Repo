@@ -44,6 +44,17 @@ No need IDs changed; this is a folder/toctree move only. See
 ``README.md``'s "Need ID naming convention" section and this project's
 autosar/eclipse-score conversion notes for the ID scheme itself.
 
+**2026-08-21: switched to pydata-sphinx-theme** (see ``conf.py``) to match
+the Performance Documentation site's navbar-driven look and feel. That
+theme turns each top-level toctree *entry* into its own navbar tab, using
+that entry's own page title as the label — so a caption with more than
+one entry (``Software`` had two: ``software/communication/index`` and
+``software/diagnostics/index``) doesn't render as one clean "Software"
+tab, it leaks the first child's own title into the navbar instead. Added
+``software/index.rst`` as a real landing page for that one caption so it
+gets a clean "Software" tab like every other discipline; no other caption
+here needed this since they were already one entry each.
+
 .. toctree::
    :hidden:
 
@@ -67,8 +78,7 @@ autosar/eclipse-score conversion notes for the ID scheme itself.
    :maxdepth: 1
    :caption: Software
 
-   software/communication/index
-   software/diagnostics/index
+   software/index
 
 .. toctree::
    :maxdepth: 1

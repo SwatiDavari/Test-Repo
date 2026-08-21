@@ -1,8 +1,14 @@
 Product Verification
 =======================
 
-See :doc:`test strategy/product-verification-strategy`,
-:doc:`test cases/index`, and
-:doc:`test reports/product-verification-report` (all listed directly in
-the root sidebar, not nested under this page — see
-organisation/governance/index.rst's note on sidebar flattening).
+.. toctree::
+   :maxdepth: 1
+
+   test strategy/product-verification-strategy
+   test cases/index
+   test reports/product-verification-report
+
+2026-08-21: nested under this page's own toctree now that the root project
+uses pydata-sphinx-theme, whose secondary sidebar handles nesting natively
+— these used to be listed flat in the root index instead, to work around
+Furo's sidebar always rendering at full depth (see ``../index.rst``).
