@@ -116,7 +116,7 @@ prefix column is just the auto-id default, not enforced per module.
      - Operational Restriction — ISO 26262-6 Safety User Manual
      - ``#EF6C00``
 
-See ``communication/safety_user_manual.rst`` for a worked example that
+See ``software/communication/safety_user_manual.rst`` for a worked example that
 links a ``safefeat`` into the existing ``TSR_001``/``SG_001`` chain.
 
 Extra fields
@@ -288,7 +288,7 @@ chain and what it links into:
      - Verifies ``COMP_A_001``.
 
 Diagnostics (``COMP_Z_001``/``UNIT_Z_001``/their test cases) is
-deliberately **not** given an ASIL: ``functionalsafety/analyses/
+deliberately **not** given an ASIL: ``safety/analyses/
 dependent-failure-analysis.rst`` records Diagnostics as "not yet
 assessed." Setting an ASIL there would assert a HARA outcome that
 hasn't happened. The same discipline applies to every other need type
@@ -297,7 +297,7 @@ hasn't happened. The same discipline applies to every other need type
 none carry an ``asil`` value.
 
 ``cal`` is registered but **populated nowhere yet**: ``needs/
-cybersecurity/tara/index.rst`` is an explicit empty stub ("Nothing
+security/tara/index.rst`` is an explicit empty stub ("Nothing
 captured yet") — there is no TARA-derived cybersecurity goal in this
 project for a CAL to attach to. The field exists so it's ready the
 moment ``cyber_req``/``threat`` need types are added (see that file's

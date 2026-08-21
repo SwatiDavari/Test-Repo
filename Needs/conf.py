@@ -195,7 +195,7 @@ needs_fields = {
                         "they link into (`COMP_A_001`, `UNIT_A_001`, "
                         "`TC_UNIT_A_001`, `ITC_COMP_A_001_001`) — all "
                         "`ASIL B`. Diagnostics is deliberately left "
-                        "unset: functionalsafety/analyses/"
+                        "unset: safety/analyses/"
                         "dependent-failure-analysis.rst records it as "
                         "\"not yet assessed,\" and setting an ASIL there "
                         "would assert a HARA outcome that hasn't "
@@ -210,7 +210,7 @@ needs_fields = {
                         "TARA (clause 15). Registered here so the field "
                         "exists the moment a real cybersecurity goal is "
                         "modeled, but deliberately left unpopulated on "
-                        "every need today: needs/cybersecurity/tara/"
+                        "every need today: needs/security/tara/"
                         "index.rst is an explicit empty stub (\"Nothing "
                         "captured yet\") — there is no TARA-derived "
                         "cybersecurity goal in this repo yet for a CAL "
@@ -443,11 +443,15 @@ needs_report_dead_links = True
 
 # --- Qorix-branded PDF export (Safety User Manual) -------------------------
 # Produces a second, standalone LaTeX/PDF document from just
-# communication/safety_user_manual.rst (still resolving :links:/:need:
+# software/communication/safety_user_manual.rst (still resolving :links:/:need:
 # cross-references against the full needs graph loaded above), styled to
 # match Qorix_SafetyUserManual.docx: cover page, repeating header
 # (Config ID / Version / Date), repeating footer (logo + confidentiality
 # line + page number), and cyan table header rows.
+# NOTE: path updated 2026-08-21 for the discipline-based reorg (communication/
+# moved under software/); the target file itself still doesn't exist in this
+# tree (a pre-existing gap, not introduced by that move — see
+# needs_types_definition.rst's own note on the same gap).
 latex_engine = "xelatex"
 latex_table_style = ["booktabs", "colorrows"]
 latex_additional_files = [
@@ -457,7 +461,7 @@ latex_additional_files = [
 latex_documents = [
     ("index", "qorixengineeringprocessesneeds.tex",
      "Qorix Engineering Processes Needs", "QORIX GmbH", "manual"),
-    ("communication/safety_user_manual", "qorix_module_a_safety_user_manual.tex",
+    ("software/communication/safety_user_manual", "qorix_module_a_safety_user_manual.tex",
      "Qorix Module A Safety User Manual", "QORIX GmbH", "howto"),
 ]
 latex_elements = {

@@ -286,9 +286,11 @@ Python) — see `.github/workflows/` for the exact commands run in CI.
 
 ## Structure
 
-- `Needs/` — product traceability: `Communication/`, `Diagnostics/`
-  (feature/component/unit design per module), `safety/` (safety chain +
-  `analyses/`), `cybersecurity/`, `quality/` — see `Needs/` for details.
+- `Needs/` — product traceability, grouped by discipline: `software/`
+  (`Communication/`, `Diagnostics/` — feature/component/unit design per
+  module), `safety/` (safety chain + `analyses/`), `security/`,
+  `quality/`, `systemslifecycle/` (system-level, its own discipline) —
+  see `Needs/` for details.
 - `organisation/governance/` — organization-level requirements per standard
   (ASPICE, ISO 26262, ISO/SAE 21434).
 - `organisation/verification/` — ISO 29119 organization-level test-process

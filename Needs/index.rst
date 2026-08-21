@@ -27,6 +27,23 @@ wiring in the module-level index pages (which already cascade down to
 their own children) instead of individual leaf documents, plus the
 pages that had no parent at all.
 
+**Reorganized 2026-08-21: grouped by discipline instead of by product
+module.** The captions below used to be module-first (``Communication``,
+``Diagnostics``, ``Cybersecurity``, ``Functional Safety`` as five flat
+siblings). They're now discipline-first, following the same Project
+Level / discipline grouping used by Qorix's own Performance
+Documentation site (Project Management / Quality / Roles / Safety /
+Security, with product detail nested inside, not listed alongside):
+``communication/`` and ``diagnostics/`` moved under a new ``software/``
+discipline (both are ASPICE SWE.1-3 product requirement chains —
+"Software" in that framework's terms); ``functionalsafety/`` renamed to
+``safety/``; ``cybersecurity/`` renamed to ``security/``. ``systemslifecycle/``
+(Systems Engineering, SYS.1-5) and ``quality/`` stay top-level, same as
+before — they were already their own disciplines, not product modules.
+No need IDs changed; this is a folder/toctree move only. See
+``README.md``'s "Need ID naming convention" section and this project's
+autosar/eclipse-score conversion notes for the ID scheme itself.
+
 .. toctree::
    :hidden:
 
@@ -48,27 +65,22 @@ pages that had no parent at all.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Communication
+   :caption: Software
 
-   communication/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Diagnostics
-
-   diagnostics/index
+   software/communication/index
+   software/diagnostics/index
 
 .. toctree::
    :maxdepth: 1
-   :caption: Cybersecurity
+   :caption: Safety
 
-   cybersecurity/index
+   safety/index
 
 .. toctree::
    :maxdepth: 1
-   :caption: Functional Safety
+   :caption: Security
 
-   functionalsafety/index
+   security/index
 
 .. toctree::
    :maxdepth: 1
