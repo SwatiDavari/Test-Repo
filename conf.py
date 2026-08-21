@@ -310,4 +310,12 @@ html_theme_options = {
         "content.action.edit",
         "content.action.view",
     ],
+    # Sidebar (left-nav global TOC) is hardcoded by sphinx-immaterial to
+    # maxdepth=-1 (see nav_adapt.py) - the toctree ":maxdepth:" directive
+    # only controls the in-page bullet list, not the sidebar. Default
+    # True collapses the sidebar to only the active page's ancestor
+    # chain; False keeps every level expandable so every nested page is
+    # reachable from the sidebar without drilling through intermediate
+    # landing pages first. Verified via real build + screenshot.
+    "globaltoc_collapse": False,
 }

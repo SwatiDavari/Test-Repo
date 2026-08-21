@@ -51,28 +51,46 @@ render ``.. uml::`` diagrams. Skip this unless you're editing one:
 Then point ``conf.py``'s ``plantuml`` setting at your downloaded
 ``plantuml.jar``.
 
-Populate organisation/ (governance content, from Org_processes)
+Populate organisation/ (governance content, from org-processes)
 ------------------------------------------------------------------
 
 ``organisation/`` is no longer committed to this repo — it's owned by the
-Org_processes repo (a different team) and is only ever generated on disk
-locally, never checked in. ``qorix-engg.code-workspace`` already mounts
-Org_processes as a sibling root folder; ``scripts/sync_org_content.sh``
-copies its governance folders into ``organisation/`` from there by
-default. Run this before building the root project or refreshing
-``needs/_external_needs/org_needs.json`` — both need
-``organisation/governance/`` physically present:
+`org-processes <https://github.com/SwatiDavari/org-processes>`_ repo (a
+different team) and is only ever generated on disk locally, never checked
+in. **2026-08-21: CI now does this automatically** — both
+``.github/workflows/docs.yml`` and ``ci-needs.yml`` check out
+``org-processes`` and run ``scripts/sync_org_content.sh`` before building,
+so a fresh CI run no longer needs anything extra from you.
+
+Locally, this is still a manual step. ``qorix-engg.code-workspace``
+mounts a sibling checkout named ``Org_processes`` (note the casing —
+that's the workspace file's own folder name, not the real repo's; the
+real repo on GitHub is ``org-processes``, lowercase and hyphenated).
+``scripts/sync_org_content.sh`` defaults to looking for
+``../Org_processes``, so either clone the real repo using that exact
+local folder name, or pass its real path explicitly:
 
 .. code-block:: bat
 
+   :: if you cloned org-processes as a sibling folder under a different name
+   scripts\sync_org_content.sh ..\org-processes
+
+   :: or, matching the workspace file's assumed name
    scripts\sync_org_content.sh
 
+Run this before building the root project or refreshing
+``needs/_external_needs/org_needs.json`` — both need
+``organisation/governance/`` physically present.
+
 .. note::
-   This only works if you have a local checkout of Org_processes next to
-   this repo (as the workspace file assumes). Org_processes isn't yet its
-   own pushed GitHub repository, so CI (``docs.yml``, ``ci-needs.yml``)
-   does **not** run this step yet and will fail on a missing
-   ``organisation/`` until that's set up — see ``scripts/README.md``.
+   ``org-processes`` links its own child governance pages via prose
+   (``:doc:`` references) rather than a toctree — a leftover workaround
+   for Furo's sidebar rendering at full depth regardless of
+   ``:maxdepth:``, from before this repo switched themes. Synced in here
+   unchanged, so several of its leaf requirement pages will show as
+   "document isn't included in any toctree" warnings on this project's
+   own build — harmless (this build isn't ``-W``-gated), see
+   ``index.rst`` for the full explanation.
 
 Build the documentation
 -------------------------

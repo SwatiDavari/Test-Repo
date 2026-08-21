@@ -4,6 +4,15 @@ on:
     paths: ["needs/**", "organisation/governance/**"]
   pull_request:
     paths: ["needs/**", "organisation/governance/**"]
+  # Lets a manual run pin the org-processes checkout to a specific tag
+  # (see tag-release.yml) instead of always floating main. Falls back to
+  # main when not manually triggered, or when left blank.
+  workflow_dispatch:
+    inputs:
+      org_processes_ref:
+        description: "org-processes ref to build against (tag, branch, or commit) - defaults to main"
+        required: false
+        default: "main"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +21,22 @@ jobs:
         working-directory: needs
     steps:
       - uses: actions/checkout@v4
+      # organisation/ is gitignored here on purpose - Org_processes is its
+      # single source of truth (see scripts/sync_org_content.sh). Checked
+      # out as a public repo; if this ever starts failing with a 403 auth
+      # error instead of a clean 404/not-found, add "token: ''" below to
+      # force an anonymous clone instead of the default (repo-scoped)
+      # GITHUB_TOKEN. working-directory: . overrides this job's needs/
+      # default since Org_processes lands at the repo root, not inside needs/.
+      - name: Checkout Org_processes (organisation/ content)
+        uses: actions/checkout@v4
+        with:
+          repository: SwatiDavari/org-processes
+          ref: ${{ github.event.inputs.org_processes_ref || 'main' }}
+          path: Org_processes
+      - name: Sync organisation/ from Org_processes
+        working-directory: .
+        run: bash scripts/sync_org_content.sh Org_processes
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -21,7 +46,7 @@ jobs:
       # Export organisation/governance/'s org_req needs so this project's
       # :links: fields can cite them as real, checked link targets via
       # needs_external_needs (see needs/conf.py) instead of unenforced
-      # free-text prose. Runs from the repo root — the root project (not
+      # free-text prose. Runs from the repo root - the root project (not
       # this one) owns org_req.
       - name: Install root-project deps (for org_req export)
         working-directory: .

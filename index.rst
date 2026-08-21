@@ -26,19 +26,38 @@ terminology. Published documentation lives under ``doc/`` (``manuals/``,
    polish. Content is unchanged — only where each page is linked from and
    which theme renders it.
 
-   **Known, pre-existing gap, not introduced by this change**:
+   **2026-08-21: organisation/ is now populated in CI, fixing the gap
+   below.** ``.github/workflows/docs.yml`` and ``ci-needs.yml`` now check
+   out the real ``org-processes`` repo
+   (https://github.com/SwatiDavari/org-processes) and run
+   ``scripts/sync_org_content.sh`` before building, so
    ``organisation/governance/index``, ``organisation/strategy/index``, and
-   ``organisation/common_framework/index`` below don't resolve locally.
-   ``organisation/`` is gitignored and populated at build time from a
-   sibling ``Org_processes`` repo by ``scripts/sync_org_content.sh`` (see
-   that script and ``.gitignore``) — neither this checkout nor
-   ``.github/workflows/docs.yml``/``ci-needs.yml`` currently run it, so
-   these three sections build as broken links today regardless of theme.
-   Previously this showed up as ~20 separate "unknown document" warnings
-   (one per file that used to be listed directly here); collapsing each
-   section down to its one real landing-page reference doesn't fix the
-   underlying gap, just reduces the noise to one clear warning per
-   missing section instead of one per file that was never there.
+   ``organisation/common_framework/index`` below resolve against real
+   content in CI. Verified against that repo's actual content: the
+   ``needs/`` project's ``-W``-gated build (``ci-needs.yml``) dropped from
+   5 warnings to 1 once the real ``org_req`` IDs (``ORG_SMS_001``,
+   ``ORG_CYBERSEC_TOOL_001``, ``ORG_TOOLCFG_001``, ``ORG_TOOLQUAL_001``)
+   became resolvable — the one warning left is unrelated, a pre-existing
+   broken ``verifies`` link inside this repo's own communication module.
+
+   **Traded-off, not fixed**: ``org-processes``'s own governance pages
+   link their child pages via prose (``:doc:`` references) instead of a
+   toctree — a documented leftover workaround for Furo's sidebar always
+   rendering at full depth, from before this repo switched themes. Once
+   synced in here, several of those leaf pages (the actual requirement
+   documents, e.g. ``org_fusa_requirements``, ``org_cybsec_requirements``,
+   ``tool_qualification_requirements``) have no toctree entry anywhere in
+   *this* project either, so they'll show as "document isn't included in
+   any toctree" warnings on this project's own (non-``-W``-gated) build.
+   Not fixed here, since doing so would mean this repo hard-coding
+   knowledge of org-processes' internal file layout into its own toctree
+   — fragile, and liable to silently break if that repo reorganizes.
+   Flagging as a known, accepted cost rather than fixing it unasked.
+
+   This still only runs automatically in CI. Building this project
+   locally still needs a local checkout of ``org-processes`` and a manual
+   run of ``scripts/sync_org_content.sh`` first — see
+   ``getting_started.rst``.
 
    **2026-08-21: added Score (score.dev) doc-site UX patterns.** Score's
    docs (docs.score.dev) run on Docusaurus, a different stack from this

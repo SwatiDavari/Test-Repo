@@ -1,0 +1,33 @@
+name: Tag release
+
+# Manual, opt-in tagging (workflow_dispatch only) - not automatic on every
+# push. Auto-tagging every commit would pollute tag history and, once a
+# tag is pushed, it's the kind of thing other things can start depending
+# on - hard to walk back cleanly. Run this from the Actions tab when you
+# actually want to mark a release point.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag name to create (e.g. v1.3.0 or docs-2026-08-21)"
+        required: true
+      message:
+        description: "Annotated tag message"
+        required: false
+        default: "Tagged via workflow_dispatch"
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create and push tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "${{ github.event.inputs.tag }}" -m "${{ github.event.inputs.message }}"
+          git push origin "${{ github.event.inputs.tag }}"

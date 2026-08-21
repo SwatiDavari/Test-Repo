@@ -4,6 +4,16 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Lets a manual run pin the org-processes checkout to a specific tag
+  # (see tag-release.yml) instead of always floating main - e.g. to
+  # rebuild against a known-good governance release. Falls back to
+  # main when not manually triggered, or when left blank.
+  workflow_dispatch:
+    inputs:
+      org_processes_ref:
+        description: "org-processes ref to build against (tag, branch, or commit) - defaults to main"
+        required: false
+        default: "main"
 
 permissions:
   contents: read
@@ -19,6 +29,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # organisation/ is gitignored here on purpose - Org_processes is its
+      # single source of truth (see scripts/sync_org_content.sh). Checked
+      # out as a public repo; if this ever starts failing with a 403 auth
+      # error instead of a clean 404/not-found, add "token: ''" below to
+      # force an anonymous clone instead of the default (repo-scoped)
+      # GITHUB_TOKEN.
+      - name: Checkout Org_processes (organisation/ content)
+        uses: actions/checkout@v4
+        with:
+          repository: SwatiDavari/org-processes
+          ref: ${{ github.event.inputs.org_processes_ref || 'main' }}
+          path: Org_processes
+      - name: Sync organisation/ from Org_processes
+        run: bash scripts/sync_org_content.sh Org_processes
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"

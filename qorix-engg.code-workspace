@@ -5,8 +5,7 @@
 			"path": "."
 		},
 		{
-			"name": "Org_processes",
-			"path": "../Org_processes"
+			"path": "../org-processes"
 		}
 	],
 	"settings": {
