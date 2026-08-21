@@ -2,28 +2,38 @@ Unit Test Cases — communication
 ==================================
 
 .. note::
-   Covers this module's unit-level design, ``UNIT_A_001``, via a real
-   ``tc`` need below rather than free-text prose, so the link is
-   dead-link-checked.
+   Covers this module's unit-level design via a real ``tc`` need below
+   rather than free-text prose, so the link is dead-link-checked.
 
-.. warning::
-   Content mismatch, flagged not silently fixed: ``UNIT_A_001`` ("Proxy
-   Serialization Unit") implements message serialization/deserialization
-   in the proxy layer. The test case below instead describes
-   publish/subscribe dispatch behavior (payload delivery to subscriber
-   callbacks by topic) — that's a different unit's responsibility, not
-   this one's. Either ``TC_UNIT_A_001`` needs a serialization/
-   deserialization scenario, or it needs to link to whichever unit
-   actually implements the dispatch routine (no such unit exists yet
-   under ``needs/software/communication/component/unit design/``). Left as-is
-   pending that decision.
+.. note::
+   **2026-08-21: resolved the content mismatch flagged below (kept for
+   history).** Added ``UNIT_COM_EVTTRIG_019`` ("Topic-scoped event
+   dispatch isolation") to
+   ``needs/software/communication/component/unit design/units.rst`` to
+   cover the dispatch/isolation behavior this test case actually
+   verifies, and retargeted ``:verifies:`` at it. The old link target,
+   ``UNIT_A_001``, no longer exists anywhere in this project — a stale
+   ID left over from before ``units.rst`` was consolidated into its
+   current ``UNIT_COM_*`` scheme; it was never redefined post-reorg,
+   which is what made the outgoing link permanently unresolvable rather
+   than just semantically off.
+
+   *Original note, now resolved*: ``UNIT_A_001`` ("Proxy Serialization
+   Unit") implemented message serialization/deserialization in the
+   proxy layer. This test case instead describes publish/subscribe
+   dispatch behavior (payload delivery to subscriber callbacks by
+   topic) — a different unit's responsibility, not that one's. Either
+   this test case needed a serialization/deserialization scenario
+   instead, or it needed to link to whichever unit actually implements
+   the dispatch routine (no such unit existed yet). Resolved via the
+   latter.
 
 .. tc:: Publish/subscribe dispatch — unit
    :id: TC_UNIT_A_001
    :version: 1.0.0
    :status: proposed
    :asil: ASIL B
-   :verifies: UNIT_A_001
+   :verifies: UNIT_COM_EVTTRIG_019
 
    Unit-level verification (no process boundary, no network, no
    timeout): given a message payload and a subscriber callback

@@ -969,6 +969,27 @@ IPC/Communication-Manager architecture, a separate part of this module.
    kNetworkBindingFailure in the Result of the Send() method of the respective Trigger
    class (see [SWS_CM_00721]).
 
+.. unit:: Topic-scoped event dispatch isolation
+   :id: UNIT_COM_EVTTRIG_019
+   :version: 1.0.0
+   :status: draft
+   :satisfies: COMP_COM_EVTTRIG_001
+   :standard: ASPICE SWE.3 / ISO 15288 6.4.5
+
+   Added 2026-08-21 to close a gap found while fixing a broken :verifies:
+   link from TC_UNIT_A_001 (see that test case for the full history):
+   UNIT_COM_EVTTRIG_010 and UNIT_COM_EVTTRIG_017 above already require that
+   a registered receive handler is invoked when its own event/trigger is
+   received, but neither states the negative case a unit-level test
+   actually needs to check. Given a payload received for one topic/event
+   and a subscriber callback registered on that topic, the dispatch
+   routine shall deliver the exact payload to that callback exactly once,
+   and shall not invoke callbacks registered on any other topic/event.
+   No AUTOSAR SWS clause number is cited here (unlike its sibling units
+   above) since this isolation property is this unit's own addition, not
+   a direct translation of one AUTOSAR-numbered clause -- flagged rather
+   than inventing a citation that doesn't exist.
+
 .. unit:: IAM Module Instantiation
    :id: UNIT_COM_IAM_001
    :version: 1.0.0
