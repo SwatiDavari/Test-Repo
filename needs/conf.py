@@ -580,6 +580,12 @@ extensions = extensions + ["sphinx_immaterial"]
 html_theme = "sphinx_immaterial"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
+
+# 2026-08-21: same change as ../conf.py -- see that file's comment for why.
+# needs/_static/qorix_logo.png already existed here (from the manuals'
+# earlier, since-reversed move); root's copy was added to root/_static/ in
+# the same change so both projects' headers show the same logo.
+html_logo = "_static/qorix_logo.png"
 html_theme_options = {
     "icon": {"repo": "fontawesome/brands/github"},
     "site_url": "https://swatidavari.github.io/Test-Repo/needs/",

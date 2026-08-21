@@ -357,6 +357,15 @@ extensions = extensions + ["sphinx_immaterial"]
 html_theme = "sphinx_immaterial"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
+
+# 2026-08-21: replaced sphinx-immaterial's default logo (a generic white
+# book-icon glyph on a colored square, not a Qorix asset) with the real
+# Qorix logo. html_logo (top-level Sphinx setting, not a theme option) is
+# what sphinx-immaterial actually reads for the header logo -- verified by
+# checking the installed theme's own layout template rather than assumed.
+# Same file kept in sync across both Sphinx projects' own _static/ (root
+# and needs/), the same pattern already used for custom.css.
+html_logo = "_static/qorix_logo.png"
 html_theme_options = {
     "icon": {"repo": "fontawesome/brands/github"},
     "site_url": "https://swatidavari.github.io/Test-Repo/",
