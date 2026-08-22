@@ -14,14 +14,95 @@
    #66E8AA, Fresh Green #72E27A, Bright Green #8FEA6B, Lime Green
    #A7F04A, Neon Lime #C4FF32) all fall between 1.19:1 and 1.64:1 against
    white -- far below the 4.5:1 AA minimum, so none of them are used here
-   as a header background or link/text color. They resolve well against
-   a dark/black background instead (12.8:1-17.7:1) if wanted later for
-   dark-mode accents or non-text decoration -- not applied here since
-   that wasn't asked for, flagging as a follow-up if wanted. */
+   as a header background or link/text color, or as body text on a light
+   surface. They resolve well against a dark/black background instead
+   (12.8:1-17.7:1). 2026-08-22: put to use below, in the two ways that
+   stay contrast-safe -- decoration that carries no text of its own
+   (borders, dividers, tints), and as a background paired with black
+   text (light-on-dark contrast math doesn't care about hue, so this is
+   AAA regardless -- see the per-color ratios in the badge rule below). */
 :root, [data-md-color-scheme="default"] {
   --md-primary-fg-color: #3A00F5;
   --md-primary-fg-color--light: #4B00FF;
   --md-primary-fg-color--dark: #3A00F5;
   --md-accent-fg-color: #4B00FF;
   --md-typeset-a-color: #3A00F5;
+}
+
+/* --- Green/mint/lime accents (decoration only) --------------------------
+   Kept away from anything with existing semantic meaning: the needs_types
+   node colors in conf.py stay exactly as documented there (risk/problem/
+   etc. already carry a deliberate ISO-standard color rationale that a
+   green would contradict -- a "safe-looking" RISK node, for instance).
+   Selectors below cover both docutils' theme-neutral output (admonition/
+   blockquote/hr -- these apply under Furo, which is what's actually
+   installed in this repo's .venv today) and sphinx-immaterial's own
+   `.md-typeset`-prefixed classes (the theme conf.py names but which isn't
+   installed locally to verify against -- CI installs it separately per
+   .github/workflows/docs.yml, so these are the theme's documented class
+   names, not build-verified here).
+
+   Contrast, black text (#000) on each swatch, computed via WCAG relative
+   luminance -- all comfortably AAA (>=7:1), because light background +
+   dark text ignores hue:
+     Teal Mint #4FE0C4 12.79:1  Soft Mint Green #66E8AA 13.69:1
+     Fresh Green #72E27A 12.88:1  Bright Green #8FEA6B 14.15:1
+     Lime Green #A7F04A 15.21:1  Neon Lime #C4FF32 17.70:1          */
+
+/* Tip/hint admonitions: Fresh Green accent */
+.admonition.tip, .admonition.hint,
+.md-typeset .admonition.tip, .md-typeset .admonition.hint {
+  border-color: #72E27A;
+}
+.admonition.tip > .admonition-title, .admonition.hint > .admonition-title,
+.md-typeset .tip > .admonition-title, .md-typeset .hint > .admonition-title {
+  background-color: rgba(114, 226, 122, 0.12);
+}
+.admonition.tip > .admonition-title::before, .admonition.hint > .admonition-title::before {
+  background-color: #72E27A;
+}
+
+/* Note admonitions: Teal Mint accent (kept distinct from tip; still a
+   neutral/positive color, doesn't compete with warning/danger reds) */
+.admonition.note, .md-typeset .admonition.note {
+  border-color: #4FE0C4;
+}
+.admonition.note > .admonition-title, .md-typeset .note > .admonition-title {
+  background-color: rgba(79, 224, 196, 0.12);
+}
+.admonition.note > .admonition-title::before {
+  background-color: #4FE0C4;
+}
+
+/* Blockquotes: Soft Mint Green left border */
+blockquote {
+  border-left: 4px solid #66E8AA;
+  padding-left: 1em;
+}
+
+/* Section dividers (<hr>): brand gradient across the full green/mint/lime run */
+hr {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg, #4FE0C4, #66E8AA, #72E27A, #8FEA6B, #A7F04A, #C4FF32);
+}
+
+/* Inline flag/badge utility, e.g. a raw-html span or
+   `.. rst-class:: qorix-badge` on a short paragraph, for things like
+   "New" / "Beta" markers. Black text on any of these greens clears AAA
+   (12.79:1 lowest, see ratios above). */
+.qorix-badge {
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  border-radius: 999px;
+  background-color: #A7F04A;
+  color: #000000;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+/* Scrollbar accent (WebKit browsers only) -- decorative, carries no text */
+::-webkit-scrollbar-thumb {
+  background-color: #8FEA6B;
+  border-radius: 4px;
 }
