@@ -1,6 +1,6 @@
-id: PROC_SYS_STARTUP_001
+id: proc_sys_startup_001
 steps:
-  - Boot the product image with the entry condition in TCOND_STARTUP_001 satisfied.
+  - Boot the product image with the entry condition in tcond_startup_001 satisfied.
   - Start the Communication module (feat_a_001) and assert its publish-subscribe channel is established.
   - Start the Diagnostics module (feat_z_001) and assert service registration completes.
   - Assert both modules report ready within the configured startup timeout.

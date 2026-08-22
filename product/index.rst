@@ -14,6 +14,20 @@ collapsible sub-menus, the same pattern used for "Organization".
 See :doc:`known_gaps` for divergences between this structure and the
 request it was built from.
 
+**2026-08-22: expanded the "Needs" entry from one generic redirect to
+one per discipline.** ``needs/`` is still a genuinely separate Sphinx
+project (own ``conf.py``, own build, own sidebar — see
+``needs_redirect.rst``'s note on why a true nested toctree entry isn't
+possible across two independent Sphinx builds), so each entry below is
+still a same-trick meta-refresh stub, not a real cross-project toctree
+inclusion. What changed is granularity: instead of a single "Needs" link
+that dropped you on the needs/ landing page, there's now one named entry
+per discipline (mirroring ``needs/index.rst``'s own caption structure),
+so Communication and Diagnostics in particular — the two Software
+features covered earlier in this repo's traceability work — are each
+one click away instead of buried behind a generic link plus in-page
+navigation.
+
 .. toctree::
    :caption: Docs
    :maxdepth: 1
@@ -49,7 +63,14 @@ request it was built from.
    :maxdepth: 1
 
    /needs_types_definition
-   Needs <needs_redirect>
+   Overview <needs_redirect>
+   Pre-requirements <needs_prerequirements_redirect>
+   System <needs_system_redirect>
+   Communication <needs_software_communication_redirect>
+   Diagnostics <needs_software_diagnostics_redirect>
+   Safety <needs_safety_redirect>
+   Security <needs_security_redirect>
+   Quality <needs_quality_redirect>
 
 .. toctree::
    :hidden:

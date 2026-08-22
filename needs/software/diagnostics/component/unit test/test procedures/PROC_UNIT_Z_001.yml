@@ -1,6 +1,6 @@
-id: PROC_UNIT_Z_001
+id: proc_unit_z_001
 steps:
-  - Construct the service registry under test with no advertised instances (per TCOND_UNIT_Z_001).
+  - Construct the service registry under test with no advertised instances (per tcond_unit_z_001).
   - Advertise service instance S1 for service type "diagnostics.log".
   - Assert a lookup for "diagnostics.log" returns exactly S1.
   - Advertise a second instance S2 for the same service type.

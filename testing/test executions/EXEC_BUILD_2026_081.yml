@@ -1,4 +1,4 @@
-id: EXEC_BUILD_2026_081
-suite: SUITE_RELEASE_SMOKE
+id: exec_build_2026_081
+suite: suite_release_smoke
 build: BUILD_2026_08_05_001
 result: passed

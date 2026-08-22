@@ -223,7 +223,7 @@ test_repo/
 ├── test/
 │   ├── executions/
 │   │   ├── .gitkeep
-│   │   └── EXEC_BUILD_2026_081.yml
+│   │   └── exec_build_2026_081.yml
 │   ├── testbasis/
 │   │   ├── .gitkeep
 │   │   └── basis.yml
@@ -234,12 +234,12 @@ test_repo/
 │   │   └── index.rst
 │   ├── testconditions/
 │   │   ├── .gitkeep
-│   │   └── TCOND_STARTUP_001.yml
+│   │   └── tcond_startup_001.yml
 │   ├── testdesign/
 │   │   └── .gitkeep
 │   ├── testprocedures/
 │   │   ├── .gitkeep
-│   │   └── PROC_SYS_STARTUP_001.yml
+│   │   └── proc_sys_startup_001.yml
 │   ├── testreports/
 │   │   ├── .gitkeep
 │   │   └── product-verification-report.rst
@@ -247,7 +247,7 @@ test_repo/
 │   │   └── product-verification-strategy.rst
 │   ├── testsuites/
 │   │   ├── .gitkeep
-│   │   └── SUITE_RELEASE_SMOKE.yml
+│   │   └── suite_release_smoke.yml
 │   ├── index.rst
 │   └── README.md
 ├── tools/
@@ -317,32 +317,32 @@ since a system requirement spans modules by definition).
 
 | Tier | Format | Example |
 |---|---|---|
-| `sys` | `SYS_<TOPIC>_NNN` | `SYS_MSGDISC_001` |
-| `feat` | `FEAT_<MODULE>_<TOPIC>_NNN` | `FEAT_COM_SOMEIP_005` |
-| `comp` | `COMP_<MODULE>_<TOPIC>_NNN` | `COMP_COM_SD_001` |
-| `unit` | `UNIT_<MODULE>_<TOPIC>_NNN` | `UNIT_COM_SD_004` |
+| `sys` | `sys_<topic>_nnn` | `sys_msgdisc_001` |
+| `feat` | `feat_<module>_<topic>_nnn` | `feat_com_someip_005` |
+| `comp` | `comp_<module>_<topic>_nnn` | `comp_com_sd_001` |
+| `unit` | `unit_<module>_<topic>_nnn` | `unit_com_sd_004` |
 
 Segment breakdown for that same chain — `sys` has 3 segments (no module),
 the other three tiers have 4:
 
 | ID | Type | Module | Topic | NNN |
 |---|---|---|---|---|
-| `SYS_MSGDISC_001` | `SYS` | — | `MSGDISC` | `001` |
-| `FEAT_COM_SOMEIP_005` | `FEAT` | `COM` | `SOMEIP` | `005` |
-| `COMP_COM_SD_001` | `COMP` | `COM` | `SD` | `001` |
-| `UNIT_COM_SD_004` | `UNIT` | `COM` | `SD` | `004` |
+| `sys_msgdisc_001` | `sys` | — | `msgdisc` | `001` |
+| `feat_com_someip_005` | `feat` | `com` | `someip` | `005` |
+| `comp_com_sd_001` | `comp` | `com` | `sd` | `001` |
+| `unit_com_sd_004` | `unit` | `com` | `sd` | `004` |
 
 Reading an ID top to bottom tells you what it's about without opening the
 file — a real `:satisfies:` chain from this repo, not a hypothetical:
 
 | Tier | ID | Title | Satisfies |
 |---|---|---|---|
-| `sys` | `SYS_MSGDISC_001` | Inter-application communication and service discovery | — |
-| `feat` | `FEAT_COM_SOMEIP_005` | Compatibility with Open SOME/IP Service Discovery Protocol Specification | `SYS_MSGDISC_001` |
-| `comp` | `COMP_COM_SD_001` | SOME/IP Service Discovery Protocol | `FEAT_COM_SOMEIP_005` |
-| `unit` | `UNIT_COM_SD_004` | SOME/IP FindService message | `COMP_COM_SD_001` |
+| `sys` | `sys_msgdisc_001` | Inter-application communication and service discovery | — |
+| `feat` | `feat_com_someip_005` | Compatibility with Open SOME/IP Service Discovery Protocol Specification | `sys_msgdisc_001` |
+| `comp` | `comp_com_sd_001` | SOME/IP Service Discovery Protocol | `feat_com_someip_005` |
+| `unit` | `unit_com_sd_004` | SOME/IP FindService message | `comp_com_sd_001` |
 
-Module codes in use: `COM` (Communication). Topic codes are assigned per
+Module codes in use: `com` (Communication). Topic codes are assigned per
 tier based on what the need is actually about — they don't have to match
 between tiers (a feature can be broader than the component that
 implements it, as in the example above: `SOMEIP` at the feat tier,
@@ -354,34 +354,76 @@ the feature it satisfies).
 - Every `feat`/`comp`/`unit` id introduced for the Communication module
   during this pass follows this scheme in full, including the 49
   top-level Communication features, which were grouped into 9 topic
-  buckets (`ARCH`, `IFC`, `SAFETY`, `PERF`, `BINDING`, `VM`, `DEPLOY`,
-  `TRACE`, `ACL`) precisely so no id would be left topic-less.
-- `SYS_001` was renamed to `SYS_MSGDISC_001` since it's the one `sys`
+  buckets (`arch`, `ifc`, `safety`, `perf`, `binding`, `vm`, `deploy`,
+  `trace`, `acl`) precisely so no id would be left topic-less.
+- `SYS_001` was renamed to `sys_msgdisc_001` since it's the one `sys`
   requirement that exists today; every file that referenced it
   (`needs/systemslifecycle/index.rst`, `needs/stakeholder-needs.rst`,
   `needs/index.rst`, `needs/diagnostics/feature/index.rst`,
   `needs/quality/metrics/index.rst`) was updated to match.
-- **Diagnostics has not been converted.** `FEAT_Z_001`, `COMP_Z_001`,
-  `UNIT_Z_001` still use the original flat, module-only style with no
+- **Diagnostics has not been converted.** `feat_z_001`, `comp_z_001`,
+  `unit_z_001` still use the original flat, module-only style with no
   topic code — applying this scheme there is separate, not-yet-done
   work.
 - **Three pre-existing Communication ids were deliberately left
-  unrenamed**: `FEAT_A_001`, `COMP_A_001`, `UNIT_A_001`. They predate
+  unrenamed**: `feat_a_001`, `comp_a_001`, `UNIT_A_001`. They predate
   this pass and anchor the established ISO 26262 safety chain
-  (`SG_001`→`FSR_001`→`TSR_001`→`COMP_A_001`→`UNIT_A_001`,
-  `ITC_COMP_A_001_001`) — renumbering them was out of scope. Expect the
+  (`sg_001`→`fsr_001`→`tsr_001`→`comp_a_001`→`UNIT_A_001`,
+  `itc_comp_a_001_001`) — renumbering them was out of scope. Expect the
   Communication module to mix both styles (3 old-style ids alongside the
   new-style ones) rather than read that as an oversight.
 - New Communication needs going forward should follow this scheme
   (assign the real topic the need belongs to — don't leave the topic
   segment out to avoid the choice).
 
+**2026-08-22 addendum:** every ID in this document (and every real ID in
+`needs/`) was lowercased repo-wide — see `needs/needs_types_definition.rst`'s
+own dated note. `UNIT_A_001` above is left as-is deliberately: it isn't a
+naming-scheme exception any more, it's simply retired — it was removed
+outright on 2026-08-21 (superseded by `unit_com_evttrig_019`; see
+`needs/software/communication/component/unit test/test cases/index.rst`'s
+history note) and never re-added, so there's no live ID to lowercase.
+
+## File naming convention
+
+**Rule, adopted 2026-08-22: every `.rst` and `.yml` file name in this repo
+is lowercase.** No exceptions for otherwise-uppercase IDs — a file named
+after a need or a test artifact ID takes the lowercased form of that ID,
+matching the ID casing rule above (e.g. `sys_msgdisc_001` the need, not
+just the file). Directory names aren't covered by this rule (existing
+ones like `test cases/`, `test basis/` were already lowercase and aren't
+otherwise in scope here), but new directories should follow the same
+practice unless there's a specific reason not to.
+
+This was a real gap as of 2026-08-22: six `.yml` files had uppercase
+names —
+
+- `needs/software/diagnostics/component/unit test/test conditions/TCOND_UNIT_Z_001.yml`
+- `needs/software/diagnostics/component/unit test/test procedures/PROC_UNIT_Z_001.yml`
+- `testing/test conditions/TCOND_STARTUP_001.yml`
+- `testing/test executions/EXEC_BUILD_2026_081.yml`
+- `testing/test procedures/PROC_SYS_STARTUP_001.yml`
+- `testing/test suites/SUITE_RELEASE_SMOKE.yml`
+
+All six renamed to lowercase (`tcond_unit_z_001.yml`, `proc_unit_z_001.yml`,
+`tcond_startup_001.yml`, `exec_build_2026_081.yml`,
+`proc_sys_startup_001.yml`, `suite_release_smoke.yml`), their internal
+`id:` fields lowercased to match, and every file that referenced the old
+names or IDs updated in the same pass. Every `.rst` file in the repo was
+already lowercase before this rule was written down — nothing to rename
+there.
+
+No automated check enforces this yet — it's a documented convention, not
+a CI gate. Worth adding a lint step alongside `tools/check_broken_links.py`
+/ `tools/check_orphan_needs.py` if repeat violations show up; not done
+here since one wasn't asked for.
+
 ## Known gaps (disclosed, not yet resolved)
 
 **Resolved since the last pass** (kept here briefly for the audit trail,
 not as open items):
 
-- `SYS_001` was a dead link on both `FEAT_A_001` and `FEAT_Z_001` — fixed
+- `SYS_001` was a dead link on both `feat_a_001` and `feat_z_001` — fixed
   by adding `needs/systemslifecycle/sys_001.rst`, the missing parent both
   features already pointed at.
 - `needs/conf.py` registering `eng_need` was previously reported as
@@ -560,7 +602,7 @@ build errors on `doc/manuals/safety/safety_user_manual.rst` with
 lives in the root project's tree (`doc/`, not excluded) but uses need
 types that are only registered in `needs/conf.py`, not in root
 `conf.py`. Every `:need:`/`:need:` cross-reference in that file to
-`TSR_001`/`SAFEFEAT_A_001` renders as "Unknown need" rather than a real
+`tsr_001`/`SAFEFEAT_A_001` renders as "Unknown need" rather than a real
 link as a result. This predates this pass — the `:version:`/`:status:`
 edits made to that file's `safefeat`/`rec`/`res` entries didn't create
 or worsen it — and was never caught before because no prior pass had
@@ -575,9 +617,9 @@ schema enum (`asil`: `QM`/`ASIL A`/`ASIL B`/`ASIL C`/`ASIL D`; `cal`:
 only where a real HARA or TARA outcome exists to back the value up,
 following the same standard's-own-rigor discipline as the rest of this
 pass. `:asil: ASIL B` is set on the seven needs that make up the
-determined safety chain and what it links into: `SG_001`, `FSR_001`,
-`TSR_001`, `COMP_A_001`, `UNIT_A_001`, `TC_UNIT_A_001`,
-`ITC_COMP_A_001_001`. Diagnostics is deliberately left unset —
+determined safety chain and what it links into: `sg_001`, `fsr_001`,
+`tsr_001`, `comp_a_001`, `UNIT_A_001`, `tc_unit_a_001`,
+`itc_comp_a_001_001`. Diagnostics is deliberately left unset —
 `functionalsafety/analyses/dependent-failure-analysis.rst` already
 records it as "not yet assessed," and setting an ASIL there would
 assert a HARA outcome that never happened. `cal` is registered but
@@ -598,8 +640,8 @@ project) were set to `proposed`, overwriting whatever they held before
 Worth being explicit about the consequence, since it's a real governance
 change, not just a label swap: **35 of these had been `approved`**, and
 that set includes the entire determined ISO 26262 safety chain
-(`SG_001`, `FSR_001`, `TSR_001`, `COMP_A_001`, `UNIT_A_001`,
-`TC_UNIT_A_001`, `ITC_COMP_A_001_001` — the same seven needs that just
+(`sg_001`, `fsr_001`, `tsr_001`, `comp_a_001`, `UNIT_A_001`,
+`tc_unit_a_001`, `itc_comp_a_001_001` — the same seven needs that just
 got `asil: ASIL B` above) and every stakeholder/business/operational
 `eng_need`. Those are now `proposed` again, i.e. reviewed-but-not-yet-
 approved, not draft. `risk`/`problem`/`change`/`exception`/`tool`/

@@ -14,7 +14,7 @@ What each folder corresponds to in ISO/IEC/IEEE 29119 (software testing), ISO/IE
 | `safety/` (`fsr` needs, e.g. `functional_safety_requirements.rst`) | — | — | Part 3 clause 8 — Functional Safety Concept |
 | `safety/` (`tsr` needs, e.g. `technical_safety_requirements.rst`) | — | — | Part 4 clause 6 — Technical Safety Concept; Part 6 — Software Safety Requirements |
 
-`<module>/` today is `communication/` and `diagnostics/` — the two live modules under `Needs/software/`. Every need in `safety/` links either up to a `sys`/`feat` need or down into a `comp`/`unit` need (see `TSR_001` linking into `COMP_A_001`), because ISO 26262 doesn't replace the ASPICE requirements chain — it adds a safety-integrity layer on top of it. A safety case built from this graph is only as complete as ISO 26262 Part 2's confirmation measures require (confirmation review, functional safety audit, functional safety assessment) — those review artifacts aren't modeled here as needs; they'd be records under `doc/manuals/` (or a dedicated safety-case document), not traceability nodes.
+`<module>/` today is `communication/` and `diagnostics/` — the two live modules under `Needs/software/`. Every need in `safety/` links either up to a `sys`/`feat` need or down into a `comp`/`unit` need (see `tsr_001` linking into `comp_a_001`), because ISO 26262 doesn't replace the ASPICE requirements chain — it adds a safety-integrity layer on top of it. A safety case built from this graph is only as complete as ISO 26262 Part 2's confirmation measures require (confirmation review, functional safety audit, functional safety assessment) — those review artifacts aren't modeled here as needs; they'd be records under `doc/manuals/` (or a dedicated safety-case document), not traceability nodes.
 
 **Reorganized 2026-08-21**: this crosswalk previously listed `<module>/feature/`, `<module>/component/`, `<module>/unit design/` as top-level, and the safety chain under `functionalsafety/` — both module-first, sitting as flat siblings alongside `cybersecurity/`, `quality/`, `systemslifecycle/`. `Needs/` is now grouped by discipline first (Software, Safety, Security, Quality, plus System as its own discipline), matching Qorix's Performance Documentation site's Project Level grouping; `communication/` and `diagnostics/` nested under a new `software/` discipline (they're both ASPICE SWE.1-3 product chains), `functionalsafety/` renamed `safety/`, `cybersecurity/` renamed `security/` (not previously in this table either — that gap predates this pass; see `needs/security/tara/index.rst` directly). No need IDs or ASPICE/ISO mappings changed — this is a folder move, not a re-tailoring.
 
@@ -31,12 +31,12 @@ What each folder corresponds to in ISO/IEC/IEEE 29119 (software testing), ISO/IE
 |---|---|---|
 | `testbasis/` | Test Basis (the source material a test is derived from, e.g. `basis.yml`) | SWE.4/SWE.5/SWE.6, SYS.4/SYS.5 (planning) |
 | `teststrategy/` | Test Plan / Level Test Strategy (e.g. `product-verification-strategy.rst`) | SWE.4/SWE.5/SWE.6, SYS.4/SYS.5 (planning) |
-| `testconditions/` | Test Condition (e.g. `TCOND_STARTUP_001.yml`) | SWE.4/SWE.5/SWE.6 |
+| `testconditions/` | Test Condition (e.g. `tcond_startup_001.yml`) | SWE.4/SWE.5/SWE.6 |
 | `testdesign/` | Test Design Specification (currently scaffolded, no content yet) | SWE.4/SWE.5/SWE.6 |
 | `testcases/<module>/` | Level Test Case (Test Case Specification, e.g. `testcases/communication/case_a_001.md`) | SWE.4/SWE.5/SWE.6 |
-| `testprocedures/` | Test Procedure Specification (e.g. `PROC_SYS_STARTUP_001.yml`) | SWE.5/SWE.6, SYS.4/SYS.5 |
-| `testsuites/` | Test Suite grouping (e.g. `SUITE_RELEASE_SMOKE.yml`) | SWE.5/SWE.6, SYS.4/SYS.5 |
-| `executions/` | Level Test Log (Test Execution Log, e.g. `EXEC_BUILD_2026_081.yml`) | SWE.5/SWE.6 (execution records) |
+| `testprocedures/` | Test Procedure Specification (e.g. `proc_sys_startup_001.yml`) | SWE.5/SWE.6, SYS.4/SYS.5 |
+| `testsuites/` | Test Suite grouping (e.g. `suite_release_smoke.yml`) | SWE.5/SWE.6, SYS.4/SYS.5 |
+| `executions/` | Level Test Log (Test Execution Log, e.g. `exec_build_2026_081.yml`) | SWE.5/SWE.6 (execution records) |
 | `testreports/` | Test Completion Report (e.g. `product-verification-report.rst`) | SWE.6/SYS.5 (qualification reporting) |
 
 There is currently no `incidents/`-equivalent folder under `test/` — published-doc corrections and defect tracking are not yet modeled here; see "Process-level folders" below for where that would live once it is. `test/` as a whole is what ISO 15288 calls out as the **Verification Process** (6.4.8, "did we build it right" — traces to `comp`/`unit`) and the **Validation Process** (6.4.11, "did we build the right thing" — traces to `sys`/`feat`); which folder content serves which depends on what level the test case covers, not on the folder itself.

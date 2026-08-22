@@ -106,3 +106,24 @@ hr {
   background-color: #8FEA6B;
   border-radius: 4px;
 }
+
+/* --- Header background: gradient (2026-08-22) -------------------------
+   Material for Sphinx's top app bar (`.md-header`) normally renders as a
+   flat `background-color: var(--md-primary-fg-color)`. Overridden here to
+   a gradient instead, using ONLY the two violets documented above as
+   contrast-safe for text -- Deep Violet #3A00F5 (8.41:1 vs white) to
+   Electric Violet #4B00FF (7.66:1 vs white). Both pass AAA on their own,
+   and interpolating linearly between two colors this close in luminance
+   never dips into a lighter midpoint, so the header's white title/nav
+   text stays AAA-safe across the whole gradient.
+
+   Deliberately NOT using the green/mint/lime run from the `hr` rule
+   above: those are documented above as failing AA for text against
+   white (1.19:1-1.64:1) -- fine for a divider that carries no text, but
+   putting them here would put the header's own white text on an
+   unreadable background. If a bolder, more "on-brand" gradient is
+   wanted later, it needs a header text-color change to match (e.g. dark
+   text on the lighter stops), not just dropping the greens in as-is. */
+.md-header {
+  background: linear-gradient(90deg, #3A00F5, #4B00FF);
+}

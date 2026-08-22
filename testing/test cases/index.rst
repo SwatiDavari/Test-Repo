@@ -12,23 +12,23 @@ Product Test Cases
    already used by the sibling ``teststrategy`` and ``testreports``
    files in this folder — and pointed at requirements that actually exist
    in this repo. The ID ``TC_SYS_STARTUP_001`` is kept because
-   ``test suites/SUITE_RELEASE_SMOKE.yml`` already references it.
+   ``test suites/suite_release_smoke.yml`` already references it.
 
 ``TC_SYS_STARTUP_001`` — system-level startup verification for
 ``sys_msgdisc_001``: with the entry condition in
-``test conditions/TCOND_STARTUP_001.yml`` satisfied, confirm both of
+``test conditions/tcond_startup_001.yml`` satisfied, confirm both of
 ``sys_msgdisc_001``'s features come up correctly — the Communication module
 (``feat_a_001``) establishes its publish-subscribe channel and the
 Diagnostics module (``feat_z_001``) completes service registration —
 following the steps recorded in
-``test procedures/PROC_SYS_STARTUP_001.yml``.
+``test procedures/proc_sys_startup_001.yml``.
 
 Owner: validation team. Status: approved.
 
 .. note::
    **2026-08-22: resolved the dangling references flagged below (kept
-   for history).** ``test conditions/TCOND_STARTUP_001.yml`` and
-   ``test procedures/PROC_SYS_STARTUP_001.yml`` didn't actually exist
+   for history).** ``test conditions/tcond_startup_001.yml`` and
+   ``test procedures/proc_sys_startup_001.yml`` didn't actually exist
    anywhere in this repo (confirmed against full git history) — there
    was no old OTA-scenario content to correct, only a reference to files
    that had never been created. Created both, with real
@@ -38,11 +38,11 @@ Owner: validation team. Status: approved.
    carried the same stale ``SYSR_*`` placeholder IDs referenced above —
    now lists ``sys_msgdisc_001``/``feat_a_001``/``feat_z_001`` instead.
 
-   *Original note, now resolved*: ``test conditions/TCOND_STARTUP_001.yml``
-   and ``test procedures/PROC_SYS_STARTUP_001.yml`` still described the
+   *Original note, now resolved*: ``test conditions/tcond_startup_001.yml``
+   and ``test procedures/proc_sys_startup_001.yml`` still described the
    old OTA-update scenario (signal-router, logging-service, firmware
    flashing) rather than this test case's actual subject — referenced
-   here by ID for consistency with ``test suites/SUITE_RELEASE_SMOKE.yml``,
+   here by ID for consistency with ``test suites/suite_release_smoke.yml``,
    not because their own content had been corrected yet. That rewrite
    was flagged as a known gap, not silently fixed — now done, together
    with ``test basis/basis.yml``.

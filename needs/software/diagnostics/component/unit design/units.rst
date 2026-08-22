@@ -19,7 +19,7 @@ one file per module, not one file per unit.
    ``registry_lookup`` / ``registry_withdraw``), unit-tested by
    ``source/c/tests/diagnostics/test_registry.c`` (wired into CTest via
    ``source/c/tests/CMakeLists.txt``), mirroring
-   ``PROC_UNIT_Z_001``/``tc_unit_z_001`` step by step: advertise S1,
+   ``proc_unit_z_001``/``tc_unit_z_001`` step by step: advertise S1,
    lookup returns S1; advertise S2 for the same service type, lookup
    returns both side by side; withdraw S1, lookup returns exactly S2.
    Compiled and run directly (``gcc -std=c11 -I include
