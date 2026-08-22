@@ -142,7 +142,7 @@ needs_types = [
 
     # Component-integration test cases. Previously this layer didn't
     # exist as an artifact at all — the chain jumped straight from unit
-    # test to the root-level system/feature test in `integration test/`,
+    # test to the root-level system/feature test in `testing/`,
     # with nothing verifying that a component's own units actually work
     # together inside its architecture (ASPICE SWE.5 / ISO 15288 6.4.8
     # System Analysis — verification within the component boundary,
@@ -464,7 +464,7 @@ needs_links = {
 # unit, sg <- fsr <- tsr). A broken or missing link, or a duplicate id,
 # fails the build below with -W.
 needs_id_required = True
-needs_id_regex = r"^[A-Z]+_[A-Za-z0-9_]+"
+needs_id_regex = r"^[a-z]+_[A-Za-z0-9_]+"
 
 # Fail the build (not just warn) on unresolvable need links, e.g. a
 # `:links:` field pointing at an id that doesn't exist.

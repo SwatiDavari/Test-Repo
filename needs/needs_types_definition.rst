@@ -1,5 +1,5 @@
 Needs Type Definitions
-========================
+=======================
 
 This (``Needs/``) Sphinx project registers eleven Sphinx-Needs directives in
 ``conf.py``'s ``needs_types``. Every ``.. sys::``, ``.. feat::``,
@@ -9,6 +9,20 @@ with ``Unknown directive type`` (this happened for real: ``eng_need`` was
 used in ``business-needs.rst``/``operational-needs.rst``/
 ``stakeholder-needs.rst`` before it was registered, and broke the build
 until it was added below).
+
+.. note::
+   **2026-08-22:** every need ID in this project was lowercased (e.g.
+   ``FEAT_A_001`` -> ``feat_a_001``, ``SYS_MSGDISC_001`` ->
+   ``sys_msgdisc_001``) across all 326 defined needs and every
+   ``:satisfies:``/``:verifies:``/``:links:``/prose reference to them,
+   in ``needs/`` and ``testing/``. ``needs_id_regex`` below updated from
+   ``^[A-Z]+_...`` to ``^[a-z]+_...`` to match and enforce it going
+   forward; the "ID prefix" columns in the tables below updated to their
+   lowercase form for the same reason. The one ID deliberately left
+   untouched is ``ORG_SMS_001`` — that's a need from the separate,
+   external ``org-processes`` project (imported via
+   ``needs_external_needs``), not one defined in this project, so it's
+   out of scope for this rename.
 
 ASPICE / ISO 15288 requirements chain
 -----------------------------------------
@@ -22,19 +36,19 @@ ASPICE / ISO 15288 requirements chain
      - Standard mapping
      - Color
    * - ``sys``
-     - ``SYS_``
+     - ``sys_``
      - ASPICE SYS.2 / ISO 15288 System Requirements Definition
      - ``#BFD8D2``
    * - ``feat``
-     - ``FEAT_``
+     - ``feat_``
      - ASPICE SWE.1 / ISO 15288 Requirements Definition
      - ``#FEDCD2``
    * - ``comp``
-     - ``COMP_``
+     - ``comp_``
      - ASPICE SWE.2 / ISO 15288 Architecture Definition
      - ``#DF744A``
    * - ``unit``
-     - ``UNIT_``
+     - ``unit_``
      - ASPICE SWE.3 / ISO 15288 Design Definition
      - ``#DCB239``
 
@@ -54,20 +68,20 @@ covered by ASPICE or ISO 15288 on their own.
      - Standard mapping
      - Color
    * - ``sg``
-     - ``SG_``
+     - ``sg_``
      - Safety Goal — ISO 26262-3 clause 6 (HARA)
      - ``#B71C1C``
    * - ``fsr``
-     - ``FSR_``
+     - ``fsr_``
      - Functional Safety Requirement — ISO 26262-3 clause 8
      - ``#D32F2F``
    * - ``tsr``
-     - ``TSR_``
+     - ``tsr_``
      - Technical Safety Requirement — ISO 26262-4 clause 6 / ISO 26262-6
      - ``#E57373``
 
 Pre-requirements input layer
----------------------------------
+--------------------------------
 
 Upstream of ``sys`` — raw stakeholder/business/operational needs that
 system requirements are elicited from. Not part of the ASPICE/ISO 15288
@@ -82,7 +96,7 @@ requirements-definition chain itself.
      - Standard mapping
      - Color
    * - ``eng_need``
-     - ``NEED_``
+     - ``need_``
      - Stakeholder / Business / Operational Need (``stakeholder-needs.rst``,
        ``business-needs.rst``, ``operational-needs.rst``)
      - ``#8E9AAF``
@@ -104,20 +118,20 @@ prefix column is just the auto-id default, not enforced per module.
      - Standard mapping
      - Color
    * - ``safefeat``
-     - ``SAFEFEAT_``
+     - ``safefeat_``
      - Module Safety Feature — ISO 26262-6 Safety User Manual
      - ``#7B1FA2``
    * - ``rec``
-     - ``REC_``
+     - ``rec_``
      - Operational Recommendation — ISO 26262-6 Safety User Manual
      - ``#F57F17``
    * - ``res``
-     - ``RES_``
+     - ``res_``
      - Operational Restriction — ISO 26262-6 Safety User Manual
      - ``#EF6C00``
 
 See ``software/communication/safety_user_manual.rst`` for a worked example that
-links a ``safefeat`` into the existing ``TSR_001``/``SG_001`` chain.
+links a ``safefeat`` into the existing ``tsr_001``/``sg_001`` chain.
 
 Extra fields
 --------------
@@ -137,7 +151,7 @@ Registered in ``needs_fields`` alongside the types above:
 - ``lifecycle_stage`` — lifecycle stage this need belongs to, e.g.
   ``stakeholder_needs``.
 - ``rationale``, ``use_case``, ``dependency`` — ``safefeat`` fields.
-- ``input_reference``, ``req_type``, ``actions``, ``impact`` — ``rec``/
+- ``input_reference``, ``req_type``, ``actions``, ``impact`` — `rec``/
   ``res`` fields. ``input_reference`` is free text (not a real link) for
   the same reason as ``derives_from``: it frequently cites a DFMEA action
   ID that has no matching need.
@@ -255,7 +269,7 @@ Safety and cybersecurity classification
 HARA or TARA outcome exists** — not stamped across every need of a
 given type.
 
-``asil`` is set today on exactly seven needs — the determined safety
+``asil`` is set today on exactly six needs — the determined safety
 chain and what it links into:
 
 .. list-table::
@@ -265,29 +279,43 @@ chain and what it links into:
    * - Need
      - ASIL
      - Why
-   * - ``SG_001``
+   * - ``sg_001``
      - ``ASIL B``
      - The Safety Goal itself — HARA output.
-   * - ``FSR_001``
+   * - ``fsr_001``
      - ``ASIL B``
-     - Functional Safety Concept, inherits from ``SG_001``.
-   * - ``TSR_001``
+     - Functional Safety Concept, inherits from ``sg_001``.
+   * - ``tsr_001``
      - ``ASIL B``
-     - Technical Safety Concept, inherits from ``FSR_001``.
-   * - ``COMP_A_001``
+     - Technical Safety Concept, inherits from ``fsr_001``.
+   * - ``comp_a_001``
      - ``ASIL B``
-     - Architecture ``TSR_001`` is allocated to.
-   * - ``UNIT_A_001``
+     - Architecture ``tsr_001`` is allocated to.
+   * - ``tc_unit_a_001``
      - ``ASIL B``
-     - Design implementing that architecture.
-   * - ``TC_UNIT_A_001``
+     - Verifies ``unit_com_evttrig_019``.
+   * - ``itc_comp_a_001_001``
      - ``ASIL B``
-     - Verifies ``UNIT_A_001``.
-   * - ``ITC_COMP_A_001_001``
-     - ``ASIL B``
-     - Verifies ``COMP_A_001``.
+     - Verifies ``comp_a_001``.
 
-Diagnostics (``COMP_Z_001``/``UNIT_Z_001``/their test cases) is
+.. note::
+   **2026-08-22:** this table previously had a seventh row,
+   ``UNIT_A_001`` (``ASIL B``, "design implementing that architecture"),
+   with ``tc_unit_a_001`` listed as verifying it. ``UNIT_A_001`` doesn't
+   exist anywhere in this project (retired 2026-08-21 — see
+   ``component/unit test/test cases/index.rst``'s own history note) and
+   never actually carried an ``:asil:`` field itself, so "seven" was
+   already wrong before that row is even removed. ``tc_unit_a_001`` now
+   verifies ``unit_com_evttrig_019`` (corrected above) — but that unit
+   has no ``:asil:`` of its own and satisfies ``comp_com_evttrig_001``,
+   not ``comp_a_001``. So the ASIL-B chain currently ends at
+   ``comp_a_001``/``itc_comp_a_001_001`` (component level) plus
+   ``tc_unit_a_001`` (which self-declares ``ASIL B`` on the test case
+   itself) — there is no unit-level design need in this chain carrying
+   an ``:asil:`` value right now. Disclosed here as a real gap, not
+   asserted or silently patched.
+
+Diagnostics (``comp_z_001``/``unit_z_001``/their test cases) is
 deliberately **not** given an ASIL: ``safety/analyses/
 dependent-failure-analysis.rst`` records Diagnostics as "not yet
 assessed." Setting an ASIL there would assert a HARA outcome that

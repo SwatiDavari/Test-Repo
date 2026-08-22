@@ -7,7 +7,7 @@ Unit Test Cases — communication
 
 .. note::
    **2026-08-21: resolved the content mismatch flagged below (kept for
-   history).** Added ``UNIT_COM_EVTTRIG_019`` ("Topic-scoped event
+   history).** Added ``unit_com_evttrig_019`` ("Topic-scoped event
    dispatch isolation") to
    ``needs/software/communication/component/unit design/units.rst`` to
    cover the dispatch/isolation behavior this test case actually
@@ -29,11 +29,11 @@ Unit Test Cases — communication
    latter.
 
 .. tc:: Publish/subscribe dispatch — unit
-   :id: TC_UNIT_A_001
+   :id: tc_unit_a_001
    :version: 1.0.0
    :status: proposed
    :asil: ASIL B
-   :verifies: UNIT_COM_EVTTRIG_019
+   :verifies: unit_com_evttrig_019
 
    Unit-level verification (no process boundary, no network, no
    timeout): given a message payload and a subscriber callback
@@ -42,7 +42,7 @@ Unit Test Cases — communication
    registered on other topics. See :doc:`../../../feature/index` for
    the corresponding end-to-end (feature-level) verification of the same
    behavior across a real timeout window, which belongs in
-   ``integration test/`` at the root, not here.
+   ``testing/`` at the root, not here.
 
 Owner: communication module owner. Status: draft — no automated test
 implementation is wired up yet under ``source/`` for this case.

@@ -1,7 +1,7 @@
 Communication Component Requirements
 ========================================
 
-Detailed requirements decomposition for ``COMP_A_001`` (Communication
+Detailed requirements decomposition for ``comp_a_001`` (Communication
 Manager Architecture) would live here.
 
 .. note::

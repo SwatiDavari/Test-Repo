@@ -8,14 +8,14 @@ wiring. Add new integration test cases here as additional
 ``.. itc::`` directives.
 
 .. itc:: Proxy layer wiring — serialization unit inside the component
-   :id: ITC_COMP_A_001_001
+   :id: itc_comp_a_001_001
    :version: 1.0.0
    :status: proposed
    :asil: ASIL B
-   :verifies: COMP_A_001
+   :verifies: comp_a_001
 
    Verifies that ``UNIT_A_001`` (the proxy-layer serialization/
-   deserialization routine) is correctly wired into ``COMP_A_001``'s
+   deserialization routine) is correctly wired into ``comp_a_001``'s
    proxy/skeleton/binding decomposition: a message serialized by the
    proxy layer and passed through the skeleton/binding layers
    deserializes back to an identical message on the other side, with no

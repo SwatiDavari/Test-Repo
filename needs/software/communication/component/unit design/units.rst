@@ -13,8 +13,8 @@ numerous to convert individually (see the note on
 reference)`` below).
 
 Each ``unit::`` need's ``:satisfies:`` points at one of the new topic-level
-``comp::`` entries in :doc:`../index` (``COMP_COM_PARADIGM_001``-``COMP_COM_SERDES_001``), not
-at ``COMP_A_001``-``COMP_COM_IPC_001`` -- those remain the eclipse-score-derived
+``comp::`` entries in :doc:`../index` (``comp_com_paradigm_001``-``comp_com_serdes_001``), not
+at ``comp_a_001``-``comp_com_ipc_001`` -- those remain the eclipse-score-derived
 IPC/Communication-Manager architecture, a separate part of this module.
 
 .. note::
@@ -22,17 +22,17 @@ IPC/Communication-Manager architecture, a separate part of this module.
    referenced narratively elsewhere in this repo (``needs_types_definition.rst``'s
    ASIL table, ``functionalsafety/analyses/fmea.rst``) as the proxy-layer
    serialization/session-handling unit in the safety chain
-   ``SG_001`` -> ``FSR_001`` -> ``TSR_001`` -> ``COMP_A_001`` -> ``UNIT_A_001``.
+   ``sg_001`` -> ``fsr_001`` -> ``tsr_001`` -> ``comp_a_001`` -> ``UNIT_A_001``.
    That is a distinct scope (the IPC/shared-memory Communication Manager) from
    this AUTOSAR SOME/IP conversion, and giving it a real definition is left
    for whoever does that safety-chain work, not decided here. This register's
-   own new content starts at ``UNIT_COM_PARADIGM_001``.
+   own new content starts at ``unit_com_paradigm_001``.
 
 .. unit:: Active subscriber
-   :id: UNIT_COM_PARADIGM_001
+   :id: unit_com_paradigm_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_PARADIGM_001
+   :satisfies: comp_com_paradigm_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12002
 
@@ -43,10 +43,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    (see [SWS_CM_00151])
 
 .. unit:: Active subscriber when SOME/IP Network binding is used
-   :id: UNIT_COM_PARADIGM_002
+   :id: unit_com_paradigm_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_PARADIGM_001
+   :satisfies: comp_com_paradigm_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12003
 
@@ -56,10 +56,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    respective SOME/IP SubscribeEventgroup message has been exceeded (see [SWS_CM_00205]).
 
 .. unit:: Service interface version evaluation for backwardscompatibility
-   :id: UNIT_COM_PARADIGM_003
+   :id: unit_com_paradigm_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_PARADIGM_001
+   :satisfies: comp_com_paradigm_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_99003
 
@@ -68,10 +68,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    connection.
 
 .. unit:: SOME/IP Compliance
-   :id: UNIT_COM_SOMEIP_001
+   :id: unit_com_someip_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SOMEIP_001
+   :satisfies: comp_com_someip_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10000
 
@@ -79,10 +79,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Discovery Protocol defined in [4] and [6].
 
 .. unit:: Payload Byte order definition
-   :id: UNIT_COM_SOMEIP_002
+   :id: unit_com_someip_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SOMEIP_001
+   :satisfies: comp_com_someip_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10172
 
@@ -90,10 +90,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [PRS_SOMEIP_00369] by byteOrder of ApSomeipTransformationProps.
 
 .. unit:: Session handling state
-   :id: UNIT_COM_SOMEIP_003
+   :id: unit_com_someip_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SOMEIP_001
+   :satisfies: comp_com_someip_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10240
 
@@ -104,10 +104,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    handling shall be Active. Otherwise, the Session handling shall be Inactive.
 
 .. unit:: Static service connection
-   :id: UNIT_COM_SOMEIP_004
+   :id: unit_com_someip_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SOMEIP_001
+   :satisfies: comp_com_someip_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_02201
 
@@ -118,20 +118,20 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [TPS_MANI_03315], [TPS_MANI_03316].
 
 .. unit:: Service Discovery is bypassed by static service connection
-   :id: UNIT_COM_SOMEIP_005
+   :id: unit_com_someip_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SOMEIP_001
+   :satisfies: comp_com_someip_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_02202
 
    The service discovery protocols are bypassed in case of a static service connection.c ()
 
 .. unit:: Service versioning is not checked at runtime in case of a static service connection
-   :id: UNIT_COM_SOMEIP_006
+   :id: unit_com_someip_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SOMEIP_001
+   :satisfies: comp_com_someip_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_02203
 
@@ -141,10 +141,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    service discovery protocol
 
 .. unit:: Handling of an ServiceInterface that does not contain any events, methods, or fields
-   :id: UNIT_COM_SOMEIP_007
+   :id: unit_com_someip_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SOMEIP_001
+   :satisfies: comp_com_someip_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10458
 
@@ -158,10 +158,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    server address
 
 .. unit:: Start of service discovery protocol on Server side
-   :id: UNIT_COM_SD_001
+   :id: unit_com_sd_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00201
 
@@ -171,10 +171,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    according to [PRS_SOMEIPSD_00133].
 
 .. unit:: Start of service discovery protocol on Client side
-   :id: UNIT_COM_SD_002
+   :id: unit_com_sd_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00209
 
@@ -201,10 +201,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    FindService message
 
 .. unit:: Periodic link state monitoring
-   :id: UNIT_COM_SD_003
+   :id: unit_com_sd_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11374
 
@@ -214,10 +214,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    by changes in the link state
 
 .. unit:: SOME/IP FindService message
-   :id: UNIT_COM_SD_004
+   :id: unit_com_sd_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00202
 
@@ -250,10 +250,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    pairs defined in each capabilityRecord.
 
 .. unit:: Version blocklist
-   :id: UNIT_COM_SD_005
+   :id: unit_com_sd_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10202
 
@@ -264,10 +264,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    message
 
 .. unit:: SOME/IP OfferService message
-   :id: UNIT_COM_SD_006
+   :id: unit_com_sd_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00203
 
@@ -311,10 +311,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    value shall be used.
 
 .. unit:: Cyclic interval of OfferService messages
-   :id: UNIT_COM_SD_007
+   :id: unit_com_sd_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11373
 
@@ -327,10 +327,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    message
 
 .. unit:: Service Discovery Endpoint Options
-   :id: UNIT_COM_SD_008
+   :id: unit_com_sd_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12019
 
@@ -343,10 +343,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [PRS_SOMEIPSD_00855] in case of IPv6.
 
 .. unit:: SOME/IP StopOffer message
-   :id: UNIT_COM_SD_009
+   :id: unit_com_sd_009
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00204
 
@@ -363,10 +363,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Configuration Option shall be set to the same value as in the OfferService message.
 
 .. unit:: Content of SOME/IP SubscribeEventgroup message
-   :id: UNIT_COM_SD_010
+   :id: unit_com_sd_010
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00205
 
@@ -412,10 +412,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    0 for events. - Reserved shall be set to 0. - Counter shall be set to 0.
 
 .. unit:: SOME/IP SubscribeEventgroupAck message
-   :id: UNIT_COM_SD_011
+   :id: unit_com_sd_011
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00206
 
@@ -446,10 +446,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    shall be set to 0. - Counter shall be set to 0.
 
 .. unit:: SOME/IP SubscribeEventgroupNack message
-   :id: UNIT_COM_SD_012
+   :id: unit_com_sd_012
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00208
 
@@ -469,10 +469,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    shall be set to 0. - Counter shall be set to 0.
 
 .. unit:: Sending SOME/IP SubscribeEventgroup messages - initial
-   :id: UNIT_COM_SD_013
+   :id: unit_com_sd_013
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10377
 
@@ -493,10 +493,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [PRS_SOMEIPSD_00811].
 
 .. unit:: Sending SOME/IP SubscribeEventgroup messages - renewal
-   :id: UNIT_COM_SD_014
+   :id: unit_com_sd_014
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10381
 
@@ -506,10 +506,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    least one active subscription for an Event of this Eventgroup.
 
 .. unit:: Content of SOME/IP StopSubscribeEventgroup message
-   :id: UNIT_COM_SD_015
+   :id: unit_com_sd_015
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00207
 
@@ -528,10 +528,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    events. - Reserved shall be set to 0. - Counter shall be set to 0.
 
 .. unit:: Sending SOME/IP StopSubscribeEventgroup messages
-   :id: UNIT_COM_SD_016
+   :id: unit_com_sd_016
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10378
 
@@ -544,10 +544,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ServiceProxy class shall cause the sending of a SOME/IP StopSubscribeEventgroup message.
 
 .. unit:: Link loss on Client side
-   :id: UNIT_COM_SD_017
+   :id: unit_com_sd_017
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11375
 
@@ -556,10 +556,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    initial wait phase once the link is up again and the service is still requested).
 
 .. unit:: Link loss on Server side
-   :id: UNIT_COM_SD_018
+   :id: unit_com_sd_018
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SD_001
+   :satisfies: comp_com_sd_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11376
 
@@ -569,10 +569,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    7.4.1.3 Accumulation of SOME/IP messages
 
 .. unit:: Data accumulation for UDP data transmission
-   :id: UNIT_COM_MSGCTX_001
+   :id: unit_com_msgctx_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_MSGCTX_001
+   :satisfies: comp_com_msgctx_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10387
 
@@ -581,10 +581,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    transmission shall be supported.
 
 .. unit:: Enabling of data accumulation for UDP data transmission
-   :id: UNIT_COM_MSGCTX_002
+   :id: unit_com_msgctx_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_MSGCTX_001
+   :satisfies: comp_com_msgctx_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10388
 
@@ -597,10 +597,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [SWS_CM_10389] and [SWS_CM_10390]) arrives and the data transmission starts.
 
 .. unit:: Configuration of a data accumulation on a ProvidedSomeipServiceInstance for transmission over UDP
-   :id: UNIT_COM_MSGCTX_003
+   :id: unit_com_msgctx_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_MSGCTX_001
+   :satisfies: comp_com_msgctx_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10389
 
@@ -616,10 +616,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the new event or method response.
 
 .. unit:: Configuration of a data accumulation on a RequiredSomeipServiceInstance for transmission over UDP
-   :id: UNIT_COM_MSGCTX_004
+   :id: unit_com_msgctx_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_MSGCTX_001
+   :satisfies: comp_com_msgctx_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10390
 
@@ -635,10 +635,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the new event or method response.
 
 .. unit:: Selecting elements of the ServiceInterface for SecOC transmission
-   :id: UNIT_COM_MSGCTX_005
+   :id: unit_com_msgctx_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_MSGCTX_001
+   :satisfies: comp_com_msgctx_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11270
 
@@ -657,10 +657,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ServiceInterfaceElementSecureComConfig element.
 
 .. unit:: Conditions for sending of a SOME/IP event message
-   :id: UNIT_COM_EVTTRIG_001
+   :id: unit_com_evttrig_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10287
 
@@ -673,10 +673,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    of the ServiceSkeleton class has been called).
 
 .. unit:: Transport protocol for sending of a SOME/IP event message
-   :id: UNIT_COM_EVTTRIG_002
+   :id: unit_com_evttrig_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10288
 
@@ -685,10 +685,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [TPS_MANI_03050]).
 
 .. unit:: Source of a SOME/IP event message
-   :id: UNIT_COM_EVTTRIG_003
+   :id: unit_com_evttrig_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10289
 
@@ -699,10 +699,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    as source address and source port for the transmission.
 
 .. unit:: Destination of a SOME/IP event message
-   :id: UNIT_COM_EVTTRIG_004
+   :id: unit_com_evttrig_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10290
 
@@ -723,10 +723,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    used.
 
 .. unit:: Content of the SOME/IP event message
-   :id: UNIT_COM_EVTTRIG_005
+   :id: unit_com_evttrig_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10291
 
@@ -756,10 +756,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ServiceInterface in role event) according to the SOME/IP serialization rules.
 
 .. unit:: Checks for a received SOME/IP event message
-   :id: UNIT_COM_EVTTRIG_006
+   :id: unit_com_evttrig_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10292
 
@@ -780,10 +780,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    logging is enabled for the ara::com implementation).
 
 .. unit:: Identifying the right event
-   :id: UNIT_COM_EVTTRIG_007
+   :id: unit_com_evttrig_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10293
 
@@ -793,10 +793,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the SomeipServiceInterfaceDeployment, the right event shall be identified.
 
 .. unit:: Deserializing the payload
-   :id: UNIT_COM_EVTTRIG_008
+   :id: unit_com_evttrig_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10294
 
@@ -806,10 +806,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    serialization rules.
 
 .. unit:: Providing the received event data
-   :id: UNIT_COM_EVTTRIG_009
+   :id: unit_com_evttrig_009
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10295
 
@@ -818,10 +818,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    determined according to [SWS_CM_10293].
 
 .. unit:: Invoke receive handler
-   :id: UNIT_COM_EVTTRIG_010
+   :id: unit_com_evttrig_010
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10296
 
@@ -831,10 +831,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Event is received.
 
 .. unit:: Silently discarding SOME/IP event messages for unsubscribed events
-   :id: UNIT_COM_EVTTRIG_011
+   :id: unit_com_evttrig_011
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10379
 
@@ -848,10 +848,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    receive handler shall not be invoked).
 
 .. unit:: Conditions for sending of a SOME/IP trigger
-   :id: UNIT_COM_EVTTRIG_012
+   :id: unit_com_evttrig_012
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10511
 
@@ -865,10 +865,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    has been called).
 
 .. unit:: Content of the SOME/IP trigger
-   :id: UNIT_COM_EVTTRIG_013
+   :id: unit_com_evttrig_013
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10512
 
@@ -895,10 +895,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    shall be set to E_OK (0x00).
 
 .. unit:: Checks for a received SOME/IP trigger
-   :id: UNIT_COM_EVTTRIG_014
+   :id: unit_com_evttrig_014
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10513
 
@@ -919,10 +919,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    enabled for the ara::com implementation).
 
 .. unit:: Identifying the right trigger
-   :id: UNIT_COM_EVTTRIG_015
+   :id: unit_com_evttrig_015
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10514
 
@@ -932,10 +932,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the SomeipServiceInterfaceDeployment, the right trigger shall be identified.
 
 .. unit:: Silently discarding SOME/IP triggers for unsubscribed triggers
-   :id: UNIT_COM_EVTTRIG_016
+   :id: unit_com_evttrig_016
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10515
 
@@ -944,10 +944,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [SWS_CM_00226], and [SWS_CM_00249] shall not be performed).
 
 .. unit:: Invoke receive handler
-   :id: UNIT_COM_EVTTRIG_017
+   :id: unit_com_evttrig_017
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10516
 
@@ -957,10 +957,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Trigger is received.
 
 .. unit:: Failures in sending a SOME/IP trigger
-   :id: UNIT_COM_EVTTRIG_018
+   :id: unit_com_evttrig_018
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10517
 
@@ -970,15 +970,15 @@ IPC/Communication-Manager architecture, a separate part of this module.
    class (see [SWS_CM_00721]).
 
 .. unit:: Topic-scoped event dispatch isolation
-   :id: UNIT_COM_EVTTRIG_019
+   :id: unit_com_evttrig_019
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_EVTTRIG_001
+   :satisfies: comp_com_evttrig_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
 
    Added 2026-08-21 to close a gap found while fixing a broken :verifies:
-   link from TC_UNIT_A_001 (see that test case for the full history):
-   UNIT_COM_EVTTRIG_010 and UNIT_COM_EVTTRIG_017 above already require that
+   link from tc_unit_a_001 (see that test case for the full history):
+   unit_com_evttrig_010 and unit_com_evttrig_017 above already require that
    a registered receive handler is invoked when its own event/trigger is
    received, but neither states the negative case a unit-level test
    actually needs to check. Given a payload received for one topic/event
@@ -991,10 +991,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    than inventing a citation that doesn't exist.
 
 .. unit:: IAM Module Instantiation
-   :id: UNIT_COM_IAM_001
+   :id: unit_com_iam_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAM_001
+   :satisfies: comp_com_iam_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10492
 
@@ -1003,10 +1003,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ComGrants.
 
 .. unit:: Local Access Control Activation
-   :id: UNIT_COM_IAM_002
+   :id: unit_com_iam_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAM_001
+   :satisfies: comp_com_iam_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10493
 
@@ -1017,10 +1017,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    defined or is set to true, CM shall perform local access control.
 
 .. unit:: Remote Access Control Activation
-   :id: UNIT_COM_IAM_003
+   :id: unit_com_iam_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAM_001
+   :satisfies: comp_com_iam_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10494
 
@@ -1031,10 +1031,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    defined or is set to true, CM shall perform remote access control.
 
 .. unit:: Local access control on receiving triggers
-   :id: UNIT_COM_IAM_004
+   :id: unit_com_iam_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAM_001
+   :satisfies: comp_com_iam_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10539
 
@@ -1049,10 +1049,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    respective Trigger class.
 
 .. unit:: Local access control on providing service instances
-   :id: UNIT_COM_IAM_005
+   :id: unit_com_iam_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAM_001
+   :satisfies: comp_com_iam_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10542
 
@@ -1065,10 +1065,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    process, then Communication Management shall drop the request.
 
 .. unit:: Local access control on executing methods
-   :id: UNIT_COM_IAM_006
+   :id: unit_com_iam_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAM_001
+   :satisfies: comp_com_iam_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90001
 
@@ -1082,10 +1082,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ComErrc::kGrantEnforcementError shall be returned in the Future of the operator().
 
 .. unit:: Local access control on receiving events
-   :id: UNIT_COM_IAM_007
+   :id: unit_com_iam_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAM_001
+   :satisfies: comp_com_iam_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90003
 
@@ -1100,10 +1100,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    respective Event class.
 
 .. unit:: Local access control on service discovery
-   :id: UNIT_COM_IAM_008
+   :id: unit_com_iam_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAM_001
+   :satisfies: comp_com_iam_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90006
 
@@ -1118,10 +1118,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    return the error code ComErrc::kGrantEnforcementError.
 
 .. unit:: TLS-based Authentication
-   :id: UNIT_COM_IAMREMOTE_001
+   :id: unit_com_iamremote_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10495
 
@@ -1129,10 +1129,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    established (D)TLS connection to a TlsIamRemoteSubject according to [TPS_MANI_03240].
 
 .. unit:: IP and IPsec-based Authentication
-   :id: UNIT_COM_IAMREMOTE_002
+   :id: unit_com_iamremote_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10496
 
@@ -1141,10 +1141,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [TPS_MANI_03244].
 
 .. unit:: Authentication Failure
-   :id: UNIT_COM_IAMREMOTE_003
+   :id: unit_com_iamremote_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10497
 
@@ -1153,10 +1153,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    messages from this remote subject.
 
 .. unit:: Remote access control on executing methods
-   :id: UNIT_COM_IAMREMOTE_004
+   :id: unit_com_iamremote_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10498
 
@@ -1167,10 +1167,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Management shall drop the request.
 
 .. unit:: Remote access control on consuming events
-   :id: UNIT_COM_IAMREMOTE_005
+   :id: unit_com_iamremote_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10501
 
@@ -1181,10 +1181,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Management shall drop the subscription request.
 
 .. unit:: Remote access control on consuming field notifiers
-   :id: UNIT_COM_IAMREMOTE_006
+   :id: unit_com_iamremote_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10505
 
@@ -1195,10 +1195,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    subscription request.
 
 .. unit:: Remote access control on calling field setters
-   :id: UNIT_COM_IAMREMOTE_007
+   :id: unit_com_iamremote_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10506
 
@@ -1210,10 +1210,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    drop the request.
 
 .. unit:: Remote access control on calling field getters
-   :id: UNIT_COM_IAMREMOTE_008
+   :id: unit_com_iamremote_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10507
 
@@ -1225,10 +1225,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    drop the request.
 
 .. unit:: Remote access control on consuming triggers
-   :id: UNIT_COM_IAMREMOTE_009
+   :id: unit_com_iamremote_009
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10541
 
@@ -1240,10 +1240,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    subscription request.
 
 .. unit:: Remote access control on providing service instances
-   :id: UNIT_COM_IAMREMOTE_010
+   :id: unit_com_iamremote_010
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_IAMREMOTE_001
+   :satisfies: comp_com_iamremote_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10543
 
@@ -1254,10 +1254,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    service instance.
 
 .. unit:: Secure UDP and TCP channel creation for TLS, DTLS and SecOC
-   :id: UNIT_COM_SECCHAN_001
+   :id: unit_com_secchan_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECCHAN_001
+   :satisfies: comp_com_secchan_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90101
 
@@ -1270,10 +1270,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    i.e. by referencing the same SecureComProps in the same role.
 
 .. unit:: Using secure TLS, DTLS and SecOC channels
-   :id: UNIT_COM_SECCHAN_002
+   :id: unit_com_secchan_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECCHAN_001
+   :satisfies: comp_com_secchan_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90102
 
@@ -1285,20 +1285,20 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ServiceInstanceToMachineMapping.
 
 .. unit:: Secure TLS and DTLS channel creation in the DDS Network Binding
-   :id: UNIT_COM_SECCHAN_003
+   :id: unit_com_secchan_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECCHAN_001
+   :satisfies: comp_com_secchan_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90201
 
    Secure channels shall be created as specified in [SWS_CM_90101].
 
 .. unit:: Using TLS and DTLS secure channels in the DDS Network Binding
-   :id: UNIT_COM_SECCHAN_004
+   :id: unit_com_secchan_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECCHAN_001
+   :satisfies: comp_com_secchan_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90202
 
@@ -1311,10 +1311,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Security certificate, governance and permission files is defined by [29].
 
 .. unit:: IPsec secure channel between communication nodes
-   :id: UNIT_COM_SECCHAN_005
+   :id: unit_com_secchan_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECCHAN_001
+   :satisfies: comp_com_secchan_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90117
 
@@ -1326,10 +1326,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the referenced remoteIpAddress.
 
 .. unit:: Transport of Service communication over an IPsec security association
-   :id: UNIT_COM_SECCHAN_006
+   :id: unit_com_secchan_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECCHAN_001
+   :satisfies: comp_com_secchan_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90118
 
@@ -1347,10 +1347,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    according to the configuration that is also defined in the IPSecRule.
 
 .. unit:: MACsec secure channel between communication nodes and MACsec security association
-   :id: UNIT_COM_SECCHAN_007
+   :id: unit_com_secchan_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECCHAN_001
+   :satisfies: comp_com_secchan_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_99040
 
@@ -1358,10 +1358,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the requirements and constraints specified in [SWS_CM_90117] and [SWS_CM_90118].
 
 .. unit:: SecOC secure channel behavior
-   :id: UNIT_COM_SECTRANS_001
+   :id: unit_com_sectrans_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11271
 
@@ -1372,10 +1372,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [SWS_CM_11277]
 
 .. unit:: Lifecycle management of FVM
-   :id: UNIT_COM_SECTRANS_002
+   :id: unit_com_sectrans_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11272
 
@@ -1385,10 +1385,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Management Library API ara::com:: secoc::FVM::Initialize.
 
 .. unit:: SecOC secure channel sending
-   :id: UNIT_COM_SECTRANS_003
+   :id: unit_com_sectrans_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11274
 
@@ -1411,10 +1411,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [PRS_SecOc_00210], [PRS_SecOc_00211], [PRS_SecOc_00212] (see [30])
 
 .. unit:: SecOC secure message build attempts
-   :id: UNIT_COM_SECTRANS_004
+   :id: unit_com_sectrans_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11275
 
@@ -1432,10 +1432,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [PRS_SecOc_00203], [PRS_SecOc_00204], [PRS_SecOc_00205], [PRS_SecOc_00206] (see [30])
 
 .. unit:: SecOC secure channel reception
-   :id: UNIT_COM_SECTRANS_005
+   :id: unit_com_sectrans_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11276
 
@@ -1461,10 +1461,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [PRS_SecOc_00330] (see [30])
 
 .. unit:: SecOC secure message verification attempts
-   :id: UNIT_COM_SECTRANS_006
+   :id: unit_com_sectrans_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11277
 
@@ -1487,10 +1487,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [PRS_SecOc_00311], [PRS_SecOc_00312] (see [30])
 
 .. unit:: SecOC verification results
-   :id: UNIT_COM_SECTRANS_007
+   :id: unit_com_sectrans_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11278
 
@@ -1498,10 +1498,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    accessible via the VerificationStatus service.
 
 .. unit:: SecOc override the verification result
-   :id: UNIT_COM_SECTRANS_008
+   :id: unit_com_sectrans_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11279
 
@@ -1523,10 +1523,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    transport
 
 .. unit:: SecOC secure channel reception bypass
-   :id: UNIT_COM_SECTRANS_009
+   :id: unit_com_sectrans_009
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_11372
 
@@ -1537,10 +1537,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    VerificationStatusResult. kSecOcNoVerification
 
 .. unit:: SecOC secure channel for methods using reliable transport
-   :id: UNIT_COM_SECTRANS_010
+   :id: unit_com_sectrans_010
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90108
 
@@ -1552,10 +1552,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    transportProtocol in the associated SomeipMethodDeployment.
 
 .. unit:: SecOC secure channel for events and triggers using reliable transport
-   :id: UNIT_COM_SECTRANS_011
+   :id: unit_com_sectrans_011
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90109
 
@@ -1567,10 +1567,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    by transportProtocol in the associated SomeipEventDeployment.
 
 .. unit:: SecOC secure channel for fields
-   :id: UNIT_COM_SECTRANS_012
+   :id: unit_com_sectrans_012
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90110
 
@@ -1579,10 +1579,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    (RS_CM_00801)
 
 .. unit:: SecOC secure channel for methods using unreliable transport
-   :id: UNIT_COM_SECTRANS_013
+   :id: unit_com_sectrans_013
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90115
 
@@ -1594,10 +1594,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    transportProtocol in the associated SomeipMethodDeployment.
 
 .. unit:: SecOC secure channel for events and triggers using unreliable transport
-   :id: UNIT_COM_SECTRANS_014
+   :id: unit_com_sectrans_014
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90116
 
@@ -1609,10 +1609,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    by transportProtocol in the associated SomeipEventDeployment.
 
 .. unit:: TLS secure channel for ServiceInterface content using reliable transport
-   :id: UNIT_COM_SECTRANS_015
+   :id: unit_com_sectrans_015
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90103
 
@@ -1624,10 +1624,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ServiceInterfaceDeployment is selected for transmission over the TLS secured channel.
 
 .. unit:: DTLS secure channel for ServiceInterface content using unreliable transport
-   :id: UNIT_COM_SECTRANS_016
+   :id: unit_com_sectrans_016
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90104
 
@@ -1639,10 +1639,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ServiceInterfaceDeployment is selected for transmission over the TLS secured channel.
 
 .. unit:: Behavior of a ServiceProxy over TLS before successful completion of the handshake
-   :id: UNIT_COM_SECTRANS_017
+   :id: unit_com_sectrans_017
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90111
 
@@ -1656,10 +1656,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    (operator(), Set(), Get()). The error shall be logged.
 
 .. unit:: Behavior of a ServiceProxy over DTLS before successful completion of the handshake
-   :id: UNIT_COM_SECTRANS_018
+   :id: unit_com_sectrans_018
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90112
 
@@ -1667,10 +1667,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    completion the middleware shall drop all requests as if the remote peer is unreachable.
 
 .. unit:: Behavior of a ServiceSkeleton over TLS before successful completion of the handshake
-   :id: UNIT_COM_SECTRANS_019
+   :id: unit_com_sectrans_019
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90113
 
@@ -1683,10 +1683,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Field class (see [SWS_CM_00119])
 
 .. unit:: Behavior of a ServiceSkeleton over DTLS before successful completion of the handshake
-   :id: UNIT_COM_SECTRANS_020
+   :id: unit_com_sectrans_020
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90114
 
@@ -1699,20 +1699,20 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Field class (see [SWS_CM_00119])
 
 .. unit:: Behavior of a creating ServiceProxy over TLS or DTLS
-   :id: UNIT_COM_SECTRANS_021
+   :id: unit_com_sectrans_021
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90119
 
    The instantiation according to [SWS_CM_00131] shall trigger the asynchronous handshake.
 
 .. unit:: TLS server role of a Skeleton
-   :id: UNIT_COM_SECTRANS_022
+   :id: unit_com_sectrans_022
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SECTRANS_001
+   :satisfies: comp_com_sectrans_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90121
 
@@ -1721,10 +1721,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    referenced in - [SWS_CM_90103] - [SWS_CM_90104] is a ProvidedApServiceInstance.
 
 .. unit:: E2E event protection properties and profile configuration
-   :id: UNIT_COM_E2E_001
+   :id: unit_com_e2e_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2E_001
+   :satisfies: comp_com_e2e_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90402
 
@@ -1732,10 +1732,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    and E2EProfileConfiguration.
 
 .. unit:: Requirements of E2E_protect and E2E_check
-   :id: UNIT_COM_E2E_002
+   :id: unit_com_e2e_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2E_001
+   :satisfies: comp_com_e2e_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90433
 
@@ -1744,10 +1744,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    protection protocol specification of [7] (especially [PRS_E2E_00323]).
 
 .. unit:: E2E-protected Methods Request Message Protection
-   :id: UNIT_COM_E2E_003
+   :id: unit_com_e2e_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2E_001
+   :satisfies: comp_com_e2e_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10462
 
@@ -1756,10 +1756,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    respective service method.
 
 .. unit:: E2E checking of the method request in ServiceSkeleton (message reception)
-   :id: UNIT_COM_E2E_004
+   :id: unit_com_e2e_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2E_001
+   :satisfies: comp_com_e2e_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10466
 
@@ -1768,10 +1768,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    to kEventSingleThread.
 
 .. unit:: Wrong Method Call Processing Mode Error for ServiceSkeleton named constructor
-   :id: UNIT_COM_E2E_005
+   :id: unit_com_e2e_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2E_001
+   :satisfies: comp_com_e2e_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10467
 
@@ -1782,10 +1782,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    be logged.
 
 .. unit:: E2E checking of the method request in ServiceSkeleton (ProcessNextMethodCall)
-   :id: UNIT_COM_E2E_006
+   :id: unit_com_e2e_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2E_001
+   :satisfies: comp_com_e2e_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10468
 
@@ -1794,10 +1794,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    to kPoll.
 
 .. unit:: E2E protection of method response message performed after the method or E2E error handler execution
-   :id: UNIT_COM_E2E_007
+   :id: unit_com_e2e_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2E_001
+   :satisfies: comp_com_e2e_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90481
 
@@ -1807,10 +1807,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    E2E check according to [SWS_CM_90480]).
 
 .. unit:: E2E checking of the method response in the ServiceProxy
-   :id: UNIT_COM_E2E_008
+   :id: unit_com_e2e_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2E_001
+   :satisfies: comp_com_e2e_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90471
 
@@ -1818,20 +1818,20 @@ IPC/Communication-Manager architecture, a separate part of this module.
    of the message reception within the ServiceProxy.
 
 .. unit:: E2E protection of events in Send
-   :id: UNIT_COM_E2EEVT_001
+   :id: unit_com_e2eevt_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00046
 
    For E2E-protected Events, E2E protection shall be performed within the context of Send.
 
 .. unit:: E2E_protect for event serialized data
-   :id: UNIT_COM_E2EEVT_002
+   :id: unit_com_e2eevt_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90401
 
@@ -1839,10 +1839,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    data (passed as argument serializedData to E2E_protect) according to [PRS_E2E_00323].
 
 .. unit:: Argument dataID in E2E_protect for events
-   :id: UNIT_COM_E2EEVT_003
+   :id: unit_com_e2eevt_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90403
 
@@ -1850,10 +1850,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    argument dataID to E2E_protect.
 
 .. unit:: E2E protection header for events
-   :id: UNIT_COM_E2EEVT_004
+   :id: unit_com_e2eevt_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90404
 
@@ -1864,10 +1864,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    honored.c (RS_E2E_08540) 7.6.1.3 Subscriber - GetNewSamples
 
 .. unit:: E2E-protected events sample serialization
-   :id: UNIT_COM_E2EEVT_005
+   :id: unit_com_e2eevt_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90430
 
@@ -1879,10 +1879,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    and [PRS_E2E_USE_00741]).
 
 .. unit:: E2E checking shall be done in GetNewSamples for events
-   :id: UNIT_COM_E2EEVT_006
+   :id: unit_com_e2eevt_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90406
 
@@ -1890,10 +1890,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    GetNewSamples.
 
 .. unit:: GetNewSamples shall get all the serialized data that has not yet been fetched
-   :id: UNIT_COM_E2EEVT_007
+   :id: unit_com_e2eevt_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90407
 
@@ -1901,10 +1901,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    data that have not been fetched during the last call of this GetNewSamples function.
 
 .. unit:: E2E Protection header removal from serialized data
-   :id: UNIT_COM_E2EEVT_008
+   :id: unit_com_e2eevt_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00044
 
@@ -1912,10 +1912,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    serialized data.
 
 .. unit:: Argument dataID in E2E_check for event with serialized sample
-   :id: UNIT_COM_E2EEVT_009
+   :id: unit_com_e2eevt_009
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00045
 
@@ -1923,10 +1923,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    passed as argument dataID to E2E_check.
 
 .. unit:: Processing the non-E2E-protected header of E2Eprotected sample
-   :id: UNIT_COM_E2EEVT_010
+   :id: unit_com_e2eevt_010
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90408
 
@@ -1934,10 +1934,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    header (if any) of the sample’s serialized data.
 
 .. unit:: E2E_check for event serialized data
-   :id: UNIT_COM_E2EEVT_011
+   :id: unit_com_e2eevt_011
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90410
 
@@ -1946,10 +1946,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [RS_E2E_08540] and [PRS_E2E_00323].
 
 .. unit:: E2E_check for Events provides Result with SMState and ProfileCheckStatus
-   :id: UNIT_COM_E2EEVT_012
+   :id: unit_com_e2eevt_012
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90411
 
@@ -1959,10 +1959,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    according to [PRS_E2E_00322] of [7]).
 
 .. unit:: E2E-protected sample deserialization
-   :id: UNIT_COM_E2EEVT_013
+   :id: unit_com_e2eevt_013
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90412
 
@@ -1972,10 +1972,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    deserialized sample.
 
 .. unit:: GetNewSamples shall update ProfileCheckStatus in the SamplePtr and SMState in the Event class
-   :id: UNIT_COM_E2EEVT_014
+   :id: unit_com_e2eevt_014
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90413
 
@@ -1984,20 +1984,20 @@ IPC/Communication-Manager architecture, a separate part of this module.
    class of the specific E2E-protected Event.
 
 .. unit:: Argument dataID in E2E_check for events without serialized sample
-   :id: UNIT_COM_E2EEVT_015
+   :id: unit_com_e2eevt_015
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00043
 
    The End2EndEventProtectionProps.dataId shall be passed as argument dataID to E2E_check.
 
 .. unit:: E2E_check invoked on a null sample
-   :id: UNIT_COM_E2EEVT_016
+   :id: unit_com_e2eevt_016
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90415
 
@@ -2006,10 +2006,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    (RS_E2E_08540)
 
 .. unit:: E2E_check Result on a null sample
-   :id: UNIT_COM_E2EEVT_017
+   :id: unit_com_e2eevt_017
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90416
 
@@ -2019,10 +2019,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [PRS_E2E_00322] of [7]).
 
 .. unit:: GetNewSamples shall update the SMState of specific event class
-   :id: UNIT_COM_E2EEVT_018
+   :id: unit_com_e2eevt_018
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90417
 
@@ -2030,10 +2030,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    of the specific E2E-protected Event.
 
 .. unit:: GetProfileCheckStatus method of SamplePtr
-   :id: UNIT_COM_E2EEVT_019
+   :id: unit_com_e2eevt_019
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00042
 
@@ -2041,10 +2041,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ProfileCheckStatus of each sample (see [SWS_CM_90420]).
 
 .. unit:: GetE2EStateMachineState method for Events
-   :id: UNIT_COM_E2EEVT_020
+   :id: unit_com_e2eevt_020
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EEVT_001
+   :satisfies: comp_com_e2eevt_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10475
 
@@ -2052,10 +2052,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ServiceProxy class.
 
 .. unit:: E2E-protected Methods Arguments Serialization
-   :id: UNIT_COM_E2EMETH_001
+   :id: unit_com_e2emeth_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00041
 
@@ -2065,10 +2065,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    resulting in the serialized data.
 
 .. unit:: E2E-protected Method Requests dataID Argument
-   :id: UNIT_COM_E2EMETH_002
+   :id: unit_com_e2emeth_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10463
 
@@ -2076,10 +2076,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    passed as argument dataID to E2E_protect.
 
 .. unit:: E2E protection header according to the network binding in the method request
-   :id: UNIT_COM_E2EMETH_003
+   :id: unit_com_e2emeth_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10464
 
@@ -2089,10 +2089,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    case of SOME/IP network binding), then these restrictions shall be honored.
 
 .. unit:: E2E-protected Methods Serialized Data Protection
-   :id: UNIT_COM_E2EMETH_004
+   :id: unit_com_e2emeth_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90479
 
@@ -2101,10 +2101,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [RS_E2E_08541], [PRS_E2E_00323], and [PRS_E2E_00828].
 
 .. unit:: Argument sourceID for E2E_protect
-   :id: UNIT_COM_E2EMETH_005
+   :id: unit_com_e2emeth_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90486
 
@@ -2113,10 +2113,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    E2E_protect.
 
 .. unit:: Argument messageType for E2E_protect
-   :id: UNIT_COM_E2EMETH_006
+   :id: unit_com_e2emeth_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90487
 
@@ -2124,10 +2124,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    STD_MESSAGETYPE_REQUEST (0) shall be passed as argument messageType to E2E_protect.
 
 .. unit:: Argument messageResult for E2E_protect
-   :id: UNIT_COM_E2EMETH_007
+   :id: unit_com_e2emeth_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90488
 
@@ -2135,10 +2135,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    STD_MESSAGERESULT_OK (0) shall be passed as argument messageResult to E2E_protect.
 
 .. unit:: E2E Protection header removal from serialized data for method requests
-   :id: UNIT_COM_E2EMETH_008
+   :id: unit_com_e2emeth_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00037
 
@@ -2146,10 +2146,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    from the serialized data.
 
 .. unit:: E2E_check for method request provides Result with SMState and ProfileCheckStatus
-   :id: UNIT_COM_E2EMETH_009
+   :id: unit_com_e2emeth_009
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00038
 
@@ -2159,10 +2159,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    according to [PRS_E2E_00322] of [7]).
 
 .. unit:: Argument dataID in E2E_check for method requests
-   :id: UNIT_COM_E2EMETH_010
+   :id: unit_com_e2emeth_010
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00039
 
@@ -2170,10 +2170,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    shall be passed as argument dataID to E2E_check()).
 
 .. unit:: Processing the non-E2E-protected header of E2Eprotected method request
-   :id: UNIT_COM_E2EMETH_011
+   :id: unit_com_e2emeth_011
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00040
 
@@ -2181,10 +2181,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Method request’s serialized data shall be processed.
 
 .. unit:: E2E Error Handler - Invocation Arguments
-   :id: UNIT_COM_E2EMETH_012
+   :id: unit_com_e2emeth_012
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00047
 
@@ -2193,10 +2193,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    0, and messageCounter shall be set 0.
 
 .. unit:: E2E Error Handler - Invocation Arguments
-   :id: UNIT_COM_E2EMETH_013
+   :id: unit_com_e2emeth_013
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10471
 
@@ -2206,10 +2206,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    messageCounter shall be set to the E2E counter of the received request message.
 
 .. unit:: Argument serializedData in E2E_check for method requests
-   :id: UNIT_COM_E2EMETH_014
+   :id: unit_com_e2emeth_014
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90480
 
@@ -2218,10 +2218,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    to [RS_E2E_08541], [PRS_E2E_00323], and [PRS_E2E_00828].
 
 .. unit:: Argument sourceID in E2E_check for method requests
-   :id: UNIT_COM_E2EMETH_015
+   :id: unit_com_e2emeth_015
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90489
 
@@ -2232,10 +2232,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    for later use during E2E protection of response payload (see [SWS_CM_90492]).
 
 .. unit:: Argument messageType in E2E_check for method requests
-   :id: UNIT_COM_E2EMETH_016
+   :id: unit_com_e2emeth_016
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90490
 
@@ -2243,10 +2243,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    STD_MESSAGETYPE_REQUEST (0) shall be passed as argument messageType to E2E_check.
 
 .. unit:: Argument messageResult E2E_check for method requests
-   :id: UNIT_COM_E2EMETH_017
+   :id: unit_com_e2emeth_017
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90491
 
@@ -2254,10 +2254,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    STD_MESSAGERESULT_OK (0) shall be passed as argument messageResult to E2E_check.
 
 .. unit:: Payload of the E2E Error Response
-   :id: UNIT_COM_E2EMETH_018
+   :id: unit_com_e2emeth_018
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00033
 
@@ -2269,10 +2269,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [SWS_CM_10428] in case of SOME/IP).
 
 .. unit:: E2E Error Response
-   :id: UNIT_COM_E2EMETH_019
+   :id: unit_com_e2emeth_019
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10472
 
@@ -2281,10 +2281,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    shall be sent to the client.
 
 .. unit:: Payload of the Normal or Application Error Response
-   :id: UNIT_COM_E2EMETH_020
+   :id: unit_com_e2emeth_020
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90467
 
@@ -2294,10 +2294,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    SOME/IP network binding), resulting in the serialized data.
 
 .. unit:: Argument dataId in E2E_protect for methods
-   :id: UNIT_COM_E2EMETH_021
+   :id: unit_com_e2emeth_021
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10469
 
@@ -2305,10 +2305,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    passed as argument dataID to E2E_protect.
 
 .. unit:: Argument serializedData in E2E_protect for methods
-   :id: UNIT_COM_E2EMETH_022
+   :id: unit_com_e2emeth_022
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90468
 
@@ -2317,10 +2317,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    [RS_E2E_08541], [PRS_E2E_00323], and [PRS_E2E_00828].
 
 .. unit:: E2E Counter in E2E_protect for method response
-   :id: UNIT_COM_E2EMETH_023
+   :id: unit_com_e2emeth_023
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90469
 
@@ -2328,10 +2328,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Method request shall be used as E2E counter in the call to E2E_protect.
 
 .. unit:: E2E protection header according to the network binding in the method response
-   :id: UNIT_COM_E2EMETH_024
+   :id: unit_com_e2emeth_024
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90470
 
@@ -2341,10 +2341,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    case of SOME/IP network binding), then these restrictions shall be honored.
 
 .. unit:: Argument sourceId in E2E_protect for methods
-   :id: UNIT_COM_E2EMETH_025
+   :id: unit_com_e2emeth_025
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90492
 
@@ -2353,10 +2353,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    argument sourceID to E2E_protect.
 
 .. unit:: Argument messageType in E2E_protect for methods
-   :id: UNIT_COM_E2EMETH_026
+   :id: unit_com_e2emeth_026
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90493
 
@@ -2364,10 +2364,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    STD_MESSAGETYPE_RESPONSE (1) shall be passed as argument messageType to E2E_protect.
 
 .. unit:: Argument messageResult STD_MESSAGERESULT_OK in E2E_protect for methods
-   :id: UNIT_COM_E2EMETH_027
+   :id: unit_com_e2emeth_027
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90494
 
@@ -2377,10 +2377,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    E2E_protect.
 
 .. unit:: Argument messageResult STD_MESSAGERESULT_ERROR in E2E_protect for methods
-   :id: UNIT_COM_E2EMETH_028
+   :id: unit_com_e2emeth_028
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90495
 
@@ -2390,10 +2390,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    to E2E_protect.
 
 .. unit:: E2E counter of method response shall match with the one in method request
-   :id: UNIT_COM_E2EMETH_029
+   :id: unit_com_e2emeth_029
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10465
 
@@ -2402,10 +2402,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    shall be discarded (without any further processing).
 
 .. unit:: Processing the non-E2E-protected header of the E2Eprotected method response
-   :id: UNIT_COM_E2EMETH_030
+   :id: unit_com_e2emeth_030
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90472
 
@@ -2413,10 +2413,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the Method response’s serialized data shall be processed.
 
 .. unit:: Argument serialized Data in E2E_check for method response
-   :id: UNIT_COM_E2EMETH_031
+   :id: unit_com_e2emeth_031
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90473
 
@@ -2425,10 +2425,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    to [RS_E2E_08541], [PRS_E2E_00323], and [PRS_E2E_00828].
 
 .. unit:: Argument dataId in E2E_check for method response
-   :id: UNIT_COM_E2EMETH_032
+   :id: unit_com_e2emeth_032
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90474
 
@@ -2436,10 +2436,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    shall be passed as argument dataID to E2E_check()).
 
 .. unit:: E2E protection header removal from the serialized data for method response
-   :id: UNIT_COM_E2EMETH_033
+   :id: unit_com_e2emeth_033
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90475
 
@@ -2447,10 +2447,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    from the serialized data.
 
 .. unit:: E2E_check for method response provides Result with SMState and ProfileCheckStatus
-   :id: UNIT_COM_E2EMETH_034
+   :id: unit_com_e2emeth_034
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90478
 
@@ -2460,10 +2460,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    according to [PRS_E2E_00322] of [7]).
 
 .. unit:: Update SMState of specific method class with the SMState provided in the Result of E2E_check
-   :id: UNIT_COM_E2EMETH_035
+   :id: unit_com_e2emeth_035
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90482
 
@@ -2472,10 +2472,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    E2E_check according to [SWS_CM_90478].
 
 .. unit:: Argument sourceId in E2E_check for method response
-   :id: UNIT_COM_E2EMETH_036
+   :id: unit_com_e2emeth_036
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90496
 
@@ -2483,10 +2483,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    End2EndMethodProtectionProps.sourceId shall be passed as argument sourceID to E2E_check.
 
 .. unit:: Argument messageType in E2E_check for methods response
-   :id: UNIT_COM_E2EMETH_037
+   :id: unit_com_e2emeth_037
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90497
 
@@ -2494,10 +2494,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    STD_MESSAGETYPE_RESPONSE (1) shall be passed as argument messageType to E2E_check.
 
 .. unit:: Argument messageResult STD_MESSAGERESULT_OK in E2E_check for method response
-   :id: UNIT_COM_E2EMETH_038
+   :id: unit_com_e2emeth_038
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90498
 
@@ -2507,10 +2507,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    E2E_check.
 
 .. unit:: Argument messageResult STD_MESSAGERESULT_ERROR in E2E_check for method response
-   :id: UNIT_COM_E2EMETH_039
+   :id: unit_com_e2emeth_039
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90499
 
@@ -2520,10 +2520,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    to E2E_check.
 
 .. unit:: Handling the E2E Error Response
-   :id: UNIT_COM_E2EMETH_040
+   :id: unit_com_e2emeth_040
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10473
 
@@ -2533,10 +2533,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    (e.g., according to [SWS_CM_10429] in case of SOME/IP network binding).
 
 .. unit:: Deserialization of the data according to the network binding for method response
-   :id: UNIT_COM_E2EMETH_041
+   :id: unit_com_e2emeth_041
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90476
 
@@ -2547,10 +2547,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    application error.
 
 .. unit:: E2E Error Return Code
-   :id: UNIT_COM_E2EMETH_042
+   :id: unit_com_e2emeth_042
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90477
 
@@ -2561,10 +2561,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    SetError() on the ara::core::Promise.
 
 .. unit:: GetE2EStateMachineState method shall be provided for each method class
-   :id: UNIT_COM_E2EMETH_043
+   :id: unit_com_e2emeth_043
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90483
 
@@ -2572,10 +2572,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ServiceProxy class.
 
 .. unit:: GetE2EStateMachineState method shall provide access to the SMState of the specific method class
-   :id: UNIT_COM_E2EMETH_044
+   :id: unit_com_e2emeth_044
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_E2EMETH_001
+   :satisfies: comp_com_e2emeth_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90484
 
@@ -2584,10 +2584,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    invoked during the last reception of the Method response (see [SWS_CM_90482]).
 
 .. unit:: Uniqueness of offered service on local machine
-   :id: UNIT_COM_COREAPI_001
+   :id: unit_com_coreapi_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00102
 
@@ -2600,10 +2600,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    logged.
 
 .. unit:: Network binding where a service is offered
-   :id: UNIT_COM_COREAPI_002
+   :id: unit_com_coreapi_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00103
 
@@ -2619,10 +2619,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    responsible for implementing the OfferService method in an appropriate way.
 
 .. unit:: Network binding for StopOfferService
-   :id: UNIT_COM_COREAPI_003
+   :id: unit_com_coreapi_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00104
 
@@ -2638,10 +2638,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    responsible for implementing the StopOfferService method in an appropriate way.
 
 .. unit:: Destruction of service proxy
-   :id: UNIT_COM_COREAPI_004
+   :id: unit_com_coreapi_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10446
 
@@ -2656,10 +2656,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    broken_promise (see [SWS_CORE_00400]).
 
 .. unit:: Call SubscriptionStateChangeHandler with kSubscriptionPending on the Proxy side
-   :id: UNIT_COM_COREAPI_005
+   :id: unit_com_coreapi_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00313
 
@@ -2671,10 +2671,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    problem or so)
 
 .. unit:: Call SubscriptionStateChangeHandler with kSubscribed on the Proxy side
-   :id: UNIT_COM_COREAPI_006
+   :id: unit_com_coreapi_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00314
 
@@ -2685,10 +2685,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    unavailable (due to restart, network problem or so)
 
 .. unit:: Re-establishing an active subscription
-   :id: UNIT_COM_COREAPI_007
+   :id: unit_com_coreapi_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00315
 
@@ -2699,10 +2699,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    properties if needed.
 
 .. unit:: Ensure memory allocation of maxSampleCount samples
-   :id: UNIT_COM_COREAPI_008
+   :id: unit_com_coreapi_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00700
 
@@ -2711,10 +2711,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    parameter maxSampleCount can be concurrently accessed by application layer.
 
 .. unit:: Asynchronous nature of Subscribe()
-   :id: UNIT_COM_COREAPI_009
+   :id: unit_com_coreapi_009
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12006
 
@@ -2725,10 +2725,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    if Subscribe() has returned with no error.
 
 .. unit:: Subscription State change handler on the Proxy side
-   :id: UNIT_COM_COREAPI_010
+   :id: unit_com_coreapi_010
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_99035
 
@@ -2737,10 +2737,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    subscription state of this event has changed. Handler may be overwritten during runtime.
 
 .. unit:: Sequence of actions in GetNewSamples
-   :id: UNIT_COM_COREAPI_011
+   :id: unit_com_coreapi_011
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00703
 
@@ -2757,10 +2757,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    buffers.
 
 .. unit:: FIFO semantics
-   :id: UNIT_COM_COREAPI_012
+   :id: unit_com_coreapi_012
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00709
 
@@ -2768,10 +2768,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    and receiver of events.
 
 .. unit:: No implicit context switches
-   :id: UNIT_COM_COREAPI_013
+   :id: unit_com_coreapi_013
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00710
 
@@ -2783,10 +2783,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    of new events to schedule/invoke the ReceiveHandler.
 
 .. unit:: New data samples received by CM at execution time of receive handler
-   :id: UNIT_COM_COREAPI_014
+   :id: unit_com_coreapi_014
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12007
 
@@ -2795,10 +2795,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    receive handler until the previous call to receive handler is finished.
 
 .. unit:: Sequence of actions in GetNewTriggers
-   :id: UNIT_COM_COREAPI_015
+   :id: unit_com_coreapi_015
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00227
 
@@ -2807,10 +2807,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    GetNewTriggers.
 
 .. unit:: Synchronous behavior of method call
-   :id: UNIT_COM_COREAPI_016
+   :id: unit_com_coreapi_016
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00192
 
@@ -2823,10 +2823,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    style mechanism for a wait-on-event.
 
 .. unit:: Asynchronous behavior of method call with polling
-   :id: UNIT_COM_COREAPI_017
+   :id: unit_com_coreapi_017
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00193
 
@@ -2836,10 +2836,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    immediately return the valid value.
 
 .. unit:: Cancel the method call
-   :id: UNIT_COM_COREAPI_018
+   :id: unit_com_coreapi_018
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00194
 
@@ -2849,10 +2849,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    are released and no result is returned to the caller.
 
 .. unit:: Retrieving results of the method call
-   :id: UNIT_COM_COREAPI_019
+   :id: unit_com_coreapi_019
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00195
 
@@ -2864,10 +2864,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    throws the contained error as exception, respectively.
 
 .. unit:: Asynchronous behavior of method call with notification
-   :id: UNIT_COM_COREAPI_020
+   :id: unit_com_coreapi_020
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00197
 
@@ -2877,10 +2877,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    case the future has a valid result.
 
 .. unit:: Context of return checked errors
-   :id: UNIT_COM_COREAPI_021
+   :id: unit_com_coreapi_021
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10371
 
@@ -2889,10 +2889,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    ara::core::Future::GetResult()/ara::core::Future::get() call.
 
 .. unit:: Initiate a method call
-   :id: UNIT_COM_COREAPI_022
+   :id: unit_com_coreapi_022
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10414
 
@@ -2904,10 +2904,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    view, e.g. an asynchronous event-style mechanism for a wait-on-event.
 
 .. unit:: Aborting method calls in case of locally detected failures
-   :id: UNIT_COM_COREAPI_023
+   :id: unit_com_coreapi_023
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10440
 
@@ -2922,20 +2922,20 @@ IPC/Communication-Manager architecture, a separate part of this module.
    kNetworkBindingFailure (see [SWS_CM_10432]) as an argument.
 
 .. unit:: No checked errors for Fire and Forget method calls
-   :id: UNIT_COM_COREAPI_024
+   :id: unit_com_coreapi_024
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_90436
 
    There shall be no checked errors returned for Fire and Forget method calls.
 
 .. unit:: Provision of an update notification event for a Field
-   :id: UNIT_COM_COREAPI_025
+   :id: unit_com_coreapi_025
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00120
 
@@ -2952,10 +2952,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    methods reside in the Field class instead of the Event class.
 
 .. unit:: InstanceSpecifier translation to InstanceIdentifiers
-   :id: UNIT_COM_COREAPI_026
+   :id: unit_com_coreapi_026
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10452
 
@@ -2963,10 +2963,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Based on the match there shall be zero, 1 or multiple InstanceIdentifiers .
 
 .. unit:: InstanceIdentifier check during the creation of service skeleton
-   :id: UNIT_COM_COREAPI_027
+   :id: unit_com_coreapi_027
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10410
 
@@ -2976,10 +2976,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    according to [SWS_CORE_00003].
 
 .. unit:: InstanceSpecifier check during the creation of service skeleton
-   :id: UNIT_COM_COREAPI_028
+   :id: unit_com_coreapi_028
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10450
 
@@ -2989,10 +2989,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    according to [SWS_CORE_00003].
 
 .. unit:: InstanceIdentifierContainer check during the creation of service skeleton
-   :id: UNIT_COM_COREAPI_029
+   :id: unit_com_coreapi_029
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10451
 
@@ -3004,10 +3004,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    handled as violation according to [SWS_CORE_00003].
 
 .. unit:: Subscription State change handler
-   :id: UNIT_COM_COREAPI_030
+   :id: unit_com_coreapi_030
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12012
 
@@ -3017,10 +3017,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    runtime.
 
 .. unit:: Call SubscriptionStateChangeHandler on Skeleton side with kSubscribed
-   :id: UNIT_COM_COREAPI_031
+   :id: unit_com_coreapi_031
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12013
 
@@ -3029,10 +3029,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    this event become more than 0.
 
 .. unit:: Call SubscriptionStateChangeHandler on Skeleton side with kNotSubscribed
-   :id: UNIT_COM_COREAPI_032
+   :id: unit_com_coreapi_032
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12014
 
@@ -3041,10 +3041,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    to this event become 0.
 
 .. unit:: Query Subscription State on Skeleton side
-   :id: UNIT_COM_COREAPI_033
+   :id: unit_com_coreapi_033
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12015
 
@@ -3053,10 +3053,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    kSubscriptionPending shall not be used on the Server side.
 
 .. unit:: Re-entrancy and thread-safety GetSubscriptionState
-   :id: UNIT_COM_COREAPI_034
+   :id: unit_com_coreapi_034
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12016
 
@@ -3065,10 +3065,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Event class instance, the behavior is undefined.
 
 .. unit:: Re-entrancy and thread-safety SetSubscriptionStateChangeHandler
-   :id: UNIT_COM_COREAPI_035
+   :id: unit_com_coreapi_035
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12017
 
@@ -3077,10 +3077,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    concurrently on the same Event class instance, the behavior is undefined.
 
 .. unit:: Re-entrancy and thread-safety UnsetSubscriptionStateChangeHandler
-   :id: UNIT_COM_COREAPI_036
+   :id: unit_com_coreapi_036
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_12018
 
@@ -3089,10 +3089,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Event class instance, the behavior is undefined.
 
 .. unit:: Send event where application is responsible for the data
-   :id: UNIT_COM_COREAPI_037
+   :id: unit_com_coreapi_037
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_99031
 
@@ -3101,10 +3101,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    for sending shall be used whenever the application wants to work further with the data.
 
 .. unit:: Send event where Communication Management is responsible for the data
-   :id: UNIT_COM_COREAPI_038
+   :id: unit_com_coreapi_038
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_99032
 
@@ -3117,10 +3117,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    (RS_CM_00201)
 
 .. unit:: Allocating data for event transfer
-   :id: UNIT_COM_COREAPI_039
+   :id: unit_com_coreapi_039
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_99033
 
@@ -3129,10 +3129,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the data will be freed by the Communication Management.
 
 .. unit:: Service method processing modes
-   :id: UNIT_COM_COREAPI_040
+   :id: unit_com_coreapi_040
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10411
 
@@ -3150,10 +3150,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    synchronization mechanisms in the implementation providing the service method.
 
 .. unit:: Invoking GetHandlers
-   :id: UNIT_COM_COREAPI_041
+   :id: unit_com_coreapi_041
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10412
 
@@ -3161,10 +3161,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Communication Management receives a Get.
 
 .. unit:: Ensuring the existence of valid Field values
-   :id: UNIT_COM_COREAPI_042
+   :id: unit_com_coreapi_042
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00128
 
@@ -3178,10 +3178,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    The error shall be logged.
 
 .. unit:: Ensuring the existence of SetHandler
-   :id: UNIT_COM_COREAPI_043
+   :id: unit_com_coreapi_043
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00129
 
@@ -3192,10 +3192,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    OfferService(). The error shall be logged.
 
 .. unit:: Invoking SetHandlers
-   :id: UNIT_COM_COREAPI_044
+   :id: unit_com_coreapi_044
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10413
 
@@ -3203,10 +3203,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    Communication Management receives a Set.
 
 .. unit:: Notify the Field value after a call to the SetHandler function
-   :id: UNIT_COM_COREAPI_045
+   :id: unit_com_coreapi_045
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10415
 
@@ -3216,10 +3216,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    notification (see [SWS_CM_00119]).
 
 .. unit:: Find service handler invocation
-   :id: UNIT_COM_COREAPI_046
+   :id: unit_com_coreapi_046
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00124
 
@@ -3230,10 +3230,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    the services matching the given instance criteria changes.
 
 .. unit:: Calling stop find service for already stopped finds
-   :id: UNIT_COM_COREAPI_047
+   :id: unit_com_coreapi_047
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10382
 
@@ -3243,10 +3243,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    chapter 8.1.3.12.
 
 .. unit:: Re-establishing service connection
-   :id: UNIT_COM_COREAPI_048
+   :id: unit_com_coreapi_048
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_COREAPI_001
+   :satisfies: comp_com_coreapi_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10491
 
@@ -3256,10 +3256,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    connection once the next offer is received.
 
 .. unit:: Event Receive Handler call serialization
-   :id: UNIT_COM_APIDETAIL_001
+   :id: unit_com_apidetail_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_APIDETAIL_001
+   :satisfies: comp_com_apidetail_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00182
 
@@ -3267,10 +3267,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    function as it is not guaranteed that the callback function is re-entrant.
 
 .. unit:: GetNewSamples shall provide data samples if GetFreeSampleCount is not 0
-   :id: UNIT_COM_APIDETAIL_002
+   :id: unit_com_apidetail_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_APIDETAIL_001
+   :satisfies: comp_com_apidetail_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00711
 
@@ -3280,10 +3280,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    already returning 0 at the point in time of the call.
 
 .. unit:: Service Contract Version
-   :id: UNIT_COM_APIDETAIL_003
+   :id: unit_com_apidetail_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_APIDETAIL_001
+   :satisfies: comp_com_apidetail_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_99029
 
@@ -3293,10 +3293,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    minorVersion attribute in the ServiceInterface.
 
 .. unit:: Find Service Handle
-   :id: UNIT_COM_APIDETAIL_004
+   :id: unit_com_apidetail_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_APIDETAIL_001
+   :satisfies: comp_com_apidetail_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_99030
 
@@ -3305,10 +3305,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    this request with StopFindService as described in [SWS_CM_00125].
 
 .. unit:: SOME/IP method call handling (representative)
-   :id: UNIT_COM_SERDES_001
+   :id: unit_com_serdes_001
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10297-SWS_CM_10441 range (29 reqs in SWS chapter 7.4.1.7)
 
@@ -3321,10 +3321,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    result rather than silently dropped.
 
 .. unit:: SOME/IP field/event message handling (representative)
-   :id: UNIT_COM_SERDES_002
+   :id: unit_com_serdes_002
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10319-SWS_CM_10380 range (35 reqs in SWS chapter 7.4.1.8)
 
@@ -3336,10 +3336,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    discarded.
 
 .. unit:: SOME/IP serialization -- general rules (representative)
-   :id: UNIT_COM_SERDES_003
+   :id: unit_com_serdes_003
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10034, SWS_CM_10169, SWS_CM_10259 and related (15 reqs in SWS 7.4.1.9)
 
@@ -3349,10 +3349,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    be padded to its configured alignment.
 
 .. unit:: SOME/IP serialization -- structs and enumerations (representative)
-   :id: UNIT_COM_SERDES_004
+   :id: unit_com_serdes_004
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10042, SWS_CM_00252, SWS_CM_10268, SWS_CM_10361 and related (1 + 13 + 6 = 20 reqs in SWS 7.4.1.9.2-7.4.1.9.4)
 
@@ -3364,10 +3364,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    serializer's own configuration.
 
 .. unit:: SOME/IP serialization -- strings (representative)
-   :id: UNIT_COM_SERDES_005
+   :id: unit_com_serdes_005
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10053, SWS_CM_10054, SWS_CM_10285 and related (21 reqs in SWS 7.4.1.9.5)
 
@@ -3377,10 +3377,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    configured via the manifest.
 
 .. unit:: SOME/IP serialization -- vectors and arrays (representative)
-   :id: UNIT_COM_SERDES_006
+   :id: unit_com_serdes_006
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_00270, SWS_CM_00257, SWS_CM_10256 and related (17 reqs in SWS 7.4.1.9.6)
 
@@ -3392,10 +3392,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    inserted on the wire.
 
 .. unit:: SOME/IP serialization -- associative maps (representative)
-   :id: UNIT_COM_SERDES_007
+   :id: unit_com_serdes_007
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10261, SWS_CM_10262, SWS_CM_10282 and related (11 reqs in SWS 7.4.1.9.7)
 
@@ -3404,10 +3404,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    follow the same manifest-configured rules as vectors and structs.
 
 .. unit:: SOME/IP serialization -- variants (representative)
-   :id: UNIT_COM_SERDES_008
+   :id: unit_com_serdes_008
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10254, SWS_CM_10255, SWS_CM_10226 and related (9 reqs in SWS 7.4.1.9.8)
 
@@ -3417,10 +3417,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    per its own alignment rules.
 
 .. unit:: SOME/IP message segmentation (representative)
-   :id: UNIT_COM_SERDES_009
+   :id: unit_com_serdes_009
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- SWS_CM_10454, SWS_CM_99036, SWS_CM_10455 and related (9 reqs in SWS 7.4.1.9.9)
 
@@ -3429,10 +3429,10 @@ IPC/Communication-Manager architecture, a separate part of this module.
    segmented; where a separationTime is configured, segments shall be spaced accordingly.
 
 .. unit:: SOME/IP serialization -- basic and TLV-related data types (representative)
-   :id: UNIT_COM_SERDES_010
+   :id: unit_com_serdes_010
    :version: 1.0.0
    :status: draft
-   :satisfies: COMP_COM_SERDES_001
+   :satisfies: comp_com_serdes_001
    :standard: ASPICE SWE.3 / ISO 15288 6.4.5
    :derives_from: AUTOSAR_AP_SWS_CommunicationManagement (AP R23-11) -- remaining 7.4.1.9 items not covered by the categories above
 

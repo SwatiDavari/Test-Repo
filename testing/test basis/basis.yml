@@ -1,5 +1,11 @@
+# 2026-08-22: previous basis IDs (SYSR_OTA_010, SYSR_OTA_SAFE_014,
+# SYSR_DIAG_010, SYSR_LOG_010) don't exist anywhere in this repo --
+# Test_Dashboard-era leftovers, same stale-content family already
+# corrected in test strategy/product-verification-strategy.rst and
+# test cases/index.rst. Replaced with the real requirement/need IDs
+# product verification is actually checked against (see
+# test strategy/product-verification-strategy.rst).
 basis:
-  - SYSR_OTA_010
-  - SYSR_OTA_SAFE_014
-  - SYSR_DIAG_010
-  - SYSR_LOG_010
+  - sys_msgdisc_001
+  - feat_a_001
+  - feat_z_001

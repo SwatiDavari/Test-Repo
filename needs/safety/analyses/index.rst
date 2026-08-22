@@ -7,7 +7,7 @@ Safety Goal chain. These sit alongside the safety-goal/FSR/TSR registers
 ``../technical_safety_requirements``) because they reference the same
 real component and unit IDs, but they
 don't themselves derive a new Safety Goal — they test whether the existing
-one (``SG_001``) actually holds once modules are combined.
+one (``sg_001``) actually holds once modules are combined.
 
 .. toctree::
    :maxdepth: 1

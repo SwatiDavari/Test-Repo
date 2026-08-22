@@ -5,7 +5,7 @@ Register of Safety Goal (``sg``) needs, one HARA-derived goal per
 directive — new safety goals are added here, not as new files.
 
 .. sg:: Prevent unauthorized message delivery
-   :id: SG_001
+   :id: sg_001
    :version: 1.0.0
    :status: proposed
    :asil: ASIL B

@@ -7,13 +7,13 @@ from the functional safety requirements in
 new files.
 
 .. tsr:: Proxy-side authorization enforcement
-   :id: TSR_001
+   :id: tsr_001
    :version: 1.0.0
    :status: proposed
    :asil: ASIL B
-   :links: FSR_001, COMP_A_001
+   :links: fsr_001, comp_a_001
    :standard: ISO 26262-4 clause 6 (Technical Safety Concept) / ISO 26262-6
 
-   The Communication Manager's proxy layer (``COMP_A_001``) shall reject
+   The Communication Manager's proxy layer (``comp_a_001``) shall reject
    message delivery to any subscriber whose authorization token has not
    been validated for the current session.

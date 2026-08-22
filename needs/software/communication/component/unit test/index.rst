@@ -5,7 +5,7 @@ Unit Test — communication
    Toctree previously read ``test-cases/index`` / ``test-reports/unit-
    test-report`` (hyphenated) — the real folders are ``test cases/`` /
    ``test reports/`` (with a space), same shape bug as the one already
-   fixed in ``integration test/index.rst``. Fixed; both documents are
+   fixed in ``testing/index.rst``. Fixed; both documents are
    now actually reachable instead of silently orphaned.
 
 .. toctree::

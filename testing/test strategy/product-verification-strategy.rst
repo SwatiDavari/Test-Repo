@@ -13,9 +13,9 @@ Product Verification Strategy
    :doc:`../../organisation/testing/iso29119/strategy/product-verification-strategy`)
    against Qorix Engineering Processes' real requirements.
 
-Product verification exercises ``SYS_001`` (inter-application
+Product verification exercises ``sys_msgdisc_001`` (inter-application
 communication and service discovery) and its two features —
-``FEAT_A_001`` (publish-subscribe messaging) and ``FEAT_Z_001``
+``feat_a_001`` (publish-subscribe messaging) and ``feat_z_001``
 (service discovery) — end to end against a built product image,
 independent of any single component's internal structure. Test design
 follows equivalence partitioning and boundary analysis per the

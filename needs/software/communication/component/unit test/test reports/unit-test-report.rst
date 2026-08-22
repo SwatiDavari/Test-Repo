@@ -1,7 +1,7 @@
 Unit Test Report — communication
 ===================================
 
-``TC_UNIT_A_001`` — not yet executed. No automated test exists under
+``tc_unit_a_001`` — not yet executed. No automated test exists under
 ``source/`` implementing this case; ``status: draft`` in
 ``test-cases/index.rst`` reflects that. This report will record the
 first real pass/fail result once that test is written and run — it does

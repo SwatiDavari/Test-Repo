@@ -14,26 +14,26 @@ failure. Two modules currently exist under ``Needs/``:
    * - Module
      - Safety-relevant?
      - Chain
-   * - Communication (``COMP_A_001``)
+   * - Communication (``comp_a_001``)
      - Yes
-     - ``SG_001`` -> ``FSR_001`` -> ``TSR_001`` -> ``COMP_A_001`` -> ``UNIT_A_001``
-   * - Diagnostics (``COMP_Z_001``)
+     - ``sg_001`` -> ``fsr_001`` -> ``tsr_001`` -> ``comp_a_001`` -> ``UNIT_A_001``
+   * - Diagnostics (``comp_z_001``)
      - Not yet assessed
      - No ``sg``/``fsr``/``tsr`` need currently links to it
 
-Open finding — shared runtime resources between COMP_A_001 and COMP_Z_001
+Open finding — shared runtime resources between comp_a_001 and comp_z_001
 ----------------------------------------------------------------------------
 
-``TSR_001`` requires the Communication Manager's proxy layer (``COMP_A_001``)
+``tsr_001`` requires the Communication Manager's proxy layer (``comp_a_001``)
 to reject delivery to any subscriber whose authorization token has not been
-validated. ``COMP_Z_001`` (Service Discovery) advertises and looks up the
+validated. ``comp_z_001`` (Service Discovery) advertises and looks up the
 same service instances that the proxy layer delivers messages to.
 
 If both components run in the same process/address space, or share the
 same registry/cache used for token or instance lookups, a fault in Service
 Discovery (e.g. a stale or corrupted registry entry) could cause the proxy
-layer to treat an unauthorized instance as valid — defeating ``TSR_001``
-without ``TSR_001`` itself being violated in isolation. This has not been
+layer to treat an unauthorized instance as valid — defeating ``tsr_001``
+without ``tsr_001`` itself being violated in isolation. This has not been
 confirmed either way; it depends on the actual process/memory architecture,
 which is not yet documented anywhere in this repo.
 
@@ -43,7 +43,7 @@ treated as incomplete rather than as a cleared safety case.
 Diagnostics — not yet assessed
 ----------------------------------
 
-``COMP_Z_001`` / ``FEAT_Z_001`` / ``UNIT_Z_001`` have no Safety Goal, FSR,
+``comp_z_001`` / ``feat_z_001`` / ``unit_z_001`` have no Safety Goal, FSR,
 or TSR pointing at them. Before this DFA can be considered complete, someone
 needs to confirm whether Diagnostics is safety-relevant at all (in which
 case it needs its own ``sg``/``fsr``/``tsr`` chain) or whether it's out of

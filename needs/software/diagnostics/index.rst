@@ -1,9 +1,16 @@
-Module Z — Service Discovery
-==============================
+Diagnostics Module — Features
+=================================
 
-.. toctree::
-   :maxdepth: 1
+Register of feature-level (``feat``) requirements for the Diagnostics
+module — one file per module, not one file per feature. Add new
+Diagnostics features here as additional ``.. feat::`` directives.
 
-   process_description
-   feature/index
-   component/index
+.. feat:: Service Discovery
+   :id: feat_z_001
+   :version: 1.0.0
+   :status: proposed
+   :satisfies: sys_msgdisc_001
+   :standard: ASPICE SWE.1 / ISO 15288 6.4.3
+
+   The communication component shall allow adaptive applications to
+   discover available service instances at runtime.

@@ -1,0 +1,5 @@
+id: TCOND_STARTUP_001
+condition: >-
+  Product image is built and both the Communication and Diagnostics
+  modules are configured to start; no publish-subscribe channels are
+  yet established and no service instances are yet registered.

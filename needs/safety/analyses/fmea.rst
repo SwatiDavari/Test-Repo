@@ -16,21 +16,21 @@ Dependent Failure Analysis in this same folder).
      - Linked need
    * - Stale/cached authorization token accepted as valid
      - Message delivered to a subscriber that is no longer authorized,
-       violating ``SG_001``
+       violating ``sg_001``
      - ``UNIT_A_001`` (Proxy Serialization Unit) deserializes a token
        without re-checking session validity
-     - ``TSR_001`` requires the proxy layer to reject delivery on an
+     - ``tsr_001`` requires the proxy layer to reject delivery on an
        unvalidated token
      - Not specified — no test or monitoring need currently references
        this failure mode
-     - ``TSR_001``
+     - ``tsr_001``
    * - Subscriber authorization check skipped under load/error path
      - Same as above
-     - ``FSR_001``'s check is bypassed by an error-handling code path not
+     - ``fsr_001``'s check is bypassed by an error-handling code path not
        covered by any current design need
      - None documented
      - None documented
-     - ``FSR_001``
+     - ``fsr_001``
 
 Coverage by module
 ---------------------
@@ -40,10 +40,10 @@ Coverage by module
 
    * - Module
      - FMEA coverage
-   * - Communication (``COMP_A_001``)
+   * - Communication (``comp_a_001``)
      - Partial — two failure modes identified, neither has a documented
        detection mechanism
-   * - Diagnostics (``COMP_Z_001``)
+   * - Diagnostics (``comp_z_001``)
      - Not analyzed — see Dependent Failure Analysis for why
 
 This FMEA is a starting point, not a completed analysis: both entries above

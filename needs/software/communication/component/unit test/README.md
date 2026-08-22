@@ -2,9 +2,9 @@
 
 Unit-level test artifacts for the `communication` module, cross-referenced to ISO/IEC/IEEE 29119-3 document types and ASPICE SWE.4 (Software Unit Verification). Full crosswalk in `../../../STANDARDS.md`.
 
-This is a **unit-level** folder — scoped to verifying individual units under `Needs/software/communication/unit design/` (e.g. `UNIT_A_001`) in isolation. It intentionally does not repeat artifact types that already exist once, at the appropriate broader scope, under the root `integration test/` folder:
+This is a **unit-level** folder — scoped to verifying individual units under `needs/software/communication/unit design/` (e.g. `UNIT_A_001`) in isolation. It intentionally does not repeat artifact types that already exist once, at the appropriate broader scope, under the root `testing/` folder:
 
-- **not duplicated here**: `testbasis/` (source material is project-wide, not per unit), `teststrategy/` (one product-verification strategy already covers all levels — see `integration test/teststrategy/`), `testsuites/` (groupings span multiple test levels, not a single unit), `executions/` (execution logs are tied to system-level build/suite runs, not individual units).
+- **not duplicated here**: `testbasis/` (source material is project-wide, not per unit), `teststrategy/` (one product-verification strategy already covers all levels — see `testing/test strategy/`), `testsuites/` (groupings span multiple test levels, not a single unit), `executions/` (execution logs are tied to system-level build/suite runs, not individual units).
 - **kept here, scoped to this unit**:
   - `test cases/` — **Test Case Specification** (29119-3 Level Test Case). Individual unit test case definitions, linked back to the unit via a `Covers:` reference.
   - `test design/` — **Test Design Specification** (29119-3). Currently scaffolded — how `test cases/` would be derived from `UNIT_A_001`'s design.

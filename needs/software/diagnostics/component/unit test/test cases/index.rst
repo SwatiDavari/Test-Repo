@@ -2,15 +2,15 @@ Unit Test Cases — diagnostics
 ================================
 
 .. note::
-   Covers this module's unit-level design, ``UNIT_Z_001``, via a real
+   Covers this module's unit-level design, ``unit_z_001``, via a real
    ``tc`` need below rather than free-text prose, so the link is
    dead-link-checked.
 
 .. tc:: Service registry advertise/lookup/withdraw — unit
-   :id: TC_UNIT_Z_001
+   :id: tc_unit_z_001
    :version: 1.0.0
    :status: proposed
-   :verifies: UNIT_Z_001
+   :verifies: unit_z_001
 
    Unit-level verification (no process boundary, no network, no
    timeout): given a registry constructed with no advertised instances,
@@ -20,7 +20,7 @@ Unit Test Cases — diagnostics
    it), and that withdrawing an instance removes it from subsequent
    lookups. See :doc:`../../../feature/index` for the corresponding
    end-to-end (feature-level) verification of service discovery across a
-   real runtime, which belongs in ``integration test/`` at the root, not
+   real runtime, which belongs in ``testing/`` at the root, not
    here.
 
 Owner: diagnostics module owner. Status: draft — no automated test

@@ -8,7 +8,7 @@ A product-level TARA against ``Needs/Communication`` (message delivery,
 subscriber authorization) and ``Needs/Diagnostics`` (service discovery)
 would sit here, following ISO/SAE 21434 clause 15.
 
-Nothing is captured yet. In particular, ``TSR_001``'s authorization check
+Nothing is captured yet. In particular, ``tsr_001``'s authorization check
 is a safety requirement, not a cybersecurity one — whether an unauthorized
 subscriber gaining access is also a security-relevant threat (as opposed to
 only a safety hazard) has not been evaluated, and that evaluation is the

@@ -1,7 +1,7 @@
 Diagnostics Component Requirements
 ========================================
 
-Detailed requirements decomposition for ``COMP_Z_001`` (Service Discovery
+Detailed requirements decomposition for ``comp_z_001`` (Service Discovery
 Architecture) would live here.
 
 .. note::

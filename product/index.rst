@@ -30,7 +30,7 @@ request it was built from.
    :caption: Architecture
    :maxdepth: 1
 
-   /architecture/index
+   architecture/index
 
 .. toctree::
    :caption: Product Verification
